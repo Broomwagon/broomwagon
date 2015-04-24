@@ -3,7 +3,7 @@ broomwagon
 
 ### What is broomwagon?
 
-Broomwagon is a sleek, intuitive, and powerful eCommerce platform for faster and customer experience
+Broomwagon is a sleek, intuitive and powerful eCommerce platform for faster and easier customer experience
 
 ===
 
