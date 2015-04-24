@@ -7,7 +7,7 @@ The best eCommerce platform...
 
 ===
 
-### To start:
+### Quick start:
 
 Prerequisites:
 
