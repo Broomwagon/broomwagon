@@ -1,7 +1,9 @@
-Broomwagon
-===
+broomwagon
+=====
 
-The best eCommerce platform 
+### What is broomwagon?
+
+The best eCommerce platform...
 
 ===
 
@@ -13,4 +15,4 @@ Prerequisites:
 
 Run:
 
-    ./gradlew bootRun
+    `./gradlew bootRun`
