@@ -15,4 +15,4 @@ Prerequisites:
 
 Run:
 
-    `./gradlew bootRun`
+    ./gradlew bootRun
