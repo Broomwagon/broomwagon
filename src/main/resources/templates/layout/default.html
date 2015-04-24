@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
     <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/app.css}"/>
         <title>Hello!</title>
     </head>
     <body>
-        <p th:text="${testOne}">This is test</p>
+        <div layout:fragment="content">
+            <p>The actual content will come from individual views making use of this layout</p>
+        </div>
     </body>
     <script type="text/javascript" th:src="@{/js/app.js}"></script>
 </html>
