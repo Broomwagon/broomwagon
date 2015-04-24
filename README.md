@@ -3,7 +3,7 @@ broomwagon
 
 ### What is broomwagon?
 
-The best eCommerce platform...
+The best eCommerce platform.
 
 ===
 
