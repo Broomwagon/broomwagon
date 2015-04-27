@@ -10,6 +10,7 @@
         <div layout:fragment="content">
             <p>The actual content will come from individual views making use of this layout</p>
         </div>
+        <div th:include="layout/footer :: copy"></div>
     </body>
     <script type="text/javascript" th:src="${#themes.code('theme_js')}"></script>
 </html>
