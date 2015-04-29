@@ -28,7 +28,7 @@ public class HomeControllerTest {
     @Test
     public void testHome() throws Exception {
         // given
-        given(productManager.getProducts()).willReturn(newArrayList(new Product()));
+        given(productManager.getProducts()).willReturn(newArrayList(Product.builder().title("title").build()));
         Map<String, Object> model = new HashMap<>();
 
         // when
