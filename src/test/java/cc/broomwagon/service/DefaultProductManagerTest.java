@@ -1,5 +1,6 @@
 package cc.broomwagon.service;
 
+import static cc.broomwagon.TestFactory.aProduct;
 import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -23,7 +24,7 @@ public class DefaultProductManagerTest {
     @Test
     public void shouldGetProducts() {
         // given
-        Iterable<Product> products = newArrayList(Product.builder().title("title").build());
+        Iterable<Product> products = newArrayList(aProduct());
         given(productDao.getProducts()).willReturn(products);
 
         // when

@@ -21,7 +21,10 @@ public class DummyProductDao implements ProductDao {
         Collection<Product> products = newArrayList();
 
         for (int i = 0; i < numberOrProducts; i++) {
-            products.add(Product.builder().title("title " + i).build());
+            products.add(Product.builder()
+                    .title("title " + i)
+                    .url("url" + i)
+                    .build());
         }
 
         return products;

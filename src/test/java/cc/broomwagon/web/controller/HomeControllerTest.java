@@ -1,5 +1,6 @@
 package cc.broomwagon.web.controller;
 
+import static cc.broomwagon.TestFactory.aProduct;
 import static com.google.common.collect.Iterables.size;
 import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -28,7 +29,7 @@ public class HomeControllerTest {
     @Test
     public void testHome() throws Exception {
         // given
-        given(productManager.getProducts()).willReturn(newArrayList(Product.builder().title("title").build()));
+        given(productManager.getProducts()).willReturn(newArrayList(aProduct()));
         Map<String, Object> model = new HashMap<>();
 
         // when

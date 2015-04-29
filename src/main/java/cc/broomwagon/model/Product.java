@@ -16,7 +16,8 @@ import lombok.ToString;
 @ToString
 @Builder
 public class Product {
-    @Getter
     @NonNull
     private String title;
+    @NonNull
+    private String url;
 }
