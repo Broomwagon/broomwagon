@@ -5,7 +5,11 @@
 </head>
     <body>
         <div layout:fragment="content" class="container">
-            <p th:text="${testOne}">This is test</p>
+            <ul th:if="!${#lists.isEmpty(products)}">
+                <li th:each="product : ${products}">
+                    <h2 th:text="${product.title}"></h2>
+                </li>
+            </ul>
         </div>
     </body>
 </html>

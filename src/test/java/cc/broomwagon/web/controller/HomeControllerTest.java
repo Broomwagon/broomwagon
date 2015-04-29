@@ -1,11 +1,18 @@
 package cc.broomwagon.web.controller;
 
+import static com.google.common.collect.Iterables.size;
+import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.mockito.BDDMockito.given;
 
+import cc.broomwagon.model.Product;
+import cc.broomwagon.service.ProductManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.HashMap;
@@ -15,10 +22,13 @@ import java.util.Map;
 public class HomeControllerTest {
     @InjectMocks
     private HomeController homeController;
+    @Mock
+    private ProductManager productManager;
 
     @Test
     public void testHome() throws Exception {
         // given
+        given(productManager.getProducts()).willReturn(newArrayList(new Product()));
         Map<String, Object> model = new HashMap<>();
 
         // when
@@ -26,5 +36,6 @@ public class HomeControllerTest {
 
         // then
         assertThat(actual, is("view/home"));
+        assertThat(size((Iterable<Product>) model.get("products")), is(notNullValue()));
     }
 }

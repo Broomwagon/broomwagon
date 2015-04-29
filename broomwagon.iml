@@ -73,5 +73,7 @@
     <orderEntry type="library" exported="" name="Gradle: org.apache.tomcat.embed:tomcat-embed-el:8.0.20" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.apache.tomcat.embed:tomcat-embed-logging-juli:8.0.20" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.apache.tomcat.embed:tomcat-embed-websocket:8.0.20" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.guava:guava:18.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.projectlombok:lombok:1.16.4" level="project" />
   </component>
 </module>
