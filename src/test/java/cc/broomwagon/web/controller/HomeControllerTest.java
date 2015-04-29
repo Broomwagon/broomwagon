@@ -26,8 +26,9 @@ public class HomeControllerTest {
     @Mock
     private ProductManager productManager;
 
+    @SuppressWarnings("unchecked")
     @Test
-    public void testHome() throws Exception {
+    public void shouldDisplayHome() {
         // given
         given(productManager.getProducts()).willReturn(newArrayList(aProduct()));
         Map<String, Object> model = new HashMap<>();

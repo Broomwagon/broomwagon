@@ -16,7 +16,7 @@ public class DummyProductDaoTest {
     private DummyProductDao dummyProductDao;
 
     @Test
-    public void shouldGetProducts() throws Exception {
+    public void shouldGetProducts() {
 
         // when
         Iterable<Product> actual = dummyProductDao.getProducts();
