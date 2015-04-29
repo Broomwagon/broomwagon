@@ -11,7 +11,7 @@ Broomwagon is a sleek, intuitive and powerful eCommerce platform for faster and 
 
 Prerequisites:
 
-    * Java 7 or newer
+    * Java 8 or newer
 
 Run:
 
