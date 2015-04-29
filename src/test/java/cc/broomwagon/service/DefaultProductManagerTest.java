@@ -23,7 +23,7 @@ public class DefaultProductManagerTest {
     @Test
     public void shouldGetProducts() {
         // given
-        Iterable<Product> products = newArrayList(new Product());
+        Iterable<Product> products = newArrayList(Product.builder().title("title").build());
         given(productDao.getProducts()).willReturn(products);
 
         // when
