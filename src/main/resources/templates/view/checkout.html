@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout/default">
+<head>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <h2>Checking out</h2>
+
+    <p>Delivery Address</p>
+
+    <p>Payment Address</p>
+
+    <p>Card details</p>
+
+    <form action="#" th:action="@{/checkout}" method="post">
+        <input type="submit" value="Buy!"/>
+    </form>
+</div>
+</body>
+</html>

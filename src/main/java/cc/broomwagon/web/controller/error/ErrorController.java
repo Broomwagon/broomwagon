@@ -1,6 +1,5 @@
 package cc.broomwagon.web.controller.error;
 
-import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,7 +12,7 @@ import java.util.Date;
  * Controller to handle errors.
  */
 @ControllerAdvice
-@Order(Ordered.LOWEST_PRECEDENCE)
+@Order(2)
 public class ErrorController {
 
     @ExceptionHandler(Exception.class)
