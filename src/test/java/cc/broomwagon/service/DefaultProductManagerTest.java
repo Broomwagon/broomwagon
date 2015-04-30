@@ -1,6 +1,7 @@
 package cc.broomwagon.service;
 
 import static cc.broomwagon.TestFactory.aProduct;
+import static com.google.common.collect.Iterables.size;
 import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -13,6 +14,8 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import java.util.Optional;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultProductManagerTest {
@@ -32,5 +35,46 @@ public class DefaultProductManagerTest {
 
         // then
         assertThat(actual, is(products));
+    }
+
+
+    @Test
+    public void shouldGetEmptyProductList() {
+        // given
+        given(productDao.getProducts()).willReturn(null);
+
+        // when
+        Iterable<Product> actual = defaultProductManager.getProducts();
+
+        // then
+        assertThat(size(actual), is(0));
+
+    }
+
+    @Test
+    public void shouldNotGetProductByUrl() {
+        // given
+        String productUrl = "someUrl";
+        given(productDao.getProductByUrl(productUrl)).willReturn(null);
+
+        // when
+        Optional<Product> actual = defaultProductManager.getProductByUrl(productUrl);
+
+        // then
+        assertThat(actual.isPresent(), is(false));
+    }
+
+    @Test
+    public void shouldGetProductByUrl() {
+        // given
+        String productUrl = "someUrl";
+        Product product = aProduct(productUrl);
+        given(productDao.getProductByUrl(productUrl)).willReturn(product);
+
+        // when
+        Optional<Product> actual = defaultProductManager.getProductByUrl(productUrl);
+
+        // then
+        assertThat(actual.get(), is(product));
     }
 }

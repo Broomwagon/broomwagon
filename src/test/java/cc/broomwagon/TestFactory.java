@@ -12,9 +12,13 @@ public final class TestFactory {
     }
 
     public static Product aProduct() {
+        return aProduct("url");
+    }
+
+    public static Product aProduct(String url) {
         return Product.builder()
                 .title("title")
-                .url("url")
+                .url(url)
                 .build();
     }
 

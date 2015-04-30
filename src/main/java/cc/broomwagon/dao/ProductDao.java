@@ -7,4 +7,6 @@ import cc.broomwagon.model.Product;
  */
 public interface ProductDao {
     Iterable<Product> getProducts();
+
+    Product getProductByUrl(String url);
 }
