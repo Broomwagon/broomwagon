@@ -15,11 +15,12 @@ import java.util.Optional;
  * Controller to handle products.
  */
 @Controller
+@RequestMapping("/product")
 public class ProductController {
     @Autowired
     private ProductManager productManager;
 
-    @RequestMapping("/{productUrl}")
+    @RequestMapping("{productUrl}")
     public String product(@PathVariable("productUrl") String productUrl, Map<String, Object> model) {
         Optional<Product> product = productManager.getProductByUrl(productUrl);
 
