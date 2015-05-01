@@ -9,7 +9,7 @@ import java.util.Map;
  * Controller to handle categories.
  */
 @Controller
-@RequestMapping("/category")
+@RequestMapping("/${web.mapping.categories}")
 public class CategoryController {
 
     @RequestMapping("")

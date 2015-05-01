@@ -8,7 +8,8 @@
             <ul th:if="!${#lists.isEmpty(products)}">
                 <li th:each="product : ${products}">
                     <h2 th:text="${product.title}"></h2>
-                    <a href="#" th:href="@{/product/} + ${product.url}">link</a>
+                    <a href="#"
+                       th:href="@{/} + ${@environment.getProperty('web.mapping.products')} + @{/} + ${product.url}">link</a>
                 </li>
             </ul>
         </div>

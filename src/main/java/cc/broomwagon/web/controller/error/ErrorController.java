@@ -1,8 +1,7 @@
 package cc.broomwagon.web.controller.error;
 
-import org.springframework.core.annotation.Order;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,11 +10,10 @@ import java.util.Date;
 /**
  * Controller to handle errors.
  */
-@ControllerAdvice
-@Order(2)
+@Controller
 public class ErrorController {
 
-    @ExceptionHandler(Exception.class)
+    @RequestMapping("/500")
     public ModelAndView defaultErrorHandler(HttpServletRequest request, Exception e) {
         ModelAndView mav = new ModelAndView("view/error/error");
         mav.addObject("datetime", new Date());

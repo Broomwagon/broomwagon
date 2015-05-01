@@ -15,7 +15,7 @@ import java.util.Optional;
  * Controller to handle products.
  */
 @Controller
-@RequestMapping("/product")
+@RequestMapping("/${web.mapping.products}")
 public class ProductController {
     @Autowired
     private ProductManager productManager;
