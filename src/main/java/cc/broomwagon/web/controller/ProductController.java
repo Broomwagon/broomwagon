@@ -20,6 +20,12 @@ public class ProductController {
     @Autowired
     private ProductManager productManager;
 
+    @RequestMapping("")
+    public String products(Map<String, Object> model) {
+        model.put("products", productManager.getProducts());
+        return "view/products";
+    }
+
     @RequestMapping("{productUrl}")
     public String product(@PathVariable("productUrl") String productUrl, Map<String, Object> model) {
         Optional<Product> product = productManager.getProductByUrl(productUrl);

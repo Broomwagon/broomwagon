@@ -54,4 +54,16 @@ public class ProductControllerTest {
 
         // then exception
     }
+
+    @Test
+    public void shouldDisplayProducts() {
+        // given
+        Map<String, Object> model = new HashMap<>();
+
+        // when
+        String actual = productController.products(model);
+
+        // then
+        assertThat(actual, is("view/products"));
+    }
 }

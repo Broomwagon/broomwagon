@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout/default">
+<head>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <p th:if="!${#lists.isEmpty(products)}" th:text="'Here are products:'"></p>
+    <ul th:if="!${#lists.isEmpty(products)}">
+        <li th:each="product : ${products}">
+            <h2 th:text="${product.title}"></h2>
+            <a href="#"
+               th:href="@{/} + ${@environment.getProperty('web.mapping.products')} + @{/} + ${product.url}">link</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
