@@ -11,4 +11,6 @@ public interface ProductManager {
     Iterable<Product> getProducts();
 
     Optional<Product> getProductByUrl(String someurl);
+
+    Optional<Product> add(Product product);
 }

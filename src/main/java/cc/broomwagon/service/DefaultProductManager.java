@@ -24,4 +24,9 @@ public class DefaultProductManager implements ProductManager {
     public Optional<Product> getProductByUrl(String someurl) {
         return ofNullable(productDao.getProductByUrl(someurl));
     }
+
+    @Override
+    public Optional<Product> add(Product product) {
+        return ofNullable(productDao.add(product));
+    }
 }

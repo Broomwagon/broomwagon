@@ -7,6 +7,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -14,6 +15,7 @@ import static org.mockito.Mockito.verify;
 import cc.broomwagon.model.Product;
 import cc.broomwagon.service.ProductManager;
 import cc.broomwagon.web.form.ProductForm;
+import cc.broomwagon.web.translator.ProductTranslator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -30,6 +32,8 @@ public class AdminProductControllerTest {
     private AdminProductController adminProductController;
     @Mock
     private ProductManager productManager;
+    @Mock
+    private ProductTranslator productTranslator;
 
     @Test
     public void shouldShowProducts() {
@@ -73,5 +77,6 @@ public class AdminProductControllerTest {
         // then
         assertThat(actual, is("redirect:/admin/products"));
         verify(productManager, never()).getProducts();
+        verify(productTranslator).translate(isA(ProductForm.class));
     }
 }

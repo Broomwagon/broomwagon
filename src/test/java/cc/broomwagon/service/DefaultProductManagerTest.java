@@ -6,6 +6,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.verify;
 
 import cc.broomwagon.dao.ProductDao;
 import cc.broomwagon.model.Product;
@@ -76,5 +77,19 @@ public class DefaultProductManagerTest {
 
         // then
         assertThat(actual.get(), is(product));
+    }
+
+    @Test
+    public void shouldAddProduct() {
+        // given
+        Product product = aProduct("hello");
+        given(productDao.add(product)).willReturn(product);
+
+        // when
+        Optional<Product> actual = defaultProductManager.add(product);
+
+        // then
+        assertThat(actual.get(), is(product));
+        verify(productDao).add(product);
     }
 }

@@ -9,4 +9,6 @@ public interface ProductDao {
     Iterable<Product> getProducts();
 
     Product getProductByUrl(String url);
+
+    Product add(Product product);
 }

@@ -1,12 +1,13 @@
 package cc.broomwagon.dao;
 
+import static cc.broomwagon.TestFactory.aProduct;
 import static com.google.common.collect.Iterables.size;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 
-import cc.broomwagon.TestFactory;
 import cc.broomwagon.model.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +33,7 @@ public class DummyProductDaoTest {
     public void shouldGetProductByUrl() {
         // given
         String productUrl = "productUrl";
-        Product product = TestFactory.aProduct(productUrl);
+        Product product = aProduct(productUrl);
         dummyProductDao.products.put(productUrl, product);
 
         // when
@@ -52,5 +53,19 @@ public class DummyProductDaoTest {
 
         // then
         assertThat(actual, is(nullValue()));
+    }
+
+    @Test
+    public void shouldAddProduct() {
+        // given;
+        Integer initialSize = size(dummyProductDao.products.values());
+        Product product = aProduct("test");
+
+        // when
+        Product actual = dummyProductDao.add(product);
+
+        // then
+        assertThat(actual, is(product));
+        assertThat(dummyProductDao.products.values(), hasSize(initialSize + 1));
     }
 }

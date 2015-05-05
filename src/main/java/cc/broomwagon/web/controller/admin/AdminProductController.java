@@ -2,6 +2,7 @@ package cc.broomwagon.web.controller.admin;
 
 import cc.broomwagon.service.ProductManager;
 import cc.broomwagon.web.form.ProductForm;
+import cc.broomwagon.web.translator.ProductTranslator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -20,6 +21,8 @@ import java.util.Map;
 public class AdminProductController {
     @Autowired
     private ProductManager productManager;
+    @Autowired
+    private ProductTranslator productTranslator;
 
     @ModelAttribute("product")
     public ProductForm populateProduct() {
@@ -39,6 +42,7 @@ public class AdminProductController {
             return showProducts(model);
         }
 
+        productManager.add(productTranslator.translate(product));
         return "redirect:/admin/products";
     }
 

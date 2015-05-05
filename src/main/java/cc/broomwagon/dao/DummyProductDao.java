@@ -30,6 +30,12 @@ public class DummyProductDao implements ProductDao {
         return products.get(url);
     }
 
+    @Override
+    public Product add(Product product) {
+        products.put(product.getUrl(), product);
+        return product;
+    }
+
     private Map<String, Product> generateProducts(int numberOrProducts, Map<String, Product> products) {
         for (int i = 0; i < numberOrProducts; i++) {
             products.put(urlPrefix + i, Product.builder()
