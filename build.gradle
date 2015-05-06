@@ -64,3 +64,6 @@ compass {
     cssDir = file("src/main/resources/static/css")
     sassDir = file("src/main/sass")
 }
+
+bootRun.dependsOn compassWatchStart
+bootRun.finalizedBy compassWatchStop
