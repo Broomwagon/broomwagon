@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
-    <head>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" type="text/css" media="all" th:href="${#themes.code('theme_css')}"/>
-        <title>Hello!</title>
-    </head>
-    <body>
-        <div layout:fragment="content">
-            <p>The actual content will come from individual views making use of this layout</p>
-        </div>
-        <div th:replace="segment/footer :: copy"></div>
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Home Page</title>
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/assets/css/bootstrap.vertical-tabs.css"/>
+    <link rel="stylesheet" href="/packages/perfect-scrollbar/perfect-scrollbar.css"/>
+    <link rel="stylesheet" href="/packages/touchspin/jquery.bootstrap-touchspin.css"/>
+    <link rel="stylesheet" href="/packages/jasny/css/jasny-bootstrap.min.css"/>
+    <link href="/assets/css/styles.css" rel="stylesheet"/>
+</head>
 
-        <!--/* Scripts at the bottom for performance reasons */-->
-        <script type="text/javascript" th:src="${#themes.code('theme_js')}"></script>
-    </body>
+<body id="page-front" class="page-front">
+
+<div th:include="segment/menu :: menu"></div>
+
+<div layout:fragment="content">
+
+</div>
+
+<div th:replace="segment/footer :: footer"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/packages/jssor/js/jssor.js"></script>
+<script type="text/javascript" src="/packages/jssor/js/jssor.slider.js"></script>
+<script type="text/javascript" src="/packages/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script type="text/javascript" src="/packages/iCheck/icheck.js"></script>
+<script type="text/javascript" src="/packages/multirowselect/multirowselect.js"></script>
+<script type="text/javascript" src="/packages/ion.rangeslider/js/ion.rangeSlider.js"></script>
+<script type="text/javascript" src="/packages/elevatezoom/jquery.elevatezoom.js"></script>
+<script type="text/javascript" src="/packages/touchspin/jquery.bootstrap-touchspin.js"></script>
+<script type="text/javascript" src="/packages/jasny/js/jasny-bootstrap.js"></script>
+<script type="text/javascript" src="/assets/js/app.js"></script>
+
+<script th:replace="segment/slider :: script"></script>
+
+</body>
 </html>

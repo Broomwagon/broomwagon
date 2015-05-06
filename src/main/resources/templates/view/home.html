@@ -5,6 +5,38 @@
 </head>
     <body>
         <div layout:fragment="content" class="container">
+            <div th:replace="segment/slider :: slider"></div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div th:include="segment/product :: product('on sale','url1', 'title')"></div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div th:include="segment/product :: product('-30%','url2', 'White-grey blouse')"></div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div th:include="segment/product :: product('attention','url3', 'Diamond Hoop Earrings in 14k')"></div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div th:include="segment/product :: product('glow','url4', 'Deedee Skater Long Sleeve Dress')"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 promo">
+                    <div th:include="segment/promo :: promo('fa-bicycle')"></div>
+                </div>
+
+                <div class="col-md-4 promo">
+                    <div th:include="segment/promo :: promo('fa-cog fa-spin')"></div>
+                </div>
+
+                <div class="col-md-4 promo">
+                    <div th:include="segment/promo :: promo('fa-truck')"></div>
+                </div>
+            </div>
+
+            <!--/*
             <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
             <ul th:if="!${#lists.isEmpty(products)}">
                 <li th:each="product : ${products}">
@@ -13,6 +45,7 @@
                        th:href="@{/} + ${@environment.getProperty('web.mapping.products')} + @{/} + ${product.url}">link</a>
                 </li>
             </ul>
+            */-->
         </div>
     </body>
 </html>

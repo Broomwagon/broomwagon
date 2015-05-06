@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Promo</title>
+</head>
+<body th:fragment="promo(cssClass)">
+<div class="well well-sm">
+    <a href="products.html">
+        <div class="round-header">
+            <span class="fa fa-globe fa-3x" th:class="'fa ' + ${cssClass} + ' fa-3x'"></span>
+        </div>
+        <h4>Labitur scribentur</h4>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
+    </a>
+</div>
+</body>
+</html>

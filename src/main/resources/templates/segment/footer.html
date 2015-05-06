@@ -1,10 +1,110 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8"/>
+    <title>Footer</title>
 </head>
 <body>
-    <footer th:fragment="copy" class="container">
-        <small>MMXV</small>
-    </footer>
+<div class="footer" th:fragment="footer">
+    <div class="container">
+        <div class="row">
+            <!-- first column -->
+            <div class="col-md-2">
+                <div class="panel panel-footer">
+                    <div class="panel-heading">
+                        About Divine
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>
+                                <a href="about.html" title="About us">About us</a>
+                            </li>
+                            <li>
+                                <a href="login.html" title="Login page">Login</a>
+                            </li>
+                            <li>
+                                <a href="cart.html" title="My Cart">Cart</a>
+                            </li>
+                            <li>
+                                <a href="product.html" rel="nofollow" title="Single product">Product</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end column -->
+            <!-- start column -->
+            <div class="col-md-2">
+                <div class="panel panel-footer">
+                    <div class="panel-heading">
+                        CAN WE HELP?
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>
+                                <a href="contact.html" title="About us">Contact</a>
+                            </li>
+                            <li>
+                                <a href="static.html" title="Page elements">Page elements</a>
+                            </li>
+                            <li>
+                                <a href="history.html" title="Orders history">Orders history</a>
+                            </li>
+                            <li>
+                                <a href="checkout.html" title="Checkout">Checkout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end column -->
+            <!-- start column -->
+            <div class="col-md-4">
+                <div class="panel panel-footer">
+                    <div class="panel-heading">
+                        FOLLOW US
+                    </div>
+                    <div class="panel-body">
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fa fa-twitter fa-2x"></i></a>
+                            <a href="#" class="social-link"><i class="fa fa-google-plus fa-2x"></i></a>
+                            <a href="#" class="social-link"><i class="fa fa-instagram fa-2x"></i></a>
+                            <a href="#" class="social-link"><i class="fa fa-facebook fa-2x"></i></a>
+                            <a href="#" class="social-link"><i class="fa fa-pinterest fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-footer">
+                    <div class="panel-body">
+                        <input class="form-control" type="text"
+                               placeholder="enter your email to subscribe to our newsletter"/>
+                    </div>
+                </div>
+            </div>
+            <!-- end column -->
+            <!-- start column -->
+            <div class="col-md-4">
+                <div class="panel panel-footer">
+                    <div class="panel-heading">
+                        CALL US NOW
+                    </div>
+                    <div class="panel-body">
+                        (034)17751311 or (034)17751312
+                    </div>
+                </div>
+                <div class="panel panel-footer">
+                    <div class="panel-heading">
+                        SECURE PAY WITH
+                    </div>
+                    <div class="panel-body">
+                        <img src="assets/images/payment-methods-bw.png" alt="payment methods"/>
+                    </div>
+                </div>
+            </div>
+            <!-- end column -->
+        </div>
+    </div>
+</div>
 </body>
 </html>

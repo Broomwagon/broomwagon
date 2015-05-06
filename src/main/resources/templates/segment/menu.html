@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Menu</title>
+</head>
+<body th:fragment="menu">
+
+<!-- start slide navigation -->
+<div class="navmenu navmenu-inverse navmenu-fixed-left offcanvas">
+    <!-- start logo -->
+    <div class="brand-offcanvas">
+        <a href="/">Broomwagon</a>
+    </div>
+    <!-- end logo -->
+
+    <!-- start navigation -->
+    <ul class="nav navmenu-nav">
+        <!-- start menu item -->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu 1 <b class="caret pull-right"></b></a>
+            <ul class="dropdown-menu navmenu-nav">
+                <li>
+                    <a href="products.html">All products</a>
+                </li>
+                <li>
+                    <a href="product.html">Single product</a>
+                </li>
+                <li>
+                    <a href="cart.html">My cart</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact us</a>
+                </li>
+                <li>
+                    <a href="about.html">About Us</a>
+                </li>
+                <li>
+                    <a href="static.html">Page Elements</a>
+                </li>
+                <li>
+                    <a href="signup.html">About</a>
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+                <li>
+                    <a href="signup.html">Signup</a>
+                </li>
+                <li>
+                    <a href="profile.html">User profile</a>
+                </li>
+                <li>
+                    <a href="history.html">Order history</a>
+                </li>
+                <li>
+                    <a href="wishlist.html">Wishlist</a>
+                </li>
+            </ul>
+        </li>
+        <!-- end menu item -->
+
+        <!-- start menu item -->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu 2 <b class="caret pull-right"></b></a>
+            <ul class="dropdown-menu navmenu-nav">
+                <li>
+                    <a href="products.html">All products</a>
+                </li>
+                <li>
+                    <a href="product.html">Single product</a>
+                </li>
+                <li>
+                    <a href="cart.html">My cart</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact us</a>
+                </li>
+                <li>
+                    <a href="about.html">About Us</a>
+                </li>
+                <li>
+                    <a href="static.html">Page elements</a>
+                </li>
+                <li>
+                    <a href="signup.html">About</a>
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+                <li>
+                    <a href="signup.html">Signup</a>
+                </li>
+                <li>
+                    <a href="profile.html">User profile</a>
+                </li>
+                <li>
+                    <a href="history.html">Order history</a>
+                </li>
+                <li>
+                    <a href="wishlist.html">Wishlist</a>
+                </li>
+            </ul>
+        </li>
+        <!-- end menu item -->
+
+        <!-- start menu item -->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret pull-right"></b></a>
+            <ul class="dropdown-menu navmenu-nav">
+                <li>
+                    <a href="products.html">All products</a>
+                </li>
+                <li>
+                    <a href="product.html">Single product</a>
+                </li>
+                <li>
+                    <a href="cart.html">My cart</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact us</a>
+                </li>
+                <li>
+                    <a href="about.html">About Us</a>
+                </li>
+                <li>
+                    <a href="static.html">Page Elements</a>
+                </li>
+                <li>
+                    <a href="signup.html">About</a>
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+                <li>
+                    <a href="signup.html">Signup</a>
+                </li>
+                <li>
+                    <a href="profile.html">User profile</a>
+                </li>
+                <li>
+                    <a href="history.html">Order history</a>
+                </li>
+                <li>
+                    <a href="wishlist.html">Wishlist</a>
+                </li>
+            </ul>
+        </li>
+        <!-- end menu item -->
+
+        <!-- start menu item -->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">My account <b class="caret pull-right"></b></a>
+            <ul class="dropdown-menu navmenu-nav" role="menu">
+                <li><a href="cart.html">My cart</a>
+                </li>
+                <li><a href="checkout.html">Checkout</a>
+                </li>
+                <li><a href="login.html">Login</a>
+                </li>
+                <li><a href="signup.html">Signup</a>
+                </li>
+                <li><a href="profile.html">User profile</a>
+                </li>
+                <li><a href="history.html">Order history</a>
+                </li>
+                <li><a href="wishlist.html">Wishlist</a>
+                </li>
+            </ul>
+        </li>
+        <!-- end menu item -->
+
+        <!-- start cart link -->
+        <li class="nav-cart">
+            <a href="cart.html">
+                <span class="fa fa-shopping-cart fa-3x"></span>
+                <br/>6 item(s)
+            </a>
+        </li>
+        <!-- end cart link -->
+    </ul>
+    <!-- end navigation -->
+</div>
+<!-- end slide menu -->
+
+<!-- start mobile navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top visible-xs-block">
+
+    <button type="button" class="navbar-toggle pull-left" data-toggle="offcanvas" data-target=".navmenu"
+            data-canvas="body" style="margin-left: 20px;">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+
+    <div class="container-search">
+        <form method="get" id="search-mobile" class="search-mobile">
+            <input type="text" class="form-control" placeholder="search"/>
+        </form>
+    </div>
+
+</div>
+<!-- end mobile navbar -->
+
+<!-- start main navbar -->
+<div class="navbar navbar-sellstrap visible-md-block visible-lg-block visible-sm-block" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- logo -->
+            <a class="navbar-brand" href="/">Broomwagon</a>
+            <!-- end logo -->
+        </div>
+        <div class="navbar-full">
+            <!-- start nav menu -->
+            <ul class="nav navbar-nav">
+                <li class="dropdown ">
+                    <a href="products.html" class="dropdown-toggle">Menu 1</a>
+                    <ul class="dropdown-menu megamenu row" style="width: 650px;">
+                        <li>
+                            <!-- start nav tabs -->
+                            <div class="col-md-3">
+                                <ul class="nav nav-tabs tabs-left" data-toggle="tab-hover">
+                                    <li class="active"><a href="#menu-dresses" data-toggle="tab-hover">Category 1</a>
+                                    </li>
+                                    <li><a href="#menu-jackets" data-toggle="tab-hover">Category 2</a>
+                                    </li>
+                                    <li><a href="#menu-tees" data-toggle="tab-hover">Category 3</a>
+                                    </li>
+                                    <li><a href="#menu-coats" data-toggle="tab-hover">Category 4</a>
+                                    </li>
+                                    <li><a href="#menu-jeans" data-toggle="tab-hover">Category 5</a>
+                                    </li>
+                                    <li><a href="#menu-trousers" data-toggle="tab-hover">Category 6</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end nav tabs -->
+                            <!-- start tab panes -->
+                            <div class="col-md-9">
+                                <div class="tab-content">
+                                    <!-- start tab pane -->
+                                    <div class="tab-pane active" id="menu-dresses">
+
+                                        <!-- start pane title -->
+                                        <h4 class="title">Latest Dresses</h4>
+                                        <!-- end pane title -->
+
+                                        <div class="row">
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="dress 1" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="product 4" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="product 5" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- start product item -->
+                                        </div>
+                                    </div>
+                                    <!-- end tab pane -->
+                                    <!-- start tab pane -->
+                                    <div class="tab-pane" id="menu-jackets">
+
+                                        <!-- start pane title -->
+                                        <h4 class="title">Latest Jackets</h4>
+                                        <!-- end pane title -->
+
+                                        <div class="row">
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="jacket 1" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="jacket 2" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="jacket 3" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+                                        </div>
+                                    </div>
+                                    <!-- end tab pane -->
+
+                                    <!-- start tab pane -->
+                                    <div class="tab-pane" id="menu-tees">
+
+                                        <!-- start pane title -->
+                                        <h4 class="title">Latest Tees</h4>
+                                        <!-- end pane title -->
+
+                                        <div class="row">
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="tee 1" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="tee 2" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="tee 3" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+                                        </div>
+                                    </div>
+                                    <!-- end tab pane -->
+
+                                    <!-- start tab pane -->
+                                    <div class="tab-pane" id="menu-coats">
+
+                                        <!-- start pane title -->
+                                        <h4 class="title">Latest Coats</h4>
+                                        <!-- end pane title -->
+
+                                        <div class="row">
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="coat 1" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="coat 2" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="coat 3" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+                                        </div>
+                                    </div>
+                                    <!-- end tab pane -->
+
+                                    <!-- start tab pane -->
+                                    <div class="tab-pane" id="menu-jeans">
+
+                                        <!-- start pane title -->
+                                        <h4 class="title">Latest Jeans</h4>
+                                        <!-- end pane title -->
+
+                                        <div class="row">
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="jeans 1" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="jeans 2" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="jeans 3" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+                                        </div>
+                                    </div>
+                                    <!-- end tab pane -->
+
+                                    <!-- start tab pane -->
+                                    <div class="tab-pane" id="menu-trousers">
+
+                                        <!-- start pane title -->
+                                        <h4 class="title">Latest Trousers</h4>
+                                        <!-- end product item -->
+
+                                        <div class="row">
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="trousers 1" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="trousers 2" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+
+                                            <!-- start product item -->
+                                            <div class="col-sm-4 col-md-4">
+                                                <div class="product-item">
+                                                    <div class="photo">
+                                                        <a href="product.html">
+                                                            <img alt="trousers 3" class="img-responsive"
+                                                                 src="assets/images/290x360.png"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class=" clear-left">
+                                                            <a class="btn btn-cart btn-block">
+                                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end product item -->
+
+                                        </div>
+                                    </div>
+                                    <!-- end tab pane -->
+                                </div>
+                            </div>
+                            <!-- end tab panes -->
+                        </li>
+                    </ul>
+                </li>
+                <!-- start menu item -->
+                <li class="dropdown">
+                    <a href="products.html" class="dropdown-toggle">Menu 2</a>
+                    <ul class="dropdown-menu megamenu row" style="width: 500px;">
+                        <li>
+                            <div class="col-xs-4 menu-column">
+                                <h4>By Category</h4>
+                                <ul>
+                                    <li><a href="products.html">Category 1</a>
+                                    </li>
+                                    <li><a href="products.html">Category 2</a>
+                                    </li>
+                                    <li><a href="products.html">Category 3</a>
+                                    </li>
+                                    <li><a href="products.html">Category 4</a>
+                                    </li>
+                                    <li><a href="products.html">Category 5</a>
+                                    </li>
+                                    <li><a href="products.html">Category 6</a>
+                                    </li>
+                                    <li><a href="products.html">Category 7</a>
+                                    </li>
+                                    <li><a href="products.html">Category 8</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-4 menu-column">
+                                <h4>By Occasion</h4>
+                                <ul>
+                                    <li><a href="products.html">Category 9</a>
+                                    </li>
+                                    <li><a href="products.html">Category 10</a>
+                                    </li>
+                                    <li><a href="products.html">Category 11</a>
+                                    </li>
+                                    <li><a href="products.html">Category 12</a>
+                                    </li>
+                                    <li><a href="products.html">Category 13</a>
+                                    </li>
+                                    <li><a href="products.html">Category 14</a>
+                                    </li>
+                                    <li><a href="products.html">Category 15</a>
+                                    </li>
+                                    <li><a href="products.html">Category 16</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-4 menu-column">
+                                <h4>By Brand</h4>
+                                <a href="products.html" class="image-link">
+                                    <img src="assets/images/prada.gif" alt="prada" class="brand-logo"/>
+                                </a>
+                                <a href="products.html" class="image-link">
+                                    <img src="assets/images/cartier.gif" alt="cartier" class="brand-logo"/>
+                                </a>
+                                <a href="products.html" class="image-link">
+                                    <img src="assets/images/fendi.gif" alt="fendi" class="brand-logo"/>
+                                </a>
+                                <a href="products.html" class="image-link">
+                                    <img src="assets/images/dolce-gabbana.gif" alt="dolce gabbana" class="brand-logo"/>
+                                </a>
+                                <a href="products.html" class="image-link">
+                                    <img src="assets/images/louis-vuitton.gif" alt="louis vuitton" class="brand-logo"/>
+                                </a>
+                                <a href="products.html" class="image-link">
+                                    <img src="assets/images/dansko.gif" alt="dansko" class="brand-logo"/>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!-- end menu item -->
+                <!-- start menu item -->
+                <li class="dropdown">
+                    <a href="products.html" class="dropdown-toggle">Templates</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="products.html">All products</a>
+                        </li>
+                        <li>
+                            <a href="product.html">Single product</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact us</a>
+                        </li>
+                        <li>
+                            <a href="about.html">About Us</a>
+                        </li>
+                        <li>
+                            <a href="static.html">Page Elements</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="login.html">Login</a>
+                        </li>
+                        <li>
+                            <a href="signup.html">Signup</a>
+                        </li>
+                        <li>
+                            <a href="cart.html">My cart</a>
+                        </li>
+                        <li>
+                            <a href="profile.html">Edit profile</a>
+                        </li>
+                        <li>
+                            <a href="history.html">Order history</a>
+                        </li>
+                        <li>
+                            <a href="wishlist.html">Wishlist</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- end menu item -->
+
+                <!-- start search box -->
+                <li class="search-box">
+                    <div>
+                        <form method="get" action="/search" id="search">
+                            <input id="searchTxt" name="searchTxt" type="text" size="400" placeholder="SEARCH"
+                                   class="form-control"/>
+                        </form>
+                    </div>
+                </li>
+                <!-- end search box -->
+
+            </ul>
+            <!-- end nav menu -->
+
+            <!-- start user menu -->
+            <ul class="nav navbar-nav navbar-right">
+                <!-- start menu item -->
+                <li class="dropdown">
+                    <a href="profile.html" class="dropdown-toggle">My Account</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="cart.html">My cart</a>
+                        </li>
+                        <li><a href="checkout.html">Checkout</a>
+                        </li>
+                        <li><a href="login.html">Login</a>
+                        </li>
+                        <li><a href="signup.html">Signup</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="profile.html">User profile</a>
+                        </li>
+                        <li><a href="history.html">Order history</a>
+                        </li>
+                        <li><a href="wishlist.html">Wishlist</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- end menu item -->
+
+                <!-- start menu item -->
+                <li class="dropdown menu-cart">
+                    <a href="cart.html" class="dropdown-toggle">
+                        <span class="fa fa-shopping-cart"></span>&nbsp; $281</a>
+
+                    <ul class="dropdown-menu megamenu row" style="width: 300px; padding: 0;">
+                        <!-- cart -->
+                        <li>
+                            <div class="mycart-container">
+                                <ul class="my-cart">
+                                    <!-- start cart item -->
+                                    <li class="item " id="item-1">
+                                        <div class="pull-right">
+                                            <button type="button" class="btn btn-danger btn-xs cart-delete-item"><i
+                                                    class="fa fa-times-circle"></i>
+                                            </button>
+                                        </div>
+                                        <div class="pull-right cart-product-price">
+                                            <span class="item-price pull-right">$120</span>
+                                        </div>
+                                        <div class="pull-left">
+                                            <img src="assets/images/145x180.png" alt="Elegant grey dress"/>1
+                                            <span class="sign-quantity">x</span>
+                                        </div>
+                                        <div class="cart-product-link">
+                                            <a href="product.html">Elegant grey dress</a>
+                                        </div>
+                                    </li>
+                                    <!-- end cart item -->
+
+                                    <!-- start cart item -->
+                                    <li class="item" id="item-2">
+                                        <div class="pull-right">
+                                            <button type="button" class="btn btn-danger btn-xs cart-delete-item"><i
+                                                    class="fa fa-times-circle"></i>
+                                            </button>
+                                        </div>
+                                        <div class="pull-right cart-product-price">
+                                            <span class="item-price pull-right">$20</span>
+                                        </div>
+                                        <div class="pull-left">
+                                            <img src="assets/images/145x180.png" alt="White-grey blouse"/>1
+                                            <span class="sign-quantity">x</span>
+                                        </div>
+                                        <div class="cart-product-link"><a href="product.html">White-grey blouse</a>
+                                        </div>
+                                    </li>
+                                    <!-- end cart item -->
+
+                                    <!-- start cart item -->
+                                    <li class="item" id="item-3">
+                                        <div class="pull-right">
+                                            <button type="button" class="btn btn-danger btn-xs cart-delete-item"><i
+                                                    class="fa fa-times-circle"></i>
+                                            </button>
+                                        </div>
+                                        <div class="pull-right cart-product-price">
+                                            <span class="item-price pull-right">$35</span>
+                                        </div>
+                                        <div class="pull-left">
+                                            <img src="assets/images/145x180.png" alt="Deedee Skater Long Sleeve Dress"/>1
+                                            <span class="sign-quantity">x</span>
+                                        </div>
+                                        <div class="cart-product-link"><a href="#">Long Sleeve Dress</a>
+                                        </div>
+                                    </li>
+                                    <!-- end cart item -->
+
+                                    <!-- start cart item -->
+                                    <li class="item" id="item-4">
+                                        <div class="pull-right">
+                                            <button type="button" class="btn btn-danger btn-xs cart-delete-item"><i
+                                                    class="fa fa-times-circle"></i>
+                                            </button>
+                                        </div>
+                                        <div class="pull-right cart-product-price">
+                                            <span class="item-price pull-right">$45</span>
+                                        </div>
+                                        <div class="pull-left">
+                                            <img src="assets/images/145x180.png" alt="Black Tee"/>1
+                                            <span class="sign-quantity">x</span>
+                                        </div>
+                                        <div class="cart-product-link"><a href="product.html">Black Tee</a>
+                                        </div>
+                                    </li>
+                                    <!-- end cart item -->
+
+                                    <!-- start cart item -->
+                                    <li class="item" id="item-5">
+                                        <div class="pull-right">
+                                            <button type="button" class="btn btn-danger btn-xs cart-delete-item"><i
+                                                    class="fa fa-times-circle"></i>
+                                            </button>
+                                        </div>
+                                        <div class="pull-right cart-product-price">
+                                            <span class="item-price pull-right">$19</span>
+                                        </div>
+                                        <div class="pull-left">
+                                            <img src="assets/images/145x180.png" alt="Blue Jacket"/>1
+                                            <span class="sign-quantity">x</span>
+                                        </div>
+                                        <div class="cart-product-link"><a href="product.html">Blue Jacket</a>
+                                        </div>
+                                    </li>
+                                    <!-- end cart item -->
+
+                                    <!-- start cart item -->
+                                    <li class="item">
+                                        <div class="pull-right">
+                                            <button type="button" class="btn btn-danger btn-xs cart-delete-item"><i
+                                                    class="fa fa-times-circle"></i>
+                                            </button>
+                                        </div>
+                                        <div class="pull-right cart-product-price">
+                                            <span class="item-price pull-right">$42</span>
+                                        </div>
+                                        <div class="pull-left">
+                                            <img src="assets/images/145x180.png" alt="White Jacket"/>1
+                                            <span class="sign-quantity">x</span>
+                                        </div>
+                                        <div class="cart-product-link"><a href="product.html">White Jacket</a>
+                                        </div>
+                                    </li>
+                                    <!-- end cart item -->
+                                </ul>
+                            </div>
+                            <a href="checkout.html" class="checkout">
+                                <div class="pull-right ">Total:
+                                    <span class="label label-checkout">$281</span>
+                                </div>
+                                <i class="fa fa-sign-out"></i> Checkout</a>
+                        </li>
+                        <!-- end cart -->
+                    </ul>
+                </li>
+                <!-- end menu item -->
+            </ul>
+            <!-- end user menu -->
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+</div>
+<!-- end navbar -->
+
+
+</body>
+</html>

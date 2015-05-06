@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Product Item</title>
+</head>
+<body th:fragment="product(cornerText, url, title)">
+<div class="product-item">
+    <div class="corner">
+        <div class="corner-text"
+             th:text="${cornerText}">
+            on sale
+        </div>
+    </div>
+    <div class="photo">
+        <a href="#"
+           th:href="@{/} + ${@environment.getProperty('web.mapping.products')} + @{/} + ${url}">
+            <img src="assets/images/290x360.png" class="img-responsive" alt="a"/>
+        </a>
+    </div>
+    <h3 class="product-name">
+        <a href="#"
+           th:href="@{/} + ${@environment.getProperty('web.mapping.products')} + @{/} + ${url}"
+           th:text="${title}">title</a>
+    </h3>
+
+    <div class="info">
+        <div class="price">
+            <span class="value">$1999</span>
+            <span class="stock pull-right">in stock</span>
+            <!--/*
+            <span class="stock stock-last pull-right">last item</span>
+            */-->
+        </div>
+    </div>
+
+    <div class="actions">
+        <div class=" clear-left">
+            <a class="btn btn-cart btn-block" href="cart.html">
+                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
