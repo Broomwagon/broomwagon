@@ -6,7 +6,8 @@
 </head>
 <body th:fragment="product(cornerText, url, title)">
 <div class="product-item">
-    <div class="corner">
+
+    <div class="corner" th:class="'corner corner-primary'">
         <div class="corner-text"
              th:text="${cornerText}">
             on sale
@@ -15,7 +16,7 @@
     <div class="photo">
         <a href="#"
            th:href="@{/} + ${@environment.getProperty('web.mapping.products')} + @{/} + ${url}">
-            <img src="assets/images/290x360.png" class="img-responsive" alt="a"/>
+            <img src="/assets/images/290x360.png" class="img-responsive" alt="a"/>
         </a>
     </div>
     <h3 class="product-name">
