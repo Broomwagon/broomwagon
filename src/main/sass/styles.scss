@@ -378,8 +378,7 @@ a:hover {
 }
 
 .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
-    background-color: transparent;
-    background-image: none;
+    background: transparent none;
     cursor: not-allowed;
     text-decoration: none;
 }
@@ -390,8 +389,7 @@ a:hover {
     color: #444;
     display: block;
     line-height: 1.42857;
-    padding: 3px;
-    padding-left: 19px;
+    padding: 3px 3px 3px 19px;
     white-space: nowrap;
 }
 
@@ -400,9 +398,7 @@ a:hover {
     background: url('../images/watches.jpg') -300px -200px no-repeat;
     color: #121212;
     margin-bottom: 30px;
-    padding: 30px;
-    padding-bottom: 48px;
-    padding-top: 48px;
+    padding: 48px 30px;
 }
 
 .btn {
@@ -518,9 +514,7 @@ a:hover {
 .panel-footer {
     background: transparent;
     box-shadow: none;
-    padding: 0;
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding: 10px 0 20px;
     border: 0;
     margin: 0;
 }
@@ -539,8 +533,7 @@ a:hover {
 }
 
 .panel-footer > .panel-body > ul {
-    list-style: none;
-    list-style-position: outside;
+    list-style: none outside none;
     padding: 0;
     margin: 0;
 }
@@ -738,7 +731,7 @@ a:hover {
 }
 
 .megamenu {
-    padding: 20px 0px;
+    padding: 20px 0;
     width: 700px;
 }
 
@@ -882,20 +875,16 @@ a:hover {
 /* my cart */
 
 .my-cart {
-    list-style: none;
-    list-style-position: outside;
+    list-style: none outside none;
     margin: 0;
     padding: 0;
 }
 
 .my-cart li {
     overflow: hidden;
-    padding-left: 10px;
-    padding-right: 20px;
     line-height: 35px;
     font-size: 12px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px 20px 5px 10px;
 }
 
 .my-cart li.item img {
