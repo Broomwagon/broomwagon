@@ -6,6 +6,13 @@ $primary-color: #f27490;
 $grey: #dddddd;
 $black: #121212;
 
+@mixin transform-rotate($rotation) {
+    -ms-transform: rotate($rotation);
+    -o-transform: rotate($rotation);
+    -webkit-transform: rotate($rotation);
+    transform: rotate($rotation);
+}
+
 body {
     font-family: Lato, sans-serif;
     > .container {
@@ -37,38 +44,32 @@ a {
 }
 
 .breadcrumb {
-    background: #FFF;
+    background: white;
     border-radius: 0;
     padding-left: 0;
 }
 
 .corner {
-    border-color: rgba(255, 255, 255, 0) #d9534f rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+    border-color: white #d9534f white white;
     border-style: solid;
     border-width: 0 70px 40px 0;
     position: absolute;
     right: 15px;
     height: 0;
     width: 0;
-    -ms-transform: rotate(360deg);
-    /* IE 9 */
-    -o-transform: rotate(360deg);
-    /* Opera 10.5 */
-    -webkit-transform: rotate(360deg);
-    /* Safari and Chrome */
-    transform: rotate(360deg);
+    @include transform-rotate(360deg);
 }
 
 .corner-primary {
-    border-color: rgba(255, 255, 255, 0) $primary-color rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+    border-color: white $primary-color white white;
 }
 
 .corner-black {
-    border-color: rgba(255, 255, 255, 0) $black rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+    border-color: white $black white white;
 }
 
 .corner-text {
-    color: #FFF;
+    color: white;
     font-size: 10px;
     font-weight: bold;
     position: relative;
@@ -77,10 +78,7 @@ a {
     width: 40px;
     text-align: center;
     white-space: nowrap;
-    -ms-transform: rotate(30deg);
-    -o-transform: rotate(360deg);
-    -webkit-transform: rotate(30deg);
-    transform: rotate(30deg);
+    @include transform-rotate(30deg);
 }
 
 .row-margin {
@@ -131,10 +129,10 @@ a {
     font-family: "Roboto Slab", sans-serif;
     font-size: 25px;
     font-weight: bold;
-    color: #FFF;
+    color: white;
     border-bottom: 1px solid #222;
     a {
-        color: #FFF;
+        color: white;
         text-decoration: none;
     }
 }
@@ -156,14 +154,14 @@ a {
         }
     }
     .navmenu-nav > li > a {
-        color: #FFF;
+        color: white;
         border-bottom: 1px solid #222;
         font-weight: bold;
     }
 }
 
 .navbar-inverse .navbar-offcanvas .navmenu-nav > li > a {
-    color: #FFF;
+    color: white;
     border-bottom: 1px solid #222;
     font-weight: bold;
 }
@@ -196,7 +194,7 @@ a {
 .navmenu-inverse .dropdown-menu > li > a {
     clear: both;
     background: #222;
-    color: #FFF;
+    color: white;
     display: block;
     font-weight: 400;
     line-height: 1.8;
@@ -225,7 +223,7 @@ a {
         border-color: #333;
         border-radius: 0;
         &:focus {
-            background: #FFF;
+            background: white;
         }
     }
 }
@@ -238,9 +236,9 @@ a {
     font-family: "Roboto Slab", sans-serif;
     font-size: 25px;
     font-weight: bold;
-    color: #FFF;
+    color: white;
     &:hover {
-        color: #FFF;
+        color: white;
     }
 }
 
@@ -250,7 +248,7 @@ a {
         font-family: "Gafata", sans-serif;
         font-size: 15px;
         text-transform: uppercase;
-        color: #FFF;
+        color: white;
         &:hover {
             background: $black;
             padding-bottom: 12px;
@@ -286,7 +284,7 @@ a {
     text-align: center;
     margin-top: 80px;
     .well-sm {
-        background: #FFF;
+        background: white;
         color: #444;
         border: 1px solid $grey;
         border-top: 3px solid $grey;
@@ -294,7 +292,7 @@ a {
         padding: 0;
     }
     .round-header {
-        background: #FFF;
+        background: white;
         width: 70px;
         height: 70px;
         line-height: 80px;
@@ -425,7 +423,7 @@ a {
     color: #fff;
     &:hover {
         background: #376a5a;
-        color: #FFF;
+        color: white;
         border-bottom: 2px solid #082c21;
     }
 }
@@ -476,13 +474,13 @@ a {
         padding-right: 0;
         font-size: 15px;
         &:focus {
-            background: #FFF;
+            background: white;
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 0, 0, 0.6);
             cursor: inherit;
             padding: 6px 12px;
         }
         &::-moz-placeholder, &::-webkit-input-placeholder, &::-ms-input-placeholder {
-            color: #FFF;
+            color: white;
             font-size: 15px;
             opacity: 1;
         }
@@ -538,7 +536,7 @@ a {
 .social-link {
     display: block;
     float: left;
-    background: #FFF;
+    background: white;
     width: 40px;
     height: 40px;
     overflow: hidden;
@@ -556,7 +554,7 @@ a {
 
 .product-item {
     border: 1px solid $grey;
-    background: #FFF;
+    background: white;
     margin-bottom: 20px;
     overflow: hidden;
     .photo img {
@@ -590,7 +588,7 @@ a {
         }
     }
     &:hover .product-name a {
-        background: #FFF;
+        background: white;
         color: $black;
     }
     .price {
@@ -659,7 +657,7 @@ a {
         background: -ms-linear-gradient(45deg, rgba(237, 85, 101, 1) 0%, rgba(213, 65, 81, 1) 100%);
         background: linear-gradient(45deg, rgba(237, 85, 101, 1) 0%, rgba(213, 65, 81, 1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed5565', endColorstr='#d54151', GradientType=1);
-        color: #FFF;
+        color: white;
     }
 }
 
@@ -778,7 +776,7 @@ a {
                 color: $black;
                 &:hover {
                     background: $primary-color;
-                    color: #FFF;
+                    color: white;
                 }
             }
         }
@@ -901,7 +899,7 @@ a {
 }
 
 .label-checkout {
-    background: #FFF;
+    background: white;
     color: $primary-color;
     line-height: 20px;
     margin-top: 1px;
@@ -966,7 +964,7 @@ a {
         border-bottom: 3px solid $grey;
         &:hover {
             background: $primary-color;
-            color: #FFF;
+            color: white;
             text-decoration: none;
         }
     }
@@ -1056,7 +1054,7 @@ a {
 
 .btn-addtocart {
     background: #ed5565;
-    color: #FFF;
+    color: white;
     .fa {
         width: 25px;
         text-align: center;
@@ -1069,7 +1067,7 @@ a {
 }
 
 .btn-addtocart:hover {
-    color: #FFF;
+    color: white;
 }
 
 .col-product .tab-content {
@@ -1111,7 +1109,7 @@ a {
         outline: 0;
         img {
             max-width: 100px;
-            border: 2px solid #FFF;
+            border: 2px solid white;
         }
         &.active img {
             border: 2px solid #999;
