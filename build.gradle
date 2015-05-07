@@ -67,3 +67,4 @@ compass {
 
 bootRun.dependsOn compassWatchStart
 bootRun.finalizedBy compassWatchStop
+processResources.dependsOn compassCompile
