@@ -3,6 +3,8 @@
 @import url(http://fonts.googleapis.com/css?family=Cantarell:400,700);
 
 $primary-color: #f27490;
+$grey: #dddddd;
+$black: #121212;
 
 body {
     font-family: Lato, sans-serif;
@@ -18,7 +20,7 @@ body {
 }
 
 a {
-    color: #121212;
+    color: $black;
     text-decoration: none;
     &:hover {
         color: #333;
@@ -62,7 +64,7 @@ a {
 }
 
 .corner-black {
-    border-color: rgba(255, 255, 255, 0) #121212 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0) $black rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
 }
 
 .corner-text {
@@ -94,14 +96,14 @@ a {
     > {
         li > {
             a, span {
-                color: #121212;
+                color: $black;
             }
         }
         .active > {
             a, span, a:hover, span:hover, a:focus, span:focus {
                 background-color: #f5f5f5;
-                border-color: #DDD;
-                color: #121212;
+                border-color: $grey;
+                color: $black;
                 cursor: default;
                 z-index: 2;
             }
@@ -112,7 +114,7 @@ a {
 .page-title {
     margin-top: 0;
     margin-bottom: 20px;
-    border-bottom: 1px solid #DDD;
+    border-bottom: 1px solid $grey;
     padding-bottom: 10px;
 }
 
@@ -138,18 +140,18 @@ a {
 }
 
 .navmenu-inverse, .navbar-inverse .navbar-offcanvas {
-    background-color: #121212;
+    background-color: $black;
     border-color: #080808;
 }
 
 .navmenu-inverse {
     .nav .open > a {
         border-bottom: 1px solid #111;
-        background: #121212;
+        background: $black;
         font-weight: bold;
         &:hover, &:focus {
             border-bottom: 1px solid #111;
-            background: #121212;
+            background: $black;
             font-weight: bold;
         }
     }
@@ -219,7 +221,7 @@ a {
 .search-mobile {
     margin-top: 7px;
     input[type=text] {
-        background: #121212;
+        background: $black;
         border-color: #333;
         border-radius: 0;
         &:focus {
@@ -243,14 +245,14 @@ a {
 }
 
 .navbar-sellstrap {
-    background: #121212;
+    background: $black;
     .navbar-nav > li > a {
         font-family: "Gafata", sans-serif;
         font-size: 15px;
         text-transform: uppercase;
         color: #FFF;
         &:hover {
-            background: #121212;
+            background: $black;
             padding-bottom: 12px;
             border-bottom: 3px solid #999;
         }
@@ -258,11 +260,11 @@ a {
 }
 
 .nav .open > a {
-    background-color: #121212;
+    background-color: $black;
     padding-bottom: 12px;
     border-bottom: 3px solid #999;
     &:hover, &:focus {
-        background-color: #121212;
+        background-color: $black;
         padding-bottom: 12px;
         border-bottom: 3px solid #999;
     }
@@ -286,8 +288,8 @@ a {
     .well-sm {
         background: #FFF;
         color: #444;
-        border: 1px solid #DDD;
-        border-top: 3px solid #DDD;
+        border: 1px solid $grey;
+        border-top: 3px solid $grey;
         border-radius: 0;
         padding: 0;
     }
@@ -320,7 +322,7 @@ a {
     }
     &:hover {
         .round-header {
-            color: #121212;
+            color: $black;
             border-color: #999;
         }
         .well-sm {
@@ -350,7 +352,7 @@ a {
     > {
         li > a {
             clear: both;
-            color: #121212;
+            color: $black;
             display: block;
             font-weight: 400;
             line-height: 1.42857;
@@ -358,7 +360,7 @@ a {
             white-space: nowrap;
             &:hover, &:focus {
                 background: #f5f5f5;
-                color: #121212;
+                color: $black;
                 text-decoration: none;
             }
         }
@@ -399,9 +401,9 @@ a {
 }
 
 .bigdeal {
-    background-color: #121212;
+    background-color: $black;
     background: url('../images/watches.jpg') -300px -200px no-repeat;
-    color: #121212;
+    color: $black;
     margin-bottom: 30px;
     padding: 48px 30px;
 }
@@ -409,7 +411,7 @@ a {
 .btn {
     border-radius: 0;
     border: 0;
-    border-bottom: 2px solid #DDD;
+    border-bottom: 2px solid $grey;
 }
 
 .btn-default {
@@ -508,7 +510,7 @@ a {
     .panel-heading {
         font-size: 14px;
         font-weight: bold;
-        border-bottom: 1px solid #DDD;
+        border-bottom: 1px solid $grey;
         padding: 0;
         line-height: 25px;
         text-transform: uppercase;
@@ -541,7 +543,7 @@ a {
     height: 40px;
     overflow: hidden;
     line-height: 46px;
-    border: 1px solid #DDD;
+    border: 1px solid $grey;
     text-align: center;
     margin-right: 5px;
     color: #666;
@@ -553,7 +555,7 @@ a {
 /* product item styling */
 
 .product-item {
-    border: 1px solid #DDD;
+    border: 1px solid $grey;
     background: #FFF;
     margin-bottom: 20px;
     overflow: hidden;
@@ -583,19 +585,18 @@ a {
             padding-right: 10px;
             height: 60px;
             font-size: 15px;
-            color: #121212;
+            color: $black;
             font-weight: bold;
         }
     }
     &:hover .product-name a {
         background: #FFF;
-        color: #121212;
+        color: $black;
     }
     .price {
-        /*width: 50%;*/
         font-size: 14px;
         font-weight: bold;
-        color: #121212;
+        color: $black;
     }
     .stock {
         font-size: 13px;
@@ -666,7 +667,7 @@ a {
     background: #f2f2f2;
     border-top: 1px solid #CCC;
     margin: 0;
-    color: #121212;
+    color: $black;
     border-radius: 0;
     &:hover {
         color: #d4006e;
@@ -718,7 +719,7 @@ a {
         ul > li > a {
             &:hover, &:focus {
                 text-decoration: none;
-                color: #121212;
+                color: $black;
                 background-color: #f5f5f5;
             }
         }
@@ -746,7 +747,7 @@ a {
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-    border-bottom: 1px dotted #DDD;
+    border-bottom: 1px dotted $grey;
 }
 
 .tab-pane h4 {
@@ -759,7 +760,7 @@ a {
         color: $primary-color;
         text-transform: uppercase;
         margin: 0;
-        border-bottom: 1px solid #DDD;
+        border-bottom: 1px solid $grey;
         line-height: 25px;
         font-size: 14px;
     }
@@ -774,7 +775,7 @@ a {
                 padding-left: 5px;
                 padding-right: 5px;
                 line-height: 30px;
-                color: #121212;
+                color: $black;
                 &:hover {
                     background: $primary-color;
                     color: #FFF;
@@ -798,7 +799,7 @@ a {
     margin-right: 8px;
     margin-bottom: 4px;
     margin-top: 4px;
-    border: 1px solid #DDD;
+    border: 1px solid $grey;
     &:hover {
         border: 1px solid #999;
     }
@@ -826,7 +827,7 @@ a {
 /* tabs left overwrite */
 
 .tabs-left > li > a {
-    color: #121212;
+    color: $black;
 }
 
 /* my cart */
@@ -848,20 +849,20 @@ a {
 }
 
 .dropdown-menu > li > a.checkout {
-    background: #DDD;
+    background: $grey;
     font-weight: bold;
     text-decoration: none;
-    color: #121212;
+    color: $black;
     line-height: 30px;
     font-size: 13px;
     display: block;
     padding: 3px 20px;
     clear: both;
     &:hover {
-        background: #DDD;
+        background: $grey;
         font-weight: bold;
         text-decoration: none;
-        color: #121212;
+        color: $black;
         line-height: 30px;
         font-size: 13px;
         display: block;
@@ -882,7 +883,7 @@ a {
         width: 190px;
         margin-right: 40px;
         a {
-            color: #121212;
+            color: $black;
         }
     }
     .cart-product-price {
@@ -916,7 +917,7 @@ a {
 
 .category-header {
     height: 53px;
-    border-bottom: 1px solid #DDD;
+    border-bottom: 1px solid $grey;
     margin-bottom: 20px;
 }
 
@@ -934,13 +935,13 @@ a {
 }
 
 .panel-filters {
-    border: 1px solid #DDD;
+    border: 1px solid $grey;
     margin-bottom: 0;
     border-radius: 0;
     .panel-heading {
         font-size: 13px;
         font-weight: bold;
-        background: #DDD;
+        background: $grey;
         border-radius: 0;
     }
     .panel-body {
@@ -962,7 +963,7 @@ a {
         background: #f2f2f2;
         padding-left: 10px;
         padding-right: 10px;
-        border-bottom: 3px solid #DDD;
+        border-bottom: 3px solid $grey;
         &:hover {
             background: $primary-color;
             color: #FFF;
@@ -1081,7 +1082,7 @@ a {
         background: #f2f2f2;
         font-weight: bold;
         border-radius: 4px;
-        border-bottom: 3px solid #DDD;
+        border-bottom: 3px solid $grey;
     }
     .panel-body {
         padding-left: 0;
@@ -1193,7 +1194,7 @@ a {
 
 .panel-login a, .panel-signup a {
     font-weight: bold;
-    color: #121212;
+    color: $black;
 }
 
 .panel-login, .panel-signup {
@@ -1208,7 +1209,7 @@ a {
 
 .panel-login > .panel-footer, .panel-signup > .panel-footer {
     background: #f5f5f5;
-    border-top: 1px solid #DDD;
+    border-top: 1px solid $grey;
     padding: 10px 0 10px;
 }
 
@@ -1222,14 +1223,6 @@ a {
 
 /* end login */
 /* front page slider */
-/* jssor slider bullet navigator skin 21 css */
-/*
-            .jssorb21 div           (normal)
-            .jssorb21 div:hover     (normal mouseover)
-            .jssorb21 .av           (active)
-            .jssorb21 .av:hover     (active mouseover)
-            .jssorb21 .dn           (mousedown)
-            */
 
 .jssorb21 {
     div {
@@ -1266,16 +1259,6 @@ a {
         }
     }
 }
-
-/* jssor slider arrow navigator skin 21 css */
-/*
-            .jssora21l              (normal)
-            .jssora21r              (normal)
-            .jssora21l:hover        (normal mouseover)
-            .jssora21r:hover        (normal mouseover)
-            .jssora21ldn            (mousedown)
-            .jssora21rdn            (mousedown)
-            */
 
 .jssora21l, .jssora21r, .jssora21ldn, .jssora21rdn {
     position: absolute;

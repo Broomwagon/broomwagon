@@ -62,7 +62,7 @@ task wrapper(type: Wrapper) {
 
 compass {
     cssDir = file("src/main/resources/static/css")
-    sassDir = file("src/main/sass")
+    sassDir = file("src/main/resources/sass")
 }
 
 bootRun.dependsOn compassWatchStart
