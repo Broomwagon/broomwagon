@@ -46,7 +46,7 @@ a:hover {
 
 /* line 52, ../../sass/styles.scss */
 .corner {
-  border-color: rgba(255, 255, 255, 0) #d9534f rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+  border-color: rgba(255, 255, 255, 0) #ee456b rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
   border-style: solid;
   border-width: 0 70px 40px 0;
   position: absolute;
@@ -465,15 +465,15 @@ a:hover {
 /* line 419, ../../sass/styles.scss */
 .btn-primary {
   background: none repeat scroll 0 0 #f27490;
-  border-bottom: 2px solid #165340;
+  border-bottom: 2px solid #ee456b;
   border-radius: 0;
   color: #fff;
 }
 /* line 424, ../../sass/styles.scss */
 .btn-primary:hover {
-  background: #376a5a;
+  background: #f48ba3;
   color: white;
-  border-bottom: 2px solid #082c21;
+  border-bottom: 2px solid #f26f8c;
 }
 
 /* front page styles */
@@ -673,7 +673,7 @@ a:hover {
 }
 /* line 604, ../../sass/styles.scss */
 .product-item .stock-last {
-  color: #d9534f;
+  color: #e91746;
 }
 
 /* line 609, ../../sass/styles.scss */
@@ -746,7 +746,7 @@ a:hover {
 }
 /* line 670, ../../sass/styles.scss */
 .btn-cart:hover {
-  color: #d4006e;
+  color: #e91746;
 }
 /* line 673, ../../sass/styles.scss */
 .btn-cart .fa {

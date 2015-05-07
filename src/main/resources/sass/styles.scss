@@ -50,7 +50,7 @@ a {
 }
 
 .corner {
-    border-color: rgba(255, 255, 255, 0) #d9534f rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0) darken($primary-color, 10%) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
     border-style: solid;
     border-width: 0 70px 40px 0;
     position: absolute;
@@ -418,13 +418,13 @@ a {
 
 .btn-primary {
     background: none repeat scroll 0 0 $primary-color;
-    border-bottom: 2px solid #165340;
+    border-bottom: 2px solid darken($primary-color, 10%);
     border-radius: 0;
     color: #fff;
     &:hover {
-        background: #376a5a;
+        background: lighten($primary-color,5%);
         color: white;
-        border-bottom: 2px solid #082c21;
+        border-bottom: 2px solid darken($primary-color, 1%);
     }
 }
 
@@ -602,7 +602,7 @@ a {
         color: $primary-color;
     }
     .stock-last {
-        color: #d9534f;
+        color: darken($primary-color, 20%);
     }
 }
 
@@ -668,7 +668,7 @@ a {
     color: $black;
     border-radius: 0;
     &:hover {
-        color: #d4006e;
+        color: darken($primary-color, 20%);
     }
     .fa {
         width: 25px;
