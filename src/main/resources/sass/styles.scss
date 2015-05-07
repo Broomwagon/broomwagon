@@ -50,7 +50,7 @@ a {
 }
 
 .corner {
-    border-color: white #d9534f white white;
+    border-color: rgba(255, 255, 255, 0) #d9534f rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
     border-style: solid;
     border-width: 0 70px 40px 0;
     position: absolute;
@@ -61,11 +61,11 @@ a {
 }
 
 .corner-primary {
-    border-color: white $primary-color white white;
+    border-color: rgba(255, 255, 255, 0) $primary-color rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
 }
 
 .corner-black {
-    border-color: white $black white white;
+    border-color: rgba(255, 255, 255, 0) $black rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
 }
 
 .corner-text {

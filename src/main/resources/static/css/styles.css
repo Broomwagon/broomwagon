@@ -46,7 +46,7 @@ a:hover {
 
 /* line 52, ../../sass/styles.scss */
 .corner {
-  border-color: white #d9534f white white;
+  border-color: rgba(255, 255, 255, 0) #d9534f rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
   border-style: solid;
   border-width: 0 70px 40px 0;
   position: absolute;
@@ -61,12 +61,12 @@ a:hover {
 
 /* line 63, ../../sass/styles.scss */
 .corner-primary {
-  border-color: white #f27490 white white;
+  border-color: rgba(255, 255, 255, 0) #f27490 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
 }
 
 /* line 67, ../../sass/styles.scss */
 .corner-black {
-  border-color: white #121212 white white;
+  border-color: rgba(255, 255, 255, 0) #121212 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
 }
 
 /* line 71, ../../sass/styles.scss */
