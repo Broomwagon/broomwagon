@@ -1053,7 +1053,7 @@ a {
 }
 
 .btn-addtocart {
-    background: #ed5565;
+    background: darken($primary-color, 10%);
     color: white;
     .fa {
         width: 25px;
