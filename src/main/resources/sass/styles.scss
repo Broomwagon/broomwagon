@@ -2,13 +2,17 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
 @import url(http://fonts.googleapis.com/css?family=Cantarell:400,700);
 
-$primary-color: #f27490;
-$grey: #dddddd;
-$black: #121212;
-$text-color: #121212;
-$top-nav: #7D8A2E;
 
-$brand: red;
+$light-grey:#f2f2f2;
+$grey: #DDD;
+$dark-grey: #999;
+
+$primary-color: #f27490;
+
+$text-color: #121212;
+$top-nav: #2f2f2f;
+$top-nav-text: white;
+$brand: white;
 
 @mixin transform-rotate($rotation) {
     -ms-transform: rotate($rotation);
@@ -42,7 +46,7 @@ a {
     border-radius: 0;
     box-shadow: none;
     &:focus {
-        border-color: #999;
+        border-color: $dark-grey;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 5px rgba(0, 0, 0, 0.1);
     }
 }
@@ -163,14 +167,14 @@ a {
         }
     }
     .navmenu-nav > li > a {
-        color: white;
+        color: $top-nav-text;
         border-bottom: 1px solid darken($top-nav, 10%);
         font-weight: bold;
     }
 }
 
 .navbar-inverse .navbar-offcanvas .navmenu-nav > li > a {
-    color: white;
+    color: $top-nav-text;
     border-bottom: 1px solid darken($top-nav, 10%);
     font-weight: bold;
 }
@@ -195,15 +199,15 @@ a {
 }
 
 .navmenu-inverse .navmenu-nav > .dropdown > a .caret, .navbar-inverse .navbar-offcanvas .navmenu-nav > .dropdown > a .caret {
-    border-bottom-color: #999;
-    border-top-color: #999;
+    border-bottom-color: $dark-grey;
+    border-top-color: $dark-grey;
     margin-top: 10px;
 }
 
 .navmenu-inverse .dropdown-menu > li > a {
     clear: both;
     background: $top-nav;
-    color: white;
+    color: $top-nav-text;
     display: block;
     font-weight: 400;
     line-height: 1.8;
@@ -233,7 +237,7 @@ a {
         border-color: darken($top-nav, 10%);
         border-radius: 0;
         &:focus {
-            background: white;
+            background: $top-nav-text;
         }
     }
 }
@@ -258,7 +262,7 @@ a {
         font-family: "Gafata", sans-serif;
         font-size: 15px;
         text-transform: uppercase;
-        color: white;
+        color: $top-nav-text;
         &:hover {
             background: lighten($top-nav, 10%);
             padding-bottom: 12px;
@@ -310,7 +314,7 @@ a {
         top: -35px;
         left: 42%;
         border-radius: 4px;
-        border: 3px solid #e3e3e3;
+        border: 3px solid $grey;
         color: $text-color;
     }
     h4 {
@@ -331,11 +335,11 @@ a {
     &:hover {
         .round-header {
             color: $text-color;
-            border-color: #999;
+            border-color: $dark-grey;
         }
         .well-sm {
             background: #f5f5f5;
-            border-top: 3px solid #999;
+            border-top: 3px solid $dark-grey;
         }
     }
 }
@@ -374,20 +378,20 @@ a {
         }
         .active > a {
             background-color: $primary-color;
-            color: #fff;
+            color: $top-nav-text;
             outline: 0 none;
             text-decoration: none;
             &:hover, &:focus {
                 background-color: $primary-color;
-                color: #fff;
+                color: $top-nav-text;
                 outline: 0 none;
                 text-decoration: none;
             }
         }
         .disabled > a {
-            color: #999;
+            color: $dark-grey;
             &:hover, &:focus {
-                color: #999;
+                color: $dark-grey;
             }
             &:hover, &:focus {
                 background: transparent none;
@@ -425,7 +429,7 @@ a {
     color: #fff;
     &:hover {
         background: lighten($primary-color,5%);
-        color: white;
+        color: #fff;
         border-bottom: 2px solid darken($primary-color, 1%);
     }
 }
@@ -438,11 +442,11 @@ a {
 
 .panel-sidebar {
     .panel-heading {
-        background: #ddd;
+        background: $grey;
         border: 0 none;
         font-size: 13px;
         font-weight: bold;
-        border-bottom: 3px solid #CCC;
+        border-bottom: 3px solid $light-grey;
     }
     .panel-body {
         padding: 0;
@@ -456,7 +460,7 @@ a {
     position: relative;
     padding-top: 8px;
     &:focus {
-        border-bottom: 3px solid #CCC;
+        border-bottom: 3px solid $light-grey;
     }
 }
 
@@ -476,30 +480,30 @@ a {
         padding-right: 0;
         font-size: 15px;
         &:focus {
-            background: white;
+            background: $top-nav-text;
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 0, 0, 0.6);
             cursor: inherit;
             padding: 6px 12px;
         }
         &::-moz-placeholder, &::-webkit-input-placeholder, &::-ms-input-placeholder {
-            color: white;
+            color: $top-nav-text;
             font-size: 15px;
             opacity: 1;
         }
         &:focus::-moz-placeholder {
-            color: #666;
+            color: $dark-grey;
             opacity: 1;
         }
     }
 }
 
+/* footer */
+
 .footer {
     background: #f2f2f2;
-    border-top: 3px solid lighten($top-nav, 10%);
+    border-top: 3px solid $grey;
     margin-top: 50px;
 }
-
-/* footer */
 
 .panel-footer {
     background: transparent;
@@ -546,7 +550,7 @@ a {
     border: 1px solid $grey;
     text-align: center;
     margin-right: 5px;
-    color: #999;
+    color: $dark-grey;
     &.social-facebook:hover, &.social-twitter:hover {}
 }
 
@@ -575,8 +579,8 @@ a {
     .product-name {
         margin: 0;
         line-height: 30px;
-        border-top: 1px solid #CCC;
-        border-bottom: 1px dotted #999;
+        border-top: 1px solid $grey;
+        border-bottom: 1px dotted $dark-grey;
         a {
             display: table-cell;
             vertical-align: middle;
@@ -610,7 +614,7 @@ a {
 
 .product-item {
     .info .rating {
-        color: #999;
+        color: $dark-grey;
     }
     .rating {
         float: left;
@@ -639,7 +643,7 @@ a {
     .btn-add {
         width: 50%;
         float: left;
-        border-right: 1px solid #E1E1E1;
+        border-right: 1px solid $grey;
     }
     .btn-details {
         width: 50%;
