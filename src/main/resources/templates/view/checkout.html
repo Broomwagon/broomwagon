@@ -1,21 +1,288 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorator="layout/default">
 <head>
 </head>
 <body>
-<div layout:fragment="content" class="container">
-    <h2>Checking out</h2>
+    <div layout:fragment="content" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-title">Checkout</h1>
+                <div class="panel-group panel-steps" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseLogin">
+                                    CHECKOUT METHOD
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseLogin" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="col-md-6">
+                                    <h3>Checkout as a Guest or Register</h3>
+                                    <p>Register with us for future convenience:</p>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />Checkout as Guest
+                                        </label>
+                                    </div>
+                                    <div class="radio ">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" />Register
+                                        </label>
+                                    </div>
+                                    <div class="well well-sm">
+                                        <h4>Register and save time!</h4>
+                                        <p>Register with us for future convenience:</p>
 
-    <p>Delivery Address</p>
+                                        <ul class="ul">
+                                            <li>Fast and easy check out</li>
+                                            <li>Easy access to your order history and status</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>Login</h3>
+                                    <p>Please login bellow</p>
+                                    <form id="loginform" class="form-horizontal" role="form" action="#" th:action="@{/checkout}" method="post">
+                                        <div style="margin-bottom: 25px" class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i>
+                                            </span>
+                                            <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email" />
+                                        </div>
 
-    <p>Payment Address</p>
+                                        <div style="margin-bottom: 25px" class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i>
+                                            </span>
+                                            <input id="login-password" type="password" class="form-control" name="password" placeholder="password" />
+                                        </div>
 
-    <p>Card details</p>
 
-    <form action="#" th:action="@{/checkout}" method="post">
-        <input type="submit" value="Buy!"/>
-    </form>
-</div>
+                                        <div class="input-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="login-remember" type="checkbox" name="remember" value="1" />Remember me
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top:10px">
+                                            <div class="controls">
+                                                <a id="btn-login" href="#" class="btn btn-primary">Login</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseBilling">
+                                    BILLING INFORMATION
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseBilling" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <form class="form-horizontal" role="form">
+                                    <fieldset>
+                                        <legend>ADDRESS DETAILS</legend>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="form-address">Line 1</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" placeholder="Address Line 1" class="form-control" id="form-address" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="form-address2">Line 2</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" placeholder="Address Line 2" class="form-control" id="form-address2" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="form-city">City</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" placeholder="City" class="form-control" id="form-city" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="form-state">State</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" placeholder="State" class="form-control" id="form-state" />
+                                            </div>
+                                            <label class="col-sm-2 control-label" for="formZipCode">Zip Code</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" placeholder="Zip Code" class="form-control" id="formZipCode" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="form-country">Country</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" placeholder="Country" class="form-control" id="form-country" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <div class="pull-right">
+                                                    <button type="submit" class="btn btn-primary">Continue</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseShipping">
+                                    SHIPPING DETAILS
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseShipping" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <form class="form-horizontal" role="form">
+                                    <fieldset>
+                                        <legend>Address Details</legend>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="formAddress3">Line 1</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" placeholder="Address Line 1" class="form-control" id="formAddress3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="formAddress4">Line 2</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" placeholder="Address Line 2" class="form-control" id="formAddress4" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="formCity2">City</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" placeholder="City" class="form-control" id="formCity2" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="formState2">State</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" placeholder="State" class="form-control" id="formState2" />
+                                            </div>
+                                            <label class="col-sm-2 control-label" for="formZipCode2">Zip Code</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" placeholder="Zip Code" class="form-control" id="formZipCode2" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="formCountry2">Country</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" placeholder="Country" class="form-control" id="formCountry2" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <div class="pull-right">
+                                                    <button type="submit" class="btn btn-primary">Continue</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapsePayment">
+                                    PAYMENT METHOD
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapsePayment" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <form class="form-horizontal" role="form">
+                                    <fieldset>
+                                        <legend>Payment</legend>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="card-holder-name">Name on Card</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="card-number">Card Number</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="expiry-month">Expiration Date</label>
+                                            <div class="col-sm-9">
+                                                <div class="row">
+                                                    <div class="col-xs-2">
+                                                        <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
+                                                            <option>Month</option>
+                                                            <option value="01">January</option>
+                                                            <option value="02">February</option>
+                                                            <option value="03">March</option>
+                                                            <option value="04">April</option>
+                                                            <option value="05">May</option>
+                                                            <option value="06">June</option>
+                                                            <option value="07">July</option>
+                                                            <option value="08">August</option>
+                                                            <option value="09">September</option>
+                                                            <option value="10">October</option>
+                                                            <option value="11">November</option>
+                                                            <option value="12">December</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-xs-2">
+                                                        <select class="form-control" name="expiry-year">
+                                                            <option value="13">2013</option>
+                                                            <option value="14">2014</option>
+                                                            <option value="15">2015</option>
+                                                            <option value="16">2016</option>
+                                                            <option value="17">2017</option>
+                                                            <option value="18">2018</option>
+                                                            <option value="19">2019</option>
+                                                            <option value="20">2020</option>
+                                                            <option value="21">2021</option>
+                                                            <option value="22">2022</option>
+                                                            <option value="23">2023</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="cvv">Card CVV</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-9">
+                                                <button type="button" class="btn btn-success">Pay Now</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

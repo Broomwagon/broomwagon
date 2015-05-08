@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html
+        xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+        layout:decorator="layout/default">
+<head>
+</head>
+<body>
+    <div layout:fragment="content" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- START PAGE TITLE -->
+                <h1 class="page-title">Contact us</h1>
+                <!-- END PAGE TITLE -->
+            </div>
+            <!-- START MAP -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.8906712319094!2d18.060061900000015!3d59.334779100000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d673f5cdfc5%3A0xf42205807d3f0bbc!2sKungsgatan+54%2C+111+35+Stockholm%2C+Sweden!5e0!3m2!1sen!2s!4v1413497254752" height="450" style="border:0; margin-bottom: 20px;" class="col-md-12"></iframe>
+            <!-- END MAP -->
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well well-sm">
+                    <!-- START CONTACT FORM -->
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-envelope"></span>
+                                        </span>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <select id="subject" name="subject" class="form-control" required="required">
+                                        <option value="" selected="">Choose One:</option>
+                                        <option value="service">General Customer Service</option>
+                                        <option value="suggestions">Suggestions</option>
+                                        <option value="product">Product Support</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        Message</label>
+                                    <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END CONTACT FORM -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
