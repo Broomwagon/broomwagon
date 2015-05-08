@@ -1,13 +1,13 @@
-Broomwagon
-=====
+# Broomwagon
 
-### What is Broomwagon?
+
+## What is Broomwagon?
 
 
 Broomwagon is a sleek, intuitive and powerful eCommerce platform for faster and easier customer experience
 
 
-### Quick start
+## Quick start
 
 Prerequisites:
 
