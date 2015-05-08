@@ -5,6 +5,8 @@
 $primary-color: #f27490;
 $grey: #dddddd;
 $black: #121212;
+$text-color: #121212;
+$top-nav: #7D8A2E;
 
 @mixin transform-rotate($rotation) {
     -ms-transform: rotate($rotation);
@@ -27,10 +29,10 @@ body {
 }
 
 a {
-    color: $black;
+    color: $text-color;
     text-decoration: none;
     &:hover {
-        color: #333;
+        color: lighten($text-color, 10%);
     }
 }
 
@@ -65,7 +67,7 @@ a {
 }
 
 .corner-black {
-    border-color: rgba(255, 255, 255, 0) $black rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0) black rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
 }
 
 .corner-text {
@@ -94,14 +96,14 @@ a {
     > {
         li > {
             a, span {
-                color: $black;
+                color: $text-color;
             }
         }
         .active > {
             a, span, a:hover, span:hover, a:focus, span:focus {
                 background-color: #f5f5f5;
                 border-color: $grey;
-                color: $black;
+                color: $text-color;
                 cursor: default;
                 z-index: 2;
             }
@@ -138,18 +140,18 @@ a {
 }
 
 .navmenu-inverse, .navbar-inverse .navbar-offcanvas {
-    background-color: $black;
+    background-color: black;
     border-color: #080808;
 }
 
 .navmenu-inverse {
     .nav .open > a {
         border-bottom: 1px solid #111;
-        background: $black;
+        background: black;
         font-weight: bold;
         &:hover, &:focus {
             border-bottom: 1px solid #111;
-            background: $black;
+            background:$black;
             font-weight: bold;
         }
     }
@@ -219,7 +221,7 @@ a {
 .search-mobile {
     margin-top: 7px;
     input[type=text] {
-        background: $black;
+        background: black;
         border-color: #333;
         border-radius: 0;
         &:focus {
@@ -243,26 +245,26 @@ a {
 }
 
 .navbar-sellstrap {
-    background: $black;
+    background: $top-nav;
     .navbar-nav > li > a {
         font-family: "Gafata", sans-serif;
         font-size: 15px;
         text-transform: uppercase;
         color: white;
         &:hover {
-            background: $black;
+            background: lighten($top-nav, 10%);
             padding-bottom: 12px;
-            border-bottom: 3px solid #999;
+            border-bottom: 3px solid darken($top-nav, 10%);
         }
     }
 }
 
 .nav .open > a {
-    background-color: $black;
+    background-color: $text-color;
     padding-bottom: 12px;
     border-bottom: 3px solid #999;
     &:hover, &:focus {
-        background-color: $black;
+        background-color: $text-color;
         padding-bottom: 12px;
         border-bottom: 3px solid #999;
     }
@@ -320,7 +322,7 @@ a {
     }
     &:hover {
         .round-header {
-            color: $black;
+            color: $text-color;
             border-color: #999;
         }
         .well-sm {
@@ -350,7 +352,7 @@ a {
     > {
         li > a {
             clear: both;
-            color: $black;
+            color: $text-color;
             display: block;
             font-weight: 400;
             line-height: 1.42857;
@@ -358,26 +360,26 @@ a {
             white-space: nowrap;
             &:hover, &:focus {
                 background: #f5f5f5;
-                color: $black;
+                color: $text-color;
                 text-decoration: none;
             }
         }
         .active > a {
-            background-color: #428bca;
+            background-color: $primary-color;
             color: #fff;
             outline: 0 none;
             text-decoration: none;
             &:hover, &:focus {
-                background-color: #428bca;
+                background-color: $primary-color;
                 color: #fff;
                 outline: 0 none;
                 text-decoration: none;
             }
         }
         .disabled > a {
-            color: #777;
+            color: #999;
             &:hover, &:focus {
-                color: #777;
+                color: #999;
             }
             &:hover, &:focus {
                 background: transparent none;
@@ -401,7 +403,7 @@ a {
 .bigdeal {
     background-color: $black;
     background: url('../images/watches.jpg') -300px -200px no-repeat;
-    color: $black;
+    color: $text-color;
     margin-bottom: 30px;
     padding: 48px 30px;
 }
@@ -493,7 +495,7 @@ a {
 
 .footer {
     background: #f2f2f2;
-    border-top: 3px solid #CCC;
+    border-top: 3px solid lighten($top-nav, 10%);
     margin-top: 50px;
 }
 
@@ -544,7 +546,7 @@ a {
     border: 1px solid $grey;
     text-align: center;
     margin-right: 5px;
-    color: #666;
+    color: #999;
     &.social-facebook:hover, &.social-twitter:hover {}
 }
 
@@ -583,18 +585,18 @@ a {
             padding-right: 10px;
             height: 60px;
             font-size: 15px;
-            color: $black;
+            color: $text-color;
             font-weight: bold;
         }
     }
     &:hover .product-name a {
         background: white;
-        color: $black;
+        color: $text-color;
     }
     .price {
         font-size: 14px;
         font-weight: bold;
-        color: $black;
+        color: $text-color;
     }
     .stock {
         font-size: 13px;
@@ -606,13 +608,9 @@ a {
     }
 }
 
-.price-text-color {
-    color: #219FD1;
-}
-
 .product-item {
     .info .rating {
-        color: #777;
+        color: #999;
     }
     .rating {
         float: left;
@@ -665,7 +663,7 @@ a {
     background: #f2f2f2;
     border-top: 1px solid #CCC;
     margin: 0;
-    color: $black;
+    color: $text-color;
     border-radius: 0;
     &:hover {
         color: darken($primary-color, 20%);
@@ -709,7 +707,7 @@ a {
                     clear: both;
                     font-weight: normal;
                     line-height: 1.428571429;
-                    color: #333333;
+                    color: $text-color;
                     white-space: normal;
                 }
             }
@@ -717,7 +715,7 @@ a {
         ul > li > a {
             &:hover, &:focus {
                 text-decoration: none;
-                color: $black;
+                color: $text-color;
                 background-color: #f5f5f5;
             }
         }
@@ -736,7 +734,7 @@ a {
         }
     }
     &.dropdown-header {
-        color: #428bca;
+        color: $primary-color;
         font-size: 18px;
     }
 }
@@ -773,7 +771,7 @@ a {
                 padding-left: 5px;
                 padding-right: 5px;
                 line-height: 30px;
-                color: $black;
+                color: $text-color;
                 &:hover {
                     background: $primary-color;
                     color: white;
@@ -825,7 +823,7 @@ a {
 /* tabs left overwrite */
 
 .tabs-left > li > a {
-    color: $black;
+    color: $text-color;
 }
 
 /* my cart */
@@ -850,7 +848,7 @@ a {
     background: $grey;
     font-weight: bold;
     text-decoration: none;
-    color: $black;
+    color: $text-color;
     line-height: 30px;
     font-size: 13px;
     display: block;
@@ -860,7 +858,7 @@ a {
         background: $grey;
         font-weight: bold;
         text-decoration: none;
-        color: $black;
+        color: $text-color;
         line-height: 30px;
         font-size: 13px;
         display: block;
@@ -872,7 +870,7 @@ a {
 .sign-quantity {
     font-size: 11px;
     font-weight: bold;
-    color: #F73F69;
+    color: $primary-color;
 }
 
 .my-cart li {
@@ -881,7 +879,7 @@ a {
         width: 190px;
         margin-right: 40px;
         a {
-            color: $black;
+            color: $text-color;
         }
     }
     .cart-product-price {
@@ -1097,7 +1095,7 @@ a {
         border: 2px solid white;
     }
     .active img {
-        border: 2px solid #333 !important;
+        border: 2px solid $text-color !important;
     }
 }
 
@@ -1192,7 +1190,7 @@ a {
 
 .panel-login a, .panel-signup a {
     font-weight: bold;
-    color: $black;
+    color: $text-color;
 }
 
 .panel-login, .panel-signup {
