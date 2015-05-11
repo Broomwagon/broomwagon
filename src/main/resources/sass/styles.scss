@@ -7,12 +7,13 @@ $light-grey:#f2f2f2;
 $grey: #DDD;
 $dark-grey: #999;
 
-$primary-color: #f27490;
+$main-background-color: white;
+$main-text-color: #121212;
+$highlight-color: #f27490;
 
-$text-color: #121212;
-$top-nav: #2f2f2f;
-$top-nav-text: white;
 $brand: white;
+$top-nav: #383838;
+$top-nav-text: white;
 
 @mixin transform-rotate($rotation) {
     -ms-transform: rotate($rotation);
@@ -35,10 +36,10 @@ body {
 }
 
 a {
-    color: $text-color;
+    color: $main-text-color;
     text-decoration: none;
     &:hover {
-        color: lighten($text-color, 10%);
+        color: lighten($main-text-color, 10%);
     }
 }
 
@@ -52,13 +53,13 @@ a {
 }
 
 .breadcrumb {
-    background: white;
+    background: $main-background-color;
     border-radius: 0;
     padding-left: 0;
 }
 
 .corner {
-    border-color: rgba(255, 255, 255, 0) darken($primary-color, 10%) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0) darken($highlight-color, 10%) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
     border-style: solid;
     border-width: 0 70px 40px 0;
     position: absolute;
@@ -69,7 +70,7 @@ a {
 }
 
 .corner-primary {
-    border-color: rgba(255, 255, 255, 0) $primary-color rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0) $highlight-color rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
 }
 
 .corner-black {
@@ -77,7 +78,7 @@ a {
 }
 
 .corner-text {
-    color: white;
+    color: $main-background-color;
     font-size: 10px;
     font-weight: bold;
     position: relative;
@@ -102,14 +103,14 @@ a {
     > {
         li > {
             a, span {
-                color: $text-color;
+                color: $main-text-color;
             }
         }
         .active > {
             a, span, a:hover, span:hover, a:focus, span:focus {
-                background-color: #f5f5f5;
+                background-color: $main-background-color;
                 border-color: $grey;
-                color: $text-color;
+                color: $main-text-color;
                 cursor: default;
                 z-index: 2;
             }
@@ -207,7 +208,7 @@ a {
 .navmenu-inverse .dropdown-menu > li > a {
     clear: both;
     background: $top-nav;
-    color: $top-nav-text;
+    color: $main-background-color;
     display: block;
     font-weight: 400;
     line-height: 1.8;
@@ -237,7 +238,7 @@ a {
         border-color: darken($top-nav, 10%);
         border-radius: 0;
         &:focus {
-            background: $top-nav-text;
+            background: $main-background-color;
         }
     }
 }
@@ -272,11 +273,11 @@ a {
 }
 
 .nav .open > a {
-    background-color: $text-color;
+    background-color: $main-text-color;
     padding-bottom: 12px;
     border-bottom: 3px solid #999;
     &:hover, &:focus {
-        background-color: $text-color;
+        background-color: $main-text-color;
         padding-bottom: 12px;
         border-bottom: 3px solid #999;
     }
@@ -298,15 +299,15 @@ a {
     text-align: center;
     margin-top: 80px;
     .well-sm {
-        background: white;
-        color: $text-color;
+        background: $main-background-color;
+        color: $main-text-color;
         border: 1px solid $grey;
         border-top: 3px solid $grey;
         border-radius: 0;
         padding: 0;
     }
     .round-header {
-        background: white;
+        background: $main-background-color;
         width: 70px;
         height: 70px;
         line-height: 80px;
@@ -319,7 +320,7 @@ a {
     }
     h4 {
         font-weight: bold;
-        color: $primary-color;
+        color: $highlight-color;
         padding-top: 40px;
         margin-top: 0;
     }
@@ -334,7 +335,7 @@ a {
     }
     &:hover {
         .round-header {
-            color: $text-color;
+            color: $main-text-color;
             border-color: $dark-grey;
         }
         .well-sm {
@@ -345,7 +346,7 @@ a {
 }
 
 .dropdown-menu {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: $main-background-color;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 0;
     box-shadow: 0 6px 7px rgba(0, 0, 0, 0.176);
@@ -364,25 +365,25 @@ a {
     > {
         li > a {
             clear: both;
-            color: $text-color;
+            color: $main-text-color;
             display: block;
             font-weight: 400;
             line-height: 1.42857;
             padding: 3px 20px;
             white-space: nowrap;
             &:hover, &:focus {
-                background: #f5f5f5;
-                color: $text-color;
+                background: $light-grey;
+                color: $main-text-color;
                 text-decoration: none;
             }
         }
         .active > a {
-            background-color: $primary-color;
+            background-color: $highlight-color;
             color: $top-nav-text;
             outline: 0 none;
             text-decoration: none;
             &:hover, &:focus {
-                background-color: $primary-color;
+                background-color: $highlight-color;
                 color: $top-nav-text;
                 outline: 0 none;
                 text-decoration: none;
@@ -405,7 +406,7 @@ a {
 .dropdown-header {
     font-size: 14px;
     font-weight: bold;
-    color: $text-color;
+    color: $main-text-color;
     display: block;
     line-height: 1.42857;
     padding: 3px 3px 3px 19px;
@@ -423,14 +424,14 @@ a {
 }
 
 .btn-primary {
-    background: none repeat scroll 0 0 $primary-color;
-    border-bottom: 2px solid darken($primary-color, 10%);
+    background: none repeat scroll 0 0 $highlight-color;
+    border-bottom: 2px solid darken($highlight-color, 10%);
     border-radius: 0;
     color: #fff;
     &:hover {
-        background: lighten($primary-color,5%);
+        background: lighten($highlight-color,5%);
         color: #fff;
-        border-bottom: 2px solid darken($primary-color, 1%);
+        border-bottom: 2px solid darken($highlight-color, 1%);
     }
 }
 
@@ -528,7 +529,7 @@ a {
             > li {
                 line-height: 25px;
                 > a {
-                    color: $text-color;
+                    color: $main-text-color;
                 }
             }
         }
@@ -589,26 +590,26 @@ a {
             padding-right: 10px;
             height: 60px;
             font-size: 15px;
-            color: $text-color;
+            color: $main-text-color;
             font-weight: bold;
         }
     }
     &:hover .product-name a {
         background: white;
-        color: $text-color;
+        color: $main-text-color;
     }
     .price {
         font-size: 14px;
         font-weight: bold;
-        color: $text-color;
+        color: $main-text-color;
     }
     .stock {
         font-size: 13px;
         font-weight: bold;
-        color: $primary-color;
+        color: $highlight-color;
     }
     .stock-last {
-        color: darken($primary-color, 20%);
+        color: darken($highlight-color, 20%);
     }
 }
 
@@ -651,9 +652,9 @@ a {
         padding-left: 10px;
     }
     &:hover .btn-cart {
-        background-color: $primary-color;
-        @include filter-gradient($primary-color, darken($primary-color, 5%), vertical);
-        @include background-image(linear-gradient(top,  $primary-color 0%,darken($primary-color, 5%) 100%));
+        background-color: $highlight-color;
+        @include filter-gradient($highlight-color, darken($highlight-color, 5%), vertical);
+        @include background-image(linear-gradient(top,  $highlight-color 0%,darken($highlight-color, 5%) 100%));
         color: white;
     }
 }
@@ -662,10 +663,10 @@ a {
     background: #f2f2f2;
     border-top: 1px solid #CCC;
     margin: 0;
-    color: $text-color;
+    color: $main-text-color;
     border-radius: 0;
     &:hover {
-        color: darken($primary-color, 20%);
+        color: darken($highlight-color, 20%);
     }
     .fa {
         width: 25px;
@@ -706,7 +707,7 @@ a {
                     clear: both;
                     font-weight: normal;
                     line-height: 1.428571429;
-                    color: $text-color;
+                    color: $main-text-color;
                     white-space: normal;
                 }
             }
@@ -714,7 +715,7 @@ a {
         ul > li > a {
             &:hover, &:focus {
                 text-decoration: none;
-                color: $text-color;
+                color: $main-text-color;
                 background-color: #f5f5f5;
             }
         }
@@ -733,7 +734,7 @@ a {
         }
     }
     &.dropdown-header {
-        color: $primary-color;
+        color: $highlight-color;
         font-size: 18px;
     }
 }
@@ -747,12 +748,12 @@ a {
 
 .tab-pane h4 {
     text-transform: uppercase;
-    color: $primary-color;
+    color: $highlight-color;
 }
 
 .menu-column {
     h4 {
-        color: $primary-color;
+        color: $highlight-color;
         text-transform: uppercase;
         margin: 0;
         border-bottom: 1px solid $grey;
@@ -770,9 +771,9 @@ a {
                 padding-left: 5px;
                 padding-right: 5px;
                 line-height: 30px;
-                color: $text-color;
+                color: $main-text-color;
                 &:hover {
-                    background: $primary-color;
+                    background: $highlight-color;
                     color: white;
                 }
             }
@@ -822,7 +823,7 @@ a {
 /* tabs left overwrite */
 
 .tabs-left > li > a {
-    color: $text-color;
+    color: $main-text-color;
 }
 
 /* my cart */
@@ -847,7 +848,7 @@ a {
     background: $grey;
     font-weight: bold;
     text-decoration: none;
-    color: $text-color;
+    color: $main-text-color;
     line-height: 30px;
     font-size: 13px;
     display: block;
@@ -857,7 +858,7 @@ a {
         background: $grey;
         font-weight: bold;
         text-decoration: none;
-        color: $text-color;
+        color: $main-text-color;
         line-height: 30px;
         font-size: 13px;
         display: block;
@@ -869,7 +870,7 @@ a {
 .sign-quantity {
     font-size: 11px;
     font-weight: bold;
-    color: $primary-color;
+    color: $highlight-color;
 }
 
 .my-cart li {
@@ -878,13 +879,13 @@ a {
         width: 190px;
         margin-right: 40px;
         a {
-            color: $text-color;
+            color: $main-text-color;
         }
     }
     .cart-product-price {
         font-size: 12px;
         font-weight: bold;
-        color: $primary-color;
+        color: $highlight-color;
         margin-right: 10px;
     }
 }
@@ -897,7 +898,7 @@ a {
 
 .label-checkout {
     background: white;
-    color: $primary-color;
+    color: $highlight-color;
     line-height: 20px;
     margin-top: 1px;
     font-size: 13px;
@@ -960,7 +961,7 @@ a {
         padding-right: 10px;
         border-bottom: 3px solid $grey;
         &:hover {
-            background: $primary-color;
+            background: $highlight-color;
             color: white;
             text-decoration: none;
         }
@@ -1031,7 +1032,7 @@ a {
         line-height: 30px;
         b {
             font-weight: normal;
-            color: $primary-color;
+            color: $highlight-color;
         }
     }
 }
@@ -1050,7 +1051,7 @@ a {
 }
 
 .btn-addtocart {
-    background: darken($primary-color, 10%);
+    background: darken($highlight-color, 10%);
     color: white;
     .fa {
         width: 25px;
@@ -1094,7 +1095,7 @@ a {
         border: 2px solid white;
     }
     .active img {
-        border: 2px solid $text-color !important;
+        border: 2px solid $main-text-color !important;
     }
 }
 
@@ -1166,7 +1167,7 @@ a {
     }
     &:last-child td.checkout-value {
         font-weight: bold;
-        color: $primary-color;
+        color: $highlight-color;
     }
 }
 
@@ -1189,7 +1190,7 @@ a {
 
 .panel-login a, .panel-signup a {
     font-weight: bold;
-    color: $text-color;
+    color: $main-text-color;
 }
 
 .panel-login, .panel-signup {
@@ -1199,7 +1200,7 @@ a {
 }
 
 .panel-login > .panel-body, .panel-signup > .panel-body {
-    border-top: 3px solid $primary-color;
+    border-top: 3px solid $highlight-color;
 }
 
 .panel-login > .panel-footer, .panel-signup > .panel-footer {
