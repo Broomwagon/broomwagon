@@ -193,7 +193,9 @@ a {
     padding: 10px;
 }
 
-.navmenu-inverse .navmenu-nav.dropdown-menu, .navbar-inverse .navbar-offcanvas .navmenu-nav.dropdown-menu {}
+.navmenu-inverse .navmenu-nav.dropdown-menu, .navbar-inverse .navbar-offcanvas .navmenu-nav.dropdown-menu {
+    background-color: lighten($top-nav, 10%);
+}
 
 .nav-cart {
     text-align: center;
@@ -1194,7 +1196,7 @@ a {
 }
 
 .panel-login, .panel-signup {
-    border-color: #CCC;
+    border-color: $grey;
     border-radius: 0;
     margin-top: 50px;
 }
