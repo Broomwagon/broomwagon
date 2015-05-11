@@ -7,13 +7,18 @@ $light-grey:#f2f2f2;
 $grey: #DDD;
 $dark-grey: #999;
 
-$main-background-color: white;
+$main-background-color: #fbfbfb;
 $main-text-color: #121212;
 $highlight-color: #f27490;
 
-$brand: white;
+$brand-color: #fbfbfb;
+$brand-font: "Roboto Slab", sans-serif;
+$brand-font-size: 25px;
+$brand-font-size-offcanvas: 20px;
+
 $top-nav: #383838;
 $top-nav-text: white;
+$top-nav-font: "Gafata", sans-serif;
 
 @mixin transform-rotate($rotation) {
     -ms-transform: rotate($rotation);
@@ -135,13 +140,13 @@ a {
 
 .brand-offcanvas {
     padding: 15px;
-    font-family: "Roboto Slab", sans-serif;
-    font-size: 25px;
+    font-family: $brand-font;
+    font-size: $brand-font-size-offcanvas;
     font-weight: bold;
-    color: $brand;
+    color: $brand-color;
     border-bottom: 1px solid darken($top-nav, 10%);
     a {
-        color: $brand;
+        color: $brand-color;
         text-decoration: none;
     }
 }
@@ -250,19 +255,19 @@ a {
 }
 
 .navbar-brand {
-    font-family: "Roboto Slab", sans-serif;
-    font-size: 25px;
+    font-family: $brand-font;
+    font-size: $brand-font-size;
     font-weight: bold;
-    color: $brand;
+    color: $brand-color;
     &:hover {
-        color: darken($brand, 5%);
+        color: darken($brand-color, 5%);
     }
 }
 
 .navbar-sellstrap {
     background: $top-nav;
     .navbar-nav > li > a {
-        font-family: "Gafata", sans-serif;
+        font-family: $top-nav-font;
         font-size: 15px;
         text-transform: uppercase;
         color: $top-nav-text;
@@ -690,7 +695,7 @@ a {
         }
     }
     .navbar-brand {
-        color: $brand;
+        color: $brand-color;
     }
 }
 
