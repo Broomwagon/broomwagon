@@ -5,9 +5,29 @@
 </head>
 <body>
 <div layout:fragment="content" class="container">
-    <p>Not Found</p>
+    <div class="jumbotron">
+        <h1>Not found</h1>
+        <p>Something has gone wrong, either the link is broken or the page has been removed</p>
+    </div>
 
-    <p th:text="${url}">Url</p>
+    <div class="page-header">
+        <h1>Check out the following products</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div th:include="segment/product :: product('on sale','url1', 'title')"></div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div th:include="segment/product :: product('-30%','url2', 'White-grey blouse')"></div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div th:include="segment/product :: product('attention','url3', 'Diamond Hoop Earrings in 14k')"></div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div th:include="segment/product :: product('glow','url4', 'Deedee Skater Long Sleeve Dress')"></div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
