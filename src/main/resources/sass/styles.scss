@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Gafata|Lato:300,700);
+@import url(http://fonts.googleapis.com/css?family=Gafata:300,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
 @import url(http://fonts.googleapis.com/css?family=Cantarell:400,700);
 @import url(http://fonts.googleapis.com/css?family=Oleo+Script:400,700);
@@ -10,6 +10,7 @@ $dark-grey: #999;
 
 $main-background-color: #fbfbfb;
 $main-text-color: #121212;
+$main-text-font: "Roboto Slab", sans-serif;
 $highlight-color: #f27490;
 
 $brand-color: #fbfbfb;
@@ -29,7 +30,7 @@ $top-nav-font: "Gafata", sans-serif;
 }
 
 body {
-    font-family: Lato, sans-serif;
+    font-family: $main-text-font;
     > .container {
         min-height: 680px;
     }
@@ -485,7 +486,7 @@ a {
     transition: all 0.7s ease 0s;
     cursor: pointer;
     &.form-control {
-        font-family: "Gafata", sans-serif;
+        font-family: $top-nav-font;
         padding-right: 0;
         font-size: 15px;
         &:focus {
