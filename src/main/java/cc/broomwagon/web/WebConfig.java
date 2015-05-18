@@ -5,6 +5,7 @@ import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 import cc.broomwagon.web.interceptor.MenuInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.ErrorPage;
 import org.springframework.context.annotation.Bean;
@@ -23,10 +24,12 @@ import java.util.Locale;
 
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
+    @Autowired
+    private MenuInterceptor menuInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new MenuInterceptor()).addPathPatterns("/**");;
+        registry.addInterceptor(menuInterceptor).addPathPatterns("/**");;
     }
 
     @Bean

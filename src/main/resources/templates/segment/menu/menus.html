@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Menu</title>
+</head>
+<body th:fragment="menus">
+    <!--/* start slide navigation */-->
+    <div th:replace="segment/menu/slide-menu :: slide-menu"></div>
+
+    <!--/* start mobile navbar */-->
+    <div th:replace="segment/menu/mobile-navbar :: mobile-navbar"></div>
+
+    <!--/* start main navbar */-->
+    <div th:replace="segment/menu/main-menu :: main-menu"></div>
+</body>
+</html>

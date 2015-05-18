@@ -4,204 +4,8 @@
     <meta charset="UTF-8"/>
     <title>Menu</title>
 </head>
-<body th:fragment="menu">
-
-<!--/* start slide navigation */-->
-<div class="navmenu navmenu-inverse navmenu-fixed-left offcanvas">
-    <!--/* start logo */-->
-    <div class="brand-offcanvas">
-        <a href="/">Broomwagon</a>
-    </div>
-    <!--/* end logo */-->
-
-    <!--/* start navigation */-->
-    <ul class="nav navmenu-nav">
-        <!--/* start menu item */-->
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu 1 <b class="caret pull-right"></b></a>
-            <ul class="dropdown-menu navmenu-nav">
-                <li>
-                    <a href="/products/">All products 1</a>
-                </li>
-                <li>
-                    <a href="/products/url1">Single product 1</a>
-                </li>
-                <li>
-                    <a href="/dev/cart.html">My cart</a>
-                </li>
-                <li>
-                    <a href="/dev/contact.html">Contact us</a>
-                </li>
-                <li>
-                    <a href="/dev/about.html">About Us</a>
-                </li>
-                <li>
-                    <a href="/dev/static.html">Page Elements</a>
-                </li>
-                <li>
-                    <a href="/dev/signup.html">About</a>
-                </li>
-                <li>
-                    <a href="/login">Login</a>
-                </li>
-                <li>
-                    <a href="/dev/signup.html">Signup</a>
-                </li>
-                <li>
-                    <a href="/dev/profile.html">User profile</a>
-                </li>
-                <li>
-                    <a href="/dev/history.html">Order history</a>
-                </li>
-                <li>
-                    <a href="/dev/wishlist.html">Wishlist</a>
-                </li>
-            </ul>
-        </li>
-        <!--/* end menu item */-->
-
-        <!--/* start menu item */-->
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu 2 <b class="caret pull-right"></b></a>
-            <ul class="dropdown-menu navmenu-nav">
-                <li>
-                    <a href="/products/">All products 2</a>
-                </li>
-                <li>
-                    <a href="/products/url1">Single product 2</a>
-                </li>
-                <li>
-                    <a href="/dev/cart.html">My cart</a>
-                </li>
-                <li>
-                    <a href="/dev/contact.html">Contact us</a>
-                </li>
-                <li>
-                    <a href="/dev/about.html">About Us</a>
-                </li>
-                <li>
-                    <a href="/dev/static.html">Page elements</a>
-                </li>
-                <li>
-                    <a href="/dev/signup.html">About</a>
-                </li>
-                <li>
-                    <a href="/login">Login</a>
-                </li>
-                <li>
-                    <a href="/dev/signup.html">Signup</a>
-                </li>
-                <li>
-                    <a href="/dev/profile.html">User profile</a>
-                </li>
-                <li>
-                    <a href="/dev/history.html">Order history</a>
-                </li>
-                <li>
-                    <a href="/dev/wishlist.html">Wishlist</a>
-                </li>
-            </ul>
-        </li>
-        <!--/* end menu item */-->
-
-        <!--/* start menu item */-->
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret pull-right"></b></a>
-            <ul class="dropdown-menu navmenu-nav">
-                <li>
-                    <a href="/products/">All products 3</a>
-                </li>
-                <li>
-                    <a href="/products/url1">Single product 3</a>
-                </li>
-                <li>
-                    <a href="/dev/cart.html">My cart</a>
-                </li>
-                <li>
-                    <a href="/dev/contact.html">Contact us</a>
-                </li>
-                <li>
-                    <a href="/dev/about.html">About Us</a>
-                </li>
-                <li>
-                    <a href="/dev/static.html">Page Elements</a>
-                </li>
-                <li>
-                    <a href="/dev/signup.html">About</a>
-                </li>
-                <li>
-                    <a href="/login">Login</a>
-                </li>
-                <li>
-                    <a href="/dev/signup.html">Signup</a>
-                </li>
-                <li>
-                    <a href="/dev/profile.html">User profile</a>
-                </li>
-                <li>
-                    <a href="/dev/history.html">Order history</a>
-                </li>
-                <li>
-                    <a href="/dev/wishlist.html">Wishlist</a>
-                </li>
-            </ul>
-        </li>
-        <!--/* end menu item */-->
-
-        <!--/* start menu item */-->
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">My account <b class="caret pull-right"></b></a>
-            <ul class="dropdown-menu navmenu-nav" role="menu">
-                <li><a href="/dev/cart.html">My cart</a>
-                </li>
-                <li><a href="/checkout">Checkout</a>
-                </li>
-                <li><a href="/login">Login</a>
-                </li>
-                <li><a href="/dev/signup.html">Signup</a>
-                </li>
-                <li><a href="/dev/profile.html">User profile</a>
-                </li>
-                <li><a href="/dev/history.html">Order history</a>
-                </li>
-                <li><a href="/dev/wishlist.html">Wishlist</a>
-                </li>
-            </ul>
-        </li>
-        <!--/* end menu item */-->
-
-        <!--/* start cart link */-->
-        <li class="nav-cart">
-            <a href="/dev/cart.html">
-                <span class="fa fa-shopping-cart fa-3x"></span>
-                <br/>6 item(s)
-            </a>
-        </li>
-        <!--/* end cart link */-->
-    </ul>
-    <!--/* end navigation */-->
-</div>
-<!--/* end slide menu */-->
-
-<!--/* start mobile navbar */-->
-<div class="navbar navbar-inverse navbar-fixed-top visible-xs-block">
-    <button type="button" class="navbar-toggle pull-left" data-toggle="offcanvas" data-target=".navmenu"
-            data-canvas="body" style="margin-left: 20px;">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
-
-    <div class="container-search">
-        <form method="get" id="search-mobile" class="search-mobile">
-            <input type="text" class="form-control" placeholder="search"/>
-        </form>
-    </div>
-</div>
-<!--/* end mobile navbar */-->
-
-<!--/* start main navbar */-->
-<div class="navbar navbar-sellstrap visible-md-block visible-lg-block visible-sm-block" role="navigation">
+<body>
+<div th:fragment="main-menu" class="navbar navbar-sellstrap visible-md-block visible-lg-block visible-sm-block" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <!--/* logo */-->
@@ -760,6 +564,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <!--/* start search box */-->
                 <li class="search-box">
                     <div>
@@ -941,6 +746,5 @@
     </div>
     <!--/* container-fluid */-->
 </div>
-<!--/* end navbar */-->
 </body>
 </html>

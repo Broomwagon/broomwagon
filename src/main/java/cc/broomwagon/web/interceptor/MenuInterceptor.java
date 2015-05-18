@@ -2,6 +2,7 @@ package cc.broomwagon.web.interceptor;
 
 import cc.broomwagon.service.MenuManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Interceptor to populate menus
  */
+@Component
 public class MenuInterceptor implements HandlerInterceptor {
     public static final String MAIN_MENU = "mainMenu";
 
