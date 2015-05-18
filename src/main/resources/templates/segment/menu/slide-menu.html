@@ -8,7 +8,7 @@
 <div th:fragment="slide-menu" class="navmenu navmenu-inverse navmenu-fixed-left offcanvas">
     <!--/* start logo */-->
     <div class="brand-offcanvas">
-        <a href="/">Broomwagon</a>
+        <a href="/" th:text="${#themes.code('brand.name')}">Broomwagon</a>
     </div>
     <!--/* end logo */-->
 
