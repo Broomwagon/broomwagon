@@ -27,7 +27,13 @@ public final class TestFactory {
     }
 
     public static Menu aMenu() {
-        return new Menu(newArrayList(MenuItem.builder().build()));
+        return new Menu(
+                MenuItem.builder()
+                        .name("Menu")
+                        .url("parentUrl").build(),
+                newArrayList(MenuItem.builder()
+                        .name("name")
+                        .url("url").build()));
     }
 
 }

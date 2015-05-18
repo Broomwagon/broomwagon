@@ -16,7 +16,10 @@ public class DummyMenuDao implements MenuDao {
 
     @Override
     public Menu mainMenu() {
-        return new Menu(generateMenuItems(5));
+        return new Menu(MenuItem.builder()
+                .name("Menu")
+                .url("/products/").build(),
+                generateMenuItems(5));
     }
 
     private Iterable<MenuItem> generateMenuItems(int numberOfItemsToGenerate) {
@@ -28,6 +31,10 @@ public class DummyMenuDao implements MenuDao {
     }
 
     private MenuItem generateMenuItem() {
-        return MenuItem.builder().build();
+        return MenuItem
+                .builder()
+                .name("name")
+                .url("url")
+                .build();
     }
 }
