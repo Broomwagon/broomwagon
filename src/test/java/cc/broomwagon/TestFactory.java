@@ -1,5 +1,9 @@
 package cc.broomwagon;
 
+import static com.google.common.collect.Lists.newArrayList;
+
+import cc.broomwagon.model.Menu;
+import cc.broomwagon.model.MenuItem;
 import cc.broomwagon.model.Product;
 
 /**
@@ -20,6 +24,10 @@ public final class TestFactory {
                 .title("title")
                 .url(url)
                 .build();
+    }
+
+    public static Menu aMenu() {
+        return new Menu(newArrayList(MenuItem.builder().build()));
     }
 
 }
