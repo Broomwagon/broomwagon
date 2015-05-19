@@ -456,71 +456,21 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="/products/" class="dropdown-toggle">Menu 2</a>
+                    <a href="#" class="dropdown-toggle" th:href="${mainMenu.self.url}" th:text="${mainMenu.self.name}">Top menu</a>
                     <ul class="dropdown-menu megamenu row" style="width: 500px;">
                         <li>
-                            <div class="col-xs-4 menu-column">
-                                <h4>By Category</h4>
+                            <div class="col-xs-4 menu-column" th:each="menuItemGroup : ${mainMenu.items}">
+                                <h4 th:text="${menuItemGroup.key}">Group name</h4>
                                 <ul>
-                                    <li><a href="/products/">Category 1</a>
+                                    <li th:each="menuItem : ${menuItemGroup.value}" th:unless="${menuItem.imgUrl != null}">
+                                        <a href="#" th:href="${menuItem.url}" th:text="${menuItem.name}" th:if="${menuItem.imgUrl == null}">Name</a>
                                     </li>
-                                    <li><a href="/products/">Category 2</a>
-                                    </li>
-                                    <li><a href="/products/">Category 3</a>
-                                    </li>
-                                    <li><a href="/products/">Category 4</a>
-                                    </li>
-                                    <li><a href="/products/">Category 5</a>
-                                    </li>
-                                    <li><a href="/products/">Category 6</a>
-                                    </li>
-                                    <li><a href="/products/">Category 7</a>
-                                    </li>
-                                    <li><a href="/products/">Category 8</a>
-                                    </li>
+                                    <th:block th:each="menuItem : ${menuItemGroup.value}" th:if="${menuItem.imgUrl != null}">
+                                    <a href="#" class="image-link" th:href="${menuItem.url}" th:if="${menuItem.imgUrl != null}">
+                                        <img src="#" class="brand-logo" th:alt="${menuItem.name}" th:src="${menuItem.imgUrl}" />
+                                    </a>
+                                    </th:block>
                                 </ul>
-                            </div>
-                            <div class="col-xs-4 menu-column">
-                                <h4>By Occasion</h4>
-                                <ul>
-                                    <li><a href="/products/">Category 9</a>
-                                    </li>
-                                    <li><a href="/products/">Category 10</a>
-                                    </li>
-                                    <li><a href="/products/">Category 11</a>
-                                    </li>
-                                    <li><a href="/products/">Category 12</a>
-                                    </li>
-                                    <li><a href="/products/">Category 13</a>
-                                    </li>
-                                    <li><a href="/products/">Category 14</a>
-                                    </li>
-                                    <li><a href="/products/">Category 15</a>
-                                    </li>
-                                    <li><a href="/products/">Category 16</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-xs-4 menu-column">
-                                <h4>By Brand</h4>
-                                <a href="/products/" class="image-link">
-                                    <img src="/assets/images/prada.gif" alt="prada" class="brand-logo"/>
-                                </a>
-                                <a href="/products/" class="image-link">
-                                    <img src="/assets/images/cartier.gif" alt="cartier" class="brand-logo"/>
-                                </a>
-                                <a href="/products/" class="image-link">
-                                    <img src="/assets/images/fendi.gif" alt="fendi" class="brand-logo"/>
-                                </a>
-                                <a href="/products/" class="image-link">
-                                    <img src="/assets/images/dolce-gabbana.gif" alt="dolce gabbana" class="brand-logo"/>
-                                </a>
-                                <a href="/products/" class="image-link">
-                                    <img src="/assets/images/louis-vuitton.gif" alt="louis vuitton" class="brand-logo"/>
-                                </a>
-                                <a href="/products/" class="image-link">
-                                    <img src="/assets/images/dansko.gif" alt="dansko" class="brand-logo"/>
-                                </a>
                             </div>
                         </li>
                     </ul>
