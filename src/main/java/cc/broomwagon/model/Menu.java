@@ -11,6 +11,6 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class Menu {
-    @NonNull private MenuItem top;
+    @NonNull private MenuItem self;
     @NonNull private Iterable<MenuItem> items;
 }

@@ -17,24 +17,32 @@ public class DummyMenuDao implements MenuDao {
     @Override
     public Menu mainMenu() {
         return new Menu(MenuItem.builder()
-                .name("Menu")
+                .name("All")
                 .url("/products/").build(),
-                generateMenuItems(5));
+                generateMenuItems());
     }
 
-    private Iterable<MenuItem> generateMenuItems(int numberOfItemsToGenerate) {
+    private Iterable<MenuItem> generateMenuItems() {
         Collection<MenuItem> menuItems = newArrayList();
-        for (int i = 0; i < numberOfItemsToGenerate; i++) {
-            menuItems.add(generateMenuItem());
-        }
+        menuItems.add(generateMenuItem("/products/", "All products"));
+        menuItems.add(generateMenuItem("/products/url1", "Single product"));
+        menuItems.add(generateMenuItem("/dev/contact.html", "Contact us"));
+        menuItems.add(generateMenuItem("/dev/about.html", "About Us"));
+        menuItems.add(generateMenuItem("/dev/static.html", "Page Elements"));
+        menuItems.add(generateMenuItem("/login", "Login"));
+        menuItems.add(generateMenuItem("/dev/signup.html", "Signup"));
+        menuItems.add(generateMenuItem("/dev/cart.html", "My cart"));
+        menuItems.add(generateMenuItem("/dev/profile.html", "Edit profile"));
+        menuItems.add(generateMenuItem("/dev/history.html", "Order history"));
+        menuItems.add(generateMenuItem("/dev/wishlist.html", "Wishlist"));
         return menuItems;
     }
 
-    private MenuItem generateMenuItem() {
+    private MenuItem generateMenuItem(String url, String name) {
         return MenuItem
                 .builder()
-                .name("name")
-                .url("url")
+                .name(name)
+                .url(url)
                 .build();
     }
 }
