@@ -1,6 +1,6 @@
 package cc.broomwagon.web.interceptor;
 
-import cc.broomwagon.model.Menu;
+import cc.broomwagon.model.menu.Menu;
 import cc.broomwagon.service.MenuManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

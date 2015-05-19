@@ -1,5 +1,6 @@
-package cc.broomwagon.model;
+package cc.broomwagon.model.menu;
 
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
@@ -10,7 +11,8 @@ import lombok.ToString;
 @Getter
 @EqualsAndHashCode
 @ToString
-public class Menu {
-    @NonNull private MenuItem self;
-    @NonNull private Iterable<MenuItem> items;
+@Builder
+public class MenuItem {
+    @NonNull private String name;
+    @NonNull private String url;
 }

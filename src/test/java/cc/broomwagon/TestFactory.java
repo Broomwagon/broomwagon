@@ -3,10 +3,10 @@ package cc.broomwagon;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 
-import cc.broomwagon.model.Menu;
-import cc.broomwagon.model.MenuConfig;
-import cc.broomwagon.model.MenuItem;
-import cc.broomwagon.model.MenuItemConfig;
+import cc.broomwagon.model.menu.Menu;
+import cc.broomwagon.model.menu.MenuConfig;
+import cc.broomwagon.model.menu.MenuItem;
+import cc.broomwagon.model.menu.MenuItemConfig;
 import cc.broomwagon.model.Product;
 
 import java.util.Map;

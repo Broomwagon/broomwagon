@@ -3,8 +3,8 @@ package cc.broomwagon.service;
 import static org.mockito.Mockito.verify;
 
 import cc.broomwagon.dao.MenuDao;
-import cc.broomwagon.model.Menu;
-import cc.broomwagon.model.MenuConfig;
+import cc.broomwagon.model.menu.Menu;
+import cc.broomwagon.model.menu.MenuConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

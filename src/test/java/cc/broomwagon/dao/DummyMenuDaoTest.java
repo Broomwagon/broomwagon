@@ -6,8 +6,8 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
-import cc.broomwagon.model.Menu;
-import cc.broomwagon.model.MenuConfig;
+import cc.broomwagon.model.menu.Menu;
+import cc.broomwagon.model.menu.MenuConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

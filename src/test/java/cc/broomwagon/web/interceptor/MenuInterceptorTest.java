@@ -10,8 +10,8 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.verify;
 
-import cc.broomwagon.model.Menu;
-import cc.broomwagon.model.MenuConfig;
+import cc.broomwagon.model.menu.Menu;
+import cc.broomwagon.model.menu.MenuConfig;
 import cc.broomwagon.service.MenuManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;

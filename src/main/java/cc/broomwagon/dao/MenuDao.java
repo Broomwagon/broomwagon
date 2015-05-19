@@ -1,7 +1,7 @@
 package cc.broomwagon.dao;
 
-import cc.broomwagon.model.Menu;
-import cc.broomwagon.model.MenuConfig;
+import cc.broomwagon.model.menu.Menu;
+import cc.broomwagon.model.menu.MenuConfig;
 
 /**
  * Interface to retrieve menu items.
