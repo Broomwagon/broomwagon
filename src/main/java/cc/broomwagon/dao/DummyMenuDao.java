@@ -20,10 +20,12 @@ public class DummyMenuDao implements MenuDao {
 
     @Override
     public Menu mainMenu() {
+        Map<String, Iterable<MenuItem>> items = newHashMap();
+        items.put("Group1", generateMenuItems());
         return new Menu(MenuItem.builder()
                 .name("All")
                 .url("/products/").build(),
-                generateMenuItems());
+                items);
     }
 
     @Override

@@ -18,12 +18,13 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:href="${mainMenu.self.url}" th:text="${mainMenu.self.name}">Side menu<b class="caret pull-right"></b></a>
             <ul class="dropdown-menu navmenu-nav">
-                <th:block th:each="menuItem : ${mainMenu.items}">
-                    <li>
-                        <a href="#" th:href="${menuItem.url}" th:text="${menuItem.name}">Name</a>
-                    </li>
+                <th:block th:each="menuItemGroup : ${mainMenu.items}">
+                    <th:block th:each="menuItem : ${menuItemGroup.value}">
+                        <li>
+                            <a href="#" th:href="${menuItem.url}" th:text="${menuItem.name}">Name</a>
+                        </li>
+                    </th:block>
                 </th:block>
-                <!--/* <li class="divider"></li> */-->
             </ul>
         </li>
         <!--/* end menu item */-->

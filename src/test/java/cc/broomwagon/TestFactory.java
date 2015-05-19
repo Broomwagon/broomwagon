@@ -32,13 +32,15 @@ public final class TestFactory {
     }
 
     public static Menu aMenu() {
+        Map<String, Iterable<MenuItem>> items = newHashMap();
+        items.put("Group1", newArrayList(MenuItem.builder()
+                .name("name")
+                .url("url").build()));
         return new Menu(
                 MenuItem.builder()
                         .name("Menu")
-                        .url("parentUrl").build(),
-                newArrayList(MenuItem.builder()
-                        .name("name")
-                        .url("url").build()));
+                        .url("parentUrl").build(), items
+                );
     }
 
     public static MenuConfig aMenuConfig() {
