@@ -4,7 +4,7 @@ import static org.springframework.util.StringUtils.hasText;
 import static org.springframework.util.StringUtils.replace;
 
 import cc.broomwagon.model.Product;
-import cc.broomwagon.web.form.ProductForm;
+import cc.broomwagon.web.ui.ProductForm;
 import org.springframework.stereotype.Component;
 
 /**

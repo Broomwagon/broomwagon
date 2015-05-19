@@ -1,10 +1,15 @@
 package cc.broomwagon;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Maps.newHashMap;
 
 import cc.broomwagon.model.Menu;
+import cc.broomwagon.model.MenuConfig;
 import cc.broomwagon.model.MenuItem;
+import cc.broomwagon.model.MenuItemConfig;
 import cc.broomwagon.model.Product;
+
+import java.util.Map;
 
 /**
  * Created by vladimir.
@@ -34,6 +39,12 @@ public final class TestFactory {
                 newArrayList(MenuItem.builder()
                         .name("name")
                         .url("url").build()));
+    }
+
+    public static MenuConfig aMenuConfig() {
+        Map<String, MenuItemConfig> config = newHashMap();
+        config.put("Page Elements", MenuItemConfig.builder().appendDivider(true).build());
+        return new MenuConfig("All", config);
     }
 
 }

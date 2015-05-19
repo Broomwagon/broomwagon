@@ -1,4 +1,4 @@
-package cc.broomwagon.web.form;
+package cc.broomwagon.web.ui;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;

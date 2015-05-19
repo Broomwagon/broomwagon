@@ -1,5 +1,6 @@
 package cc.broomwagon.web.interceptor;
 
+import cc.broomwagon.model.Menu;
 import cc.broomwagon.service.MenuManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class MenuInterceptor implements HandlerInterceptor {
     public static final String MAIN_MENU = "mainMenu";
+    public static final String MAIN_MENU_CONFIG = "mainMenuConfig";
 
     @Autowired
     private MenuManager menuManager;
@@ -26,7 +28,9 @@ public class MenuInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        modelAndView.getModel().put(MAIN_MENU, menuManager.mainMenu());
+        Menu mainMenu = menuManager.mainMenu();
+        modelAndView.getModel().put(MAIN_MENU, mainMenu);
+        modelAndView.getModel().put(MAIN_MENU_CONFIG, menuManager.menuConfig(mainMenu.getSelf().getName()));
     }
 
     @Override

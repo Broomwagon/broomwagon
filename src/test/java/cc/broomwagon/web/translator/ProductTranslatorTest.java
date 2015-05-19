@@ -4,7 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 import cc.broomwagon.model.Product;
-import cc.broomwagon.web.form.ProductForm;
+import cc.broomwagon.web.ui.ProductForm;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

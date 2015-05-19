@@ -14,7 +14,7 @@ import static org.mockito.Mockito.verify;
 
 import cc.broomwagon.model.Product;
 import cc.broomwagon.service.ProductManager;
-import cc.broomwagon.web.form.ProductForm;
+import cc.broomwagon.web.ui.ProductForm;
 import cc.broomwagon.web.translator.ProductTranslator;
 import org.junit.Test;
 import org.junit.runner.RunWith;

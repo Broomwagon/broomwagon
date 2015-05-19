@@ -1,12 +1,16 @@
 package cc.broomwagon.dao;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Maps.newHashMap;
 
 import cc.broomwagon.model.Menu;
+import cc.broomwagon.model.MenuConfig;
 import cc.broomwagon.model.MenuItem;
+import cc.broomwagon.model.MenuItemConfig;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * Dummy dao - returns hardcoded menu items.
@@ -20,6 +24,13 @@ public class DummyMenuDao implements MenuDao {
                 .name("All")
                 .url("/products/").build(),
                 generateMenuItems());
+    }
+
+    @Override
+    public MenuConfig config(String menuName) {
+        Map<String, MenuItemConfig> config = newHashMap();
+        config.put("Page Elements", MenuItemConfig.builder().appendDivider(true).build());
+        return new MenuConfig("All", config);
     }
 
     private Iterable<MenuItem> generateMenuItems() {

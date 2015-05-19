@@ -7,6 +7,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
 import cc.broomwagon.model.Menu;
+import cc.broomwagon.model.MenuConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -25,5 +26,15 @@ public class DummyMenuDaoTest {
         // then
         assertThat(actual, is(notNullValue()));
         assertThat(size(actual.getItems()), equalTo(11));
+    }
+
+    @Test
+    public void shouldReturnMenuConfig() {
+        // when
+        MenuConfig actual = dummyMenuDao.config("name");
+
+        // then
+        assertThat(actual, is(notNullValue()));
+        assertThat(actual.getConfig().get("Page Elements"), is(notNullValue()));
     }
 }
