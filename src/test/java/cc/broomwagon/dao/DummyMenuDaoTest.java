@@ -25,7 +25,7 @@ public class DummyMenuDaoTest {
 
         // then
         assertThat(actual, is(notNullValue()));
-        assertThat(size(actual.getItems().values().iterator().next()), equalTo(11));
+        assertThat(size(actual.getItems().values().iterator().next()), equalTo(5));
     }
 
     @Test

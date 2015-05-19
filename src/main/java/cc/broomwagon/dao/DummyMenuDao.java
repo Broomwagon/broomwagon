@@ -21,7 +21,8 @@ public class DummyMenuDao implements MenuDao {
     @Override
     public Menu mainMenu() {
         Map<String, Iterable<MenuItem>> items = newHashMap();
-        items.put("Group1", generateMenuItems());
+        items.put("Static Pages", generateMenuItems());
+        items.put("My Account", generateMyAccountMenuItems());
         return new Menu(MenuItem.builder()
                 .name("All")
                 .url("/products/").build(),
@@ -42,6 +43,11 @@ public class DummyMenuDao implements MenuDao {
         menuItems.add(generateMenuItem("/dev/contact.html", "Contact us"));
         menuItems.add(generateMenuItem("/dev/about.html", "About Us"));
         menuItems.add(generateMenuItem("/dev/static.html", "Page Elements"));
+        return menuItems;
+    }
+
+    private Iterable<MenuItem> generateMyAccountMenuItems() {
+        Collection<MenuItem> menuItems = newArrayList();
         menuItems.add(generateMenuItem("/login", "Login"));
         menuItems.add(generateMenuItem("/dev/signup.html", "Signup"));
         menuItems.add(generateMenuItem("/dev/cart.html", "My cart"));
