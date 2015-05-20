@@ -13,7 +13,7 @@
         <div class="navbar-full">
             <ul class="nav navbar-nav">
                 <th:block th:each="menu : ${mainMenus}">
-                    <li th:replace="segment/menu/main-menu-simple:: body(${menu.menu}, ${menu.config})"></li>
+                    <li th:replace="${#strings.concat('segment/menu/main-menu-', menu.config.menuAttributes.type)} :: body(${menu.menu}, ${menu.config})"></li>
                 </th:block>
                 <li class="search-box">
                     <div>

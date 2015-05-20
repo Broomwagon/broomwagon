@@ -14,7 +14,8 @@ import java.util.Map;
 @ToString
 public class MenuConfig {
     @NonNull private String name;
-    @NonNull private Map<String, MenuItemConfig> self;
+    @NonNull private Map<String, Object> menuAttributes;
+
     @NonNull private Map<String, MenuItemConfig> items;
     @NonNull private Map<String, MenuItemConfig> groups;
 }

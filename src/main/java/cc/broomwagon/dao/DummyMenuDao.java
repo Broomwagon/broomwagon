@@ -27,19 +27,38 @@ public class DummyMenuDao implements MenuDao {
                 new MenuItemGroup("Brands", generateBrandMenuItems()));
 
         Collection<Menu> menus = newArrayList();
-        menus.add(new Menu(MenuItem.builder().name("All").url("/products/").build(), groups));
-
+        menus.add(new Menu(MenuItem.builder().name("Sample menu").url("/products/").build(), groups));
+        menus.add(new Menu(MenuItem.builder().name("Other").url("/products/").build(), groups));
+        menus.add(new Menu(MenuItem.builder().name("And Another").url("/products/").build(), groups));
         return menus;
     }
 
     @Override
     public MenuConfig config(String menuName) {
-        Map<String, MenuItemConfig> config = newHashMap();
+        MenuConfig config;
+        if ("Sample menu".equals(menuName)) {
+            config = configForSampleMenu(attributes("type", "simple"));
+        } else if ("Other".equals(menuName)) {
+            config = new MenuConfig("default", attributes("type", "products"), newHashMap(), newHashMap());
+        } else {
+            config = new MenuConfig("default", attributes("type", "groups"), newHashMap(), newHashMap());
+        }
+        return config;
+    }
+
+    private MenuConfig configForSampleMenu(Map<String, Object> menuAttributes) {
+        Map<String, MenuItemConfig> items = newHashMap();
         Map<String, Object> attributes = newHashMap();
         attributes.put("appendDivider", Boolean.TRUE);
-        config.put("Page Elements", MenuItemConfig.builder().attributes(attributes).build());
-        config.put("Wishlist", MenuItemConfig.builder().attributes(attributes).build());
-        return new MenuConfig(menuName, newHashMap(), config, newHashMap());
+        items.put("Page Elements", MenuItemConfig.builder().attributes(attributes).build());
+        items.put("Wishlist", MenuItemConfig.builder().attributes(attributes).build());
+        return new MenuConfig("All", menuAttributes, items, newHashMap());
+    }
+
+    private Map<String, Object> attributes(String name, String value) {
+        Map<String, Object> attributes = newHashMap();
+        attributes.put(name, value);
+        return attributes;
     }
 
     private Iterable<MenuItem> generateStaticMenuItems() {
