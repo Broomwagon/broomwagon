@@ -39,9 +39,9 @@ public class DummyMenuDao implements MenuDao {
         if ("Sample menu".equals(menuName)) {
             config = configForSampleMenu(attributes("type", "simple"));
         } else if ("Other".equals(menuName)) {
-            config = new MenuConfig("default", attributes("type", "products"), newHashMap(), newHashMap());
+            config = new MenuConfig(menuName, attributes("type", "products"), newHashMap(), newHashMap());
         } else {
-            config = new MenuConfig("default", attributes("type", "groups"), newHashMap(), newHashMap());
+            config = new MenuConfig(menuName, attributes("type", "groups"), newHashMap(), newHashMap());
         }
         return config;
     }
