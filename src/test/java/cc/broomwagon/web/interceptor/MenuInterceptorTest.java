@@ -2,7 +2,7 @@ package cc.broomwagon.web.interceptor;
 
 import static cc.broomwagon.TestFactory.aMenu;
 import static cc.broomwagon.TestFactory.aMenuConfig;
-import static cc.broomwagon.web.interceptor.MenuInterceptor.MAIN_MENUS;
+import static cc.broomwagon.web.interceptor.MenuInterceptor.MENUS;
 import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -35,15 +35,15 @@ public class MenuInterceptorTest {
         ModelAndView modelAndView = new ModelAndView();
         Iterable<Menu> mainMenus = newArrayList(aMenu("MenuName123"));
         MenuConfig menuConfig = aMenuConfig();
-        given(menuManager.mainMenu()).willReturn(mainMenus);
+        given(menuManager.menus()).willReturn(mainMenus);
         given(menuManager.menuConfig(isA(String.class))).willReturn(menuConfig);
 
         // when
         menuInterceptor.postHandle(null, null, null, modelAndView);
 
         // then
-        verify(menuManager).mainMenu();
-        assertThat(((Iterable<MenuWrapper>) modelAndView.getModel().get(MAIN_MENUS))
+        verify(menuManager).menus();
+        assertThat(((Iterable<MenuWrapper>) modelAndView.getModel().get(MENUS))
                 .iterator().next().getMenu().getSelf().getName(), is("MenuName123"));
     }
 }

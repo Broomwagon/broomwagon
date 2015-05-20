@@ -19,10 +19,10 @@ public class DefaultMenuManagerTest {
     @Test
     public void shouldGetMainMenu() {
         // when
-        defaultMenuManager.mainMenu();
+        defaultMenuManager.menus();
 
         // then
-        verify(menuDao).mainMenu();
+        verify(menuDao).menus();
     }
 
     @Test

@@ -12,8 +12,8 @@ public class DefaultMenuManager implements MenuManager {
     private MenuDao menuDao;
 
     @Override
-    public Iterable<Menu> mainMenu() {
-        return menuDao.mainMenu();
+    public Iterable<Menu> menus() {
+        return menuDao.menus();
     }
 
     @Override

@@ -8,7 +8,7 @@ import cc.broomwagon.model.menu.MenuConfig;
  */
 public interface MenuDao {
 
-    Iterable<Menu> mainMenu();
+    Iterable<Menu> menus();
 
     MenuConfig config(String menuName);
 }

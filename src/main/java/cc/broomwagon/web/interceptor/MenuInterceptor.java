@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Component
 public class MenuInterceptor implements HandlerInterceptor {
-    public static final String MAIN_MENUS = "mainMenus";
+    public static final String MENUS = "menus";
 
     @Autowired
     private MenuManager menuManager;
@@ -31,7 +31,7 @@ public class MenuInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        modelAndView.getModel().put(MAIN_MENUS, from(menuManager.mainMenu()).transform(new Function<Menu, MenuWrapper>() {
+        modelAndView.getModel().put(MENUS, from(menuManager.menus()).transform(new Function<Menu, MenuWrapper>() {
             @Override
             public MenuWrapper apply(Menu input) {
                 return new MenuWrapper(input, menuManager.menuConfig(input.getSelf().getName()));

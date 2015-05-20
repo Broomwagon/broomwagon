@@ -20,28 +20,42 @@ import java.util.Map;
 public class DummyMenuDao implements MenuDao {
 
     @Override
-    public Iterable<Menu> mainMenu() {
-        Collection<MenuItemGroup> groups = newArrayList(
+    public Iterable<Menu> menus() {
+        Collection<MenuItemGroup> allGroups = newArrayList(
                 new MenuItemGroup("Static Pages", generateStaticMenuItems()),
                 new MenuItemGroup("My Account", generateMyAccountMenuItems()),
                 new MenuItemGroup("Brands", generateBrandMenuItems()));
 
+        Collection<MenuItemGroup> myAcountGroup = newArrayList(
+                new MenuItemGroup("My Account", generateMyAccountMenuItems()));
+
         Collection<Menu> menus = newArrayList();
-        menus.add(new Menu(MenuItem.builder().name("Sample menu").url("/products/").build(), groups));
-        menus.add(new Menu(MenuItem.builder().name("Other").url("/products/").build(), groups));
-        menus.add(new Menu(MenuItem.builder().name("And Another").url("/products/").build(), groups));
+        menus.add(new Menu(MenuItem.builder().name("Sample menu").url("/products/").build(), allGroups));
+        menus.add(new Menu(MenuItem.builder().name("Other").url("/products/").build(), allGroups));
+        menus.add(new Menu(MenuItem.builder().name("And Another").url("/products/").build(), allGroups));
+        menus.add(new Menu(MenuItem.builder().name("My Account").url("/products/").build(), myAcountGroup));
         return menus;
     }
 
     @Override
     public MenuConfig config(String menuName) {
         MenuConfig config;
+        Map<String, Object> attributes = newHashMap();
         if ("Sample menu".equals(menuName)) {
-            config = configForSampleMenu(attributes("type", "simple"));
+            attributes.put("type", "simple");
+            attributes.put("group", "main");
+            config = configForSampleMenu(attributes);
         } else if ("Other".equals(menuName)) {
-            config = new MenuConfig(menuName, attributes("type", "products"), newHashMap(), newHashMap());
+            attributes.put("type", "products");
+            attributes.put("group", "main");
+            config = new MenuConfig(menuName, attributes, newHashMap(), newHashMap());
+        } else if ("And Another".equals(menuName)) {
+            attributes.put("type", "groups");
+            attributes.put("group", "main");
+            config = new MenuConfig(menuName, attributes, newHashMap(), newHashMap());
         } else {
-            config = new MenuConfig(menuName, attributes("type", "groups"), newHashMap(), newHashMap());
+            attributes.put("type", "simple");
+            config = new MenuConfig(menuName, attributes, newHashMap(), newHashMap());
         }
         return config;
     }
@@ -53,12 +67,6 @@ public class DummyMenuDao implements MenuDao {
         items.put("Page Elements", MenuItemConfig.builder().attributes(attributes).build());
         items.put("Wishlist", MenuItemConfig.builder().attributes(attributes).build());
         return new MenuConfig("Sample menu", menuAttributes, items, newHashMap());
-    }
-
-    private Map<String, Object> attributes(String name, String value) {
-        Map<String, Object> attributes = newHashMap();
-        attributes.put(name, value);
-        return attributes;
     }
 
     private Iterable<MenuItem> generateStaticMenuItems() {
