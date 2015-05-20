@@ -52,7 +52,7 @@ public class DummyMenuDao implements MenuDao {
         attributes.put("appendDivider", Boolean.TRUE);
         items.put("Page Elements", MenuItemConfig.builder().attributes(attributes).build());
         items.put("Wishlist", MenuItemConfig.builder().attributes(attributes).build());
-        return new MenuConfig("All", menuAttributes, items, newHashMap());
+        return new MenuConfig("Sample menu", menuAttributes, items, newHashMap());
     }
 
     private Map<String, Object> attributes(String name, String value) {

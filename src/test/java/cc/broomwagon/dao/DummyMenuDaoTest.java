@@ -25,13 +25,13 @@ public class DummyMenuDaoTest {
 
         // then
         assertThat(actual, is(notNullValue()));
-        assertThat(size(actual), equalTo(1));
+        assertThat(size(actual), equalTo(3));
     }
 
     @Test
     public void shouldReturnMenuConfig() {
         // when
-        MenuConfig actual = dummyMenuDao.config("name");
+        MenuConfig actual = dummyMenuDao.config("Sample menu");
 
         // then
         assertThat(actual, is(notNullValue()));
