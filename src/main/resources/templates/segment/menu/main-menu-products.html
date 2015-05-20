@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Menu</title>
+</head>
+<body th:fragment="body(menu, config)">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" th:href="${menu.self.url}" th:text="${menu.self.name}">Top menu</a>
+        <ul class="dropdown-menu megamenu row" style="width: 650px;">
+            <li>
+                <div class="col-md-3">
+                    <ul class="nav nav-tabs tabs-left" data-toggle="tab-hover">
+                        <th:block th:each="itemGroup,iterStat : ${menu.items}">
+                            <li th:class="${iterStat.index == 0}? 'active'">
+                                <a href="#" data-toggle="tab-hover" th:href="'#menu-' + ${iterStat.index}" th:text="${itemGroup.key}">Group name</a>
+                            </li>
+                        </th:block>
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content">
+                        <th:block th:each="itemGroup,iterStat : ${menu.items}">
+                            <div class="tab-pane" th:id="'menu-' + ${iterStat.index}" th:classappend="${iterStat.index == 0}? 'active'">
+                                <h4 class="title" th:text="${itemGroup.key}">Group name</h4>
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4">
+                                        <div th:include="segment/product :: product('glow','url4', ${itemGroup.key} + ' Long Sleeve Jersey')"></div>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4">
+                                        <div th:include="segment/product :: product('glow','url4', ${itemGroup.key} + ' Long Sleeve Jersey')"></div>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4">
+                                        <div th:include="segment/product :: product('glow','url4', ${itemGroup.key} + ' Long Sleeve Jersey')"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+</body>
+</html>

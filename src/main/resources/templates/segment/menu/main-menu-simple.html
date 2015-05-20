@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Menu</title>
+</head>
+<body th:fragment="body(menu, config)">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" th:href="${menu.self.url}" th:text="${menu.self.name}">Top menu</a>
+        <ul class="dropdown-menu" role="menu">
+            <th:block th:each="itemGroup : ${menu.items}">
+                <th:block th:each="menuItem : ${itemGroup.value}">
+                    <li>
+                        <a href="#" th:href="${menuItem.url}" th:text="${menuItem.name}">Name</a>
+                    </li>
+                    <li class="divider" th:if="${config.config[menuItem.name] != null and config.config[menuItem.name].appendDivider}"></li>
+                </th:block>
+            </th:block>
+        </ul>
+    </li>
+</body>
+</html>

@@ -12,85 +12,16 @@
         </div>
         <div class="navbar-full">
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" th:href="${mainMenu.self.url}" th:text="${mainMenu.self.name}">Top menu</a>
-                    <ul class="dropdown-menu megamenu row" style="width: 650px;">
-                        <li>
-                            <div class="col-md-3">
-                                <ul class="nav nav-tabs tabs-left" data-toggle="tab-hover">
-                                    <th:block th:each="menuItemGroup,iterStat : ${mainMenu.items}">
-                                    <li th:class="${iterStat.index == 0}? 'active'">
-                                        <a href="#" data-toggle="tab-hover" th:href="'#menu-' + ${iterStat.index}" th:text="${menuItemGroup.key}">Group name</a>
-                                    </li>
-                                    </th:block>
-                                </ul>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="tab-content">
-                                    <th:block th:each="menuItemGroup,iterStat : ${mainMenu.items}">
-                                    <div class="tab-pane" th:id="'menu-' + ${iterStat.index}" th:classappend="${iterStat.index == 0}? 'active'">
-                                        <h4 class="title" th:text="${menuItemGroup.key}">Group name</h4>
-                                        <div class="row">
-                                            <div class="col-sm-4 col-md-4">
-                                                <div th:include="segment/product :: product('glow','url4', ${menuItemGroup.key} + ' Long Sleeve Jersey')"></div>
-                                            </div>
-                                            <div class="col-sm-4 col-md-4">
-                                                <div th:include="segment/product :: product('glow','url4', ${menuItemGroup.key} + ' Long Sleeve Jersey')"></div>
-                                            </div>
-                                            <div class="col-sm-4 col-md-4">
-                                                <div th:include="segment/product :: product('glow','url4', ${menuItemGroup.key} + ' Long Sleeve Jersey')"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </th:block>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" th:href="${mainMenu.self.url}" th:text="${mainMenu.self.name}">Top menu</a>
-                    <ul class="dropdown-menu megamenu row" style="width: 500px;">
-                        <li>
-                            <div class="col-xs-4 menu-column" th:each="menuItemGroup : ${mainMenu.items}">
-                                <h4 th:text="${menuItemGroup.key}">Group name</h4>
-                                <ul>
-                                    <li th:each="menuItem : ${menuItemGroup.value}" th:unless="${menuItem.imgUrl != null}">
-                                        <a href="#" th:href="${menuItem.url}" th:text="${menuItem.name}" th:if="${menuItem.imgUrl == null}">Name</a>
-                                    </li>
-                                    <th:block th:each="menuItem : ${menuItemGroup.value}" th:if="${menuItem.imgUrl != null}">
-                                    <a href="#" class="image-link" th:href="${menuItem.url}" th:if="${menuItem.imgUrl != null}">
-                                        <img src="#" class="brand-logo" th:alt="${menuItem.name}" th:src="${menuItem.imgUrl}" />
-                                    </a>
-                                    </th:block>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" th:href="${mainMenu.self.url}" th:text="${mainMenu.self.name}">Top menu</a>
-                    <ul class="dropdown-menu" role="menu">
-                        <th:block th:each="menuItemGroup : ${mainMenu.items}">
-                            <th:block th:each="menuItem : ${menuItemGroup.value}">
-                                <li>
-                                    <a href="#" th:href="${menuItem.url}" th:text="${menuItem.name}">Name</a>
-                                </li>
-                                <li class="divider" th:if="${mainMenuConfig.config[menuItem.name] != null and mainMenuConfig.config[menuItem.name].appendDivider}"></li>
-                            </th:block>
-                        </th:block>
-                    </ul>
-                </li>
-                <!--/* start search box */-->
+                <li th:replace="segment/menu/main-menu-products:: body(${mainMenu}, ${mainMenuConfig})"></li>
+                <li th:replace="segment/menu/main-menu-groups:: body(${mainMenu}, ${mainMenuConfig})"></li>
+                <li th:replace="segment/menu/main-menu-simple:: body(${mainMenu}, ${mainMenuConfig})"></li>
                 <li class="search-box">
                     <div>
                         <form method="get" action="/search" id="search">
-                            <input id="searchTxt" name="searchTxt" type="text" size="400" placeholder="SEARCH"
-                                   class="form-control"/>
+                            <input id="searchTxt" name="q" type="text" size="400" placeholder="SEARCH" class="form-control"/>
                         </form>
                     </div>
                 </li>
-                <!--/* end search box */-->
             </ul>
             <!--/* end nav menu */-->
 

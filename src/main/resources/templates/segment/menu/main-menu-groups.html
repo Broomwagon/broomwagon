@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Menu</title>
+</head>
+<body th:fragment="body(menu, config)">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" th:href="${menu.self.url}" th:text="${menu.self.name}">Menu name</a>
+        <ul class="dropdown-menu megamenu row" style="width: 500px;">
+            <li>
+                <div class="col-xs-4 menu-column" th:each="itemGroup : ${menu.items}">
+                    <h4 th:text="${itemGroup.key}">Group name</h4>
+                    <ul>
+                        <li th:each="menuItem : ${itemGroup.value}" th:unless="${menuItem.imgUrl != null}">
+                            <a href="#" th:href="${menuItem.url}" th:text="${menuItem.name}" th:if="${menuItem.imgUrl == null}">Name</a>
+                        </li>
+                        <th:block th:each="menuItem : ${itemGroup.value}" th:if="${menuItem.imgUrl != null}">
+                        <a href="#" class="image-link" th:href="${menuItem.url}" th:if="${menuItem.imgUrl != null}">
+                            <img src="#" class="brand-logo" th:alt="${menuItem.name}" th:src="${menuItem.imgUrl}" />
+                        </a>
+                        </th:block>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+</body>
+</html>
