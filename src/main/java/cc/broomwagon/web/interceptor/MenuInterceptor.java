@@ -1,7 +1,11 @@
 package cc.broomwagon.web.interceptor;
 
+import static com.google.common.collect.FluentIterable.from;
+
 import cc.broomwagon.model.menu.Menu;
 import cc.broomwagon.service.MenuManager;
+import cc.broomwagon.web.ui.MenuWrapper;
+import com.google.common.base.Function;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -15,8 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Component
 public class MenuInterceptor implements HandlerInterceptor {
-    public static final String MAIN_MENU = "mainMenu";
-    public static final String MAIN_MENU_CONFIG = "mainMenuConfig";
+    public static final String MAIN_MENUS = "mainMenus";
 
     @Autowired
     private MenuManager menuManager;
@@ -28,9 +31,12 @@ public class MenuInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        Menu mainMenu = menuManager.mainMenu();
-        modelAndView.getModel().put(MAIN_MENU, mainMenu);
-        modelAndView.getModel().put(MAIN_MENU_CONFIG, menuManager.menuConfig(mainMenu.getSelf().getName()));
+        modelAndView.getModel().put(MAIN_MENUS, from(menuManager.mainMenu()).transform(new Function<Menu, MenuWrapper>() {
+            @Override
+            public MenuWrapper apply(Menu input) {
+                return new MenuWrapper(input, menuManager.menuConfig(input.getSelf().getName()));
+            }
+        }).toList());
     }
 
     @Override

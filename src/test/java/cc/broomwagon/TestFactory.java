@@ -8,16 +8,18 @@ import cc.broomwagon.model.menu.MenuConfig;
 import cc.broomwagon.model.menu.MenuItem;
 import cc.broomwagon.model.menu.MenuItemConfig;
 import cc.broomwagon.model.Product;
+import cc.broomwagon.model.menu.MenuItemGroup;
 
+import java.util.Collection;
 import java.util.Map;
 
 /**
- * Created by vladimir.
+ * Utility class to help with tests.
  */
 public final class TestFactory {
 
     private TestFactory() {
-        // Don't instantiate
+        // No need to instantiate
     }
 
     public static Product aProduct() {
@@ -32,21 +34,27 @@ public final class TestFactory {
     }
 
     public static Menu aMenu() {
-        Map<String, Iterable<MenuItem>> items = newHashMap();
-        items.put("Group1", newArrayList(MenuItem.builder()
-                .name("name")
-                .url("url").build()));
+        return aMenu("MenuName");
+    }
+
+    public static Menu aMenu(String name) {
+        Collection<MenuItemGroup> groups = newArrayList(
+                new MenuItemGroup("Group1", newArrayList(MenuItem.builder()
+                        .name("name")
+                        .url("url").build())));
+
         return new Menu(
                 MenuItem.builder()
-                        .name("Menu")
-                        .url("parentUrl").build(), items
+                        .name(name)
+                        .url("parentUrl").build(), groups
                 );
     }
 
     public static MenuConfig aMenuConfig() {
         Map<String, MenuItemConfig> config = newHashMap();
-        config.put("Page Elements", MenuItemConfig.builder().appendDivider(true).build());
-        return new MenuConfig("All", config);
+        Map<String, Object> attributes = newHashMap();
+        attributes.put("appendDivider", Boolean.TRUE);
+        config.put("Page Elements", MenuItemConfig.builder().attributes(attributes).build());
+        return new MenuConfig("All", newHashMap(), config, newHashMap());
     }
-
 }

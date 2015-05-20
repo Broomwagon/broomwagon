@@ -11,27 +11,27 @@
             <li>
                 <div class="col-md-3">
                     <ul class="nav nav-tabs tabs-left" data-toggle="tab-hover">
-                        <th:block th:each="itemGroup,iterStat : ${menu.items}">
+                        <th:block th:each="itemGroup,iterStat : ${menu.groups}">
                             <li th:class="${iterStat.index == 0}? 'active'">
-                                <a href="#" data-toggle="tab-hover" th:href="'#menu-' + ${iterStat.index}" th:text="${itemGroup.key}">Group name</a>
+                                <a href="#" data-toggle="tab-hover" th:href="'#menu-' + ${iterStat.index}" th:text="${itemGroup.name}">Group name</a>
                             </li>
                         </th:block>
                     </ul>
                 </div>
                 <div class="col-md-9">
                     <div class="tab-content">
-                        <th:block th:each="itemGroup,iterStat : ${menu.items}">
+                        <th:block th:each="itemGroup,iterStat : ${menu.groups}">
                             <div class="tab-pane" th:id="'menu-' + ${iterStat.index}" th:classappend="${iterStat.index == 0}? 'active'">
-                                <h4 class="title" th:text="${itemGroup.key}">Group name</h4>
+                                <h4 class="title" th:text="${itemGroup.name}">Group name</h4>
                                 <div class="row">
                                     <div class="col-sm-4 col-md-4">
-                                        <div th:include="segment/product :: product('glow','url4', ${itemGroup.key} + ' Long Sleeve Jersey')"></div>
+                                        <div th:include="segment/product :: product('glow','url4', ${itemGroup.name} + ' Long Sleeve Jersey')"></div>
                                     </div>
                                     <div class="col-sm-4 col-md-4">
-                                        <div th:include="segment/product :: product('glow','url4', ${itemGroup.key} + ' Long Sleeve Jersey')"></div>
+                                        <div th:include="segment/product :: product('glow','url4', ${itemGroup.name} + ' Long Sleeve Jersey')"></div>
                                     </div>
                                     <div class="col-sm-4 col-md-4">
-                                        <div th:include="segment/product :: product('glow','url4', ${itemGroup.key} + ' Long Sleeve Jersey')"></div>
+                                        <div th:include="segment/product :: product('glow','url4', ${itemGroup.name} + ' Long Sleeve Jersey')"></div>
                                     </div>
                                 </div>
                             </div>

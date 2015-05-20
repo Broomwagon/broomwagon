@@ -2,8 +2,8 @@ package cc.broomwagon.web.interceptor;
 
 import static cc.broomwagon.TestFactory.aMenu;
 import static cc.broomwagon.TestFactory.aMenuConfig;
-import static cc.broomwagon.web.interceptor.MenuInterceptor.MAIN_MENU;
-import static cc.broomwagon.web.interceptor.MenuInterceptor.MAIN_MENU_CONFIG;
+import static cc.broomwagon.web.interceptor.MenuInterceptor.MAIN_MENUS;
+import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
@@ -13,6 +13,7 @@ import static org.mockito.Mockito.verify;
 import cc.broomwagon.model.menu.Menu;
 import cc.broomwagon.model.menu.MenuConfig;
 import cc.broomwagon.service.MenuManager;
+import cc.broomwagon.web.ui.MenuWrapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -27,13 +28,14 @@ public class MenuInterceptorTest {
     @Mock
     private MenuManager menuManager;
 
+    @SuppressWarnings("unchecked")
     @Test
     public void shouldCallMenuManagerInPostHandle() throws Exception {
         // given
         ModelAndView modelAndView = new ModelAndView();
-        Menu mainMenu = aMenu();
+        Iterable<Menu> mainMenus = newArrayList(aMenu("MenuName123"));
         MenuConfig menuConfig = aMenuConfig();
-        given(menuManager.mainMenu()).willReturn(mainMenu);
+        given(menuManager.mainMenu()).willReturn(mainMenus);
         given(menuManager.menuConfig(isA(String.class))).willReturn(menuConfig);
 
         // when
@@ -41,8 +43,7 @@ public class MenuInterceptorTest {
 
         // then
         verify(menuManager).mainMenu();
-        verify(menuManager).menuConfig(isA(String.class));
-        assertThat(modelAndView.getModel().get(MAIN_MENU), is(mainMenu));
-        assertThat(modelAndView.getModel().get(MAIN_MENU_CONFIG), is(menuConfig));
+        assertThat(((Iterable<MenuWrapper>) modelAndView.getModel().get(MAIN_MENUS))
+                .iterator().next().getMenu().getSelf().getName(), is("MenuName123"));
     }
 }

@@ -12,9 +12,9 @@
         </div>
         <div class="navbar-full">
             <ul class="nav navbar-nav">
-                <li th:replace="segment/menu/main-menu-products:: body(${mainMenu}, ${mainMenuConfig})"></li>
-                <li th:replace="segment/menu/main-menu-groups:: body(${mainMenu}, ${mainMenuConfig})"></li>
-                <li th:replace="segment/menu/main-menu-simple:: body(${mainMenu}, ${mainMenuConfig})"></li>
+                <th:block th:each="menu : ${mainMenus}">
+                    <li th:replace="segment/menu/main-menu-simple:: body(${menu.menu}, ${menu.config})"></li>
+                </th:block>
                 <li class="search-box">
                     <div>
                         <form method="get" action="/search" id="search">

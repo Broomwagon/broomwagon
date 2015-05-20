@@ -3,8 +3,6 @@ package cc.broomwagon.service;
 import static org.mockito.Mockito.verify;
 
 import cc.broomwagon.dao.MenuDao;
-import cc.broomwagon.model.menu.Menu;
-import cc.broomwagon.model.menu.MenuConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -21,7 +19,7 @@ public class DefaultMenuManagerTest {
     @Test
     public void shouldGetMainMenu() {
         // when
-        Menu actual = defaultMenuManager.mainMenu();
+        defaultMenuManager.mainMenu();
 
         // then
         verify(menuDao).mainMenu();
@@ -30,7 +28,7 @@ public class DefaultMenuManagerTest {
     @Test
     public void shouldGetConfig() {
         // when
-        MenuConfig actual = defaultMenuManager.menuConfig("name");
+        defaultMenuManager.menuConfig("name");
 
         // then
         verify(menuDao).config("name");

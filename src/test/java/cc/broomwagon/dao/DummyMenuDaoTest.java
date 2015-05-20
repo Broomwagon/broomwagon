@@ -21,11 +21,11 @@ public class DummyMenuDaoTest {
     @Test
     public void shouldReturnMainMenu() {
         // when
-        Menu actual = dummyMenuDao.mainMenu();
+        Iterable<Menu> actual = dummyMenuDao.mainMenu();
 
         // then
         assertThat(actual, is(notNullValue()));
-        assertThat(size(actual.getItems().values().iterator().next()), equalTo(5));
+        assertThat(size(actual), equalTo(1));
     }
 
     @Test
@@ -35,6 +35,6 @@ public class DummyMenuDaoTest {
 
         // then
         assertThat(actual, is(notNullValue()));
-        assertThat(actual.getConfig().get("Page Elements"), is(notNullValue()));
+        assertThat(actual.getItems().get("Page Elements"), is(notNullValue()));
     }
 }

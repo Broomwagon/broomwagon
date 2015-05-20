@@ -7,6 +7,7 @@ import cc.broomwagon.model.menu.Menu;
 import cc.broomwagon.model.menu.MenuConfig;
 import cc.broomwagon.model.menu.MenuItem;
 import cc.broomwagon.model.menu.MenuItemConfig;
+import cc.broomwagon.model.menu.MenuItemGroup;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
@@ -19,26 +20,29 @@ import java.util.Map;
 public class DummyMenuDao implements MenuDao {
 
     @Override
-    public Menu mainMenu() {
-        Map<String, Iterable<MenuItem>> items = newHashMap();
-        items.put("Static Pages", generateMenuItems());
-        items.put("My Account", generateMyAccountMenuItems());
-        items.put("Brands", generateBrandMenuItems());
-        return new Menu(MenuItem.builder()
-                .name("All")
-                .url("/products/").build(),
-                items);
+    public Iterable<Menu> mainMenu() {
+        Collection<MenuItemGroup> groups = newArrayList(
+                new MenuItemGroup("Static Pages", generateStaticMenuItems()),
+                new MenuItemGroup("My Account", generateMyAccountMenuItems()),
+                new MenuItemGroup("Brands", generateBrandMenuItems()));
+
+        Collection<Menu> menus = newArrayList();
+        menus.add(new Menu(MenuItem.builder().name("All").url("/products/").build(), groups));
+
+        return menus;
     }
 
     @Override
     public MenuConfig config(String menuName) {
         Map<String, MenuItemConfig> config = newHashMap();
-        config.put("Page Elements", MenuItemConfig.builder().appendDivider(true).build());
-        config.put("Wishlist", MenuItemConfig.builder().appendDivider(true).build());
-        return new MenuConfig("All", config);
+        Map<String, Object> attributes = newHashMap();
+        attributes.put("appendDivider", Boolean.TRUE);
+        config.put("Page Elements", MenuItemConfig.builder().attributes(attributes).build());
+        config.put("Wishlist", MenuItemConfig.builder().attributes(attributes).build());
+        return new MenuConfig(menuName, newHashMap(), config, newHashMap());
     }
 
-    private Iterable<MenuItem> generateMenuItems() {
+    private Iterable<MenuItem> generateStaticMenuItems() {
         Collection<MenuItem> menuItems = newArrayList();
         menuItems.add(generateMenuItem("/products/", "All products", null));
         menuItems.add(generateMenuItem("/products/url1", "Single product", null));

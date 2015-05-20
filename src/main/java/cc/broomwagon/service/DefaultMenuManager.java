@@ -12,7 +12,7 @@ public class DefaultMenuManager implements MenuManager {
     private MenuDao menuDao;
 
     @Override
-    public Menu mainMenu() {
+    public Iterable<Menu> mainMenu() {
         return menuDao.mainMenu();
     }
 

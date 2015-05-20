@@ -6,15 +6,14 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-import java.util.Map;
-
+/**
+ * Group contains menu items.
+ */
 @RequiredArgsConstructor
 @Getter
 @EqualsAndHashCode
 @ToString
-public class MenuConfig {
+public class MenuItemGroup {
     @NonNull private String name;
-    @NonNull private Map<String, MenuItemConfig> self;
-    @NonNull private Map<String, MenuItemConfig> items;
-    @NonNull private Map<String, MenuItemConfig> groups;
+    @NonNull private Iterable<MenuItem> items;
 }
