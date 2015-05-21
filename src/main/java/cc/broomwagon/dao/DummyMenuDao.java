@@ -22,18 +22,18 @@ public class DummyMenuDao implements MenuDao {
     @Override
     public Iterable<Menu> menus() {
         Collection<MenuItemGroup> allGroups = newArrayList(
-                new MenuItemGroup("Static Pages", generateStaticMenuItems()),
-                new MenuItemGroup("My Account", generateMyAccountMenuItems()),
+                new MenuItemGroup("Group 1", generateStaticMenuItems()),
+                new MenuItemGroup("Group 2", generateStaticMenuItems()),
                 new MenuItemGroup("Brands", generateBrandMenuItems()));
 
-        Collection<MenuItemGroup> myAcountGroup = newArrayList(
+        Collection<MenuItemGroup> myAccountGroup = newArrayList(
                 new MenuItemGroup("My Account", generateMyAccountMenuItems()));
 
         Collection<Menu> menus = newArrayList();
         menus.add(new Menu(MenuItem.builder().name("Sample menu").url("/products/").build(), allGroups));
-        menus.add(new Menu(MenuItem.builder().name("Other").url("/products/").build(), allGroups));
+        menus.add(new Menu(MenuItem.builder().name("Sample menu 2").url("/products/").build(), allGroups));
         menus.add(new Menu(MenuItem.builder().name("And Another").url("/products/").build(), allGroups));
-        menus.add(new Menu(MenuItem.builder().name("My Account").url("/products/").build(), myAcountGroup));
+        menus.add(new Menu(MenuItem.builder().name("My Account").url("/dev/profile.html").build(), myAccountGroup));
         return menus;
     }
 
@@ -45,13 +45,17 @@ public class DummyMenuDao implements MenuDao {
             attributes.put("type", "simple");
             attributes.put("group", "main");
             config = configForSampleMenu(attributes);
-        } else if ("Other".equals(menuName)) {
+        } else if ("Sample menu 2".equals(menuName)) {
             attributes.put("type", "products");
             attributes.put("group", "main");
             config = new MenuConfig(menuName, attributes, newHashMap(), newHashMap());
         } else if ("And Another".equals(menuName)) {
             attributes.put("type", "groups");
             attributes.put("group", "main");
+            config = new MenuConfig(menuName, attributes, newHashMap(), newHashMap());
+        } else if ("My Account".equals(menuName)) {
+            attributes.put("type", "simple");
+            attributes.put("group", "my-account");
             config = new MenuConfig(menuName, attributes, newHashMap(), newHashMap());
         } else {
             attributes.put("type", "simple");

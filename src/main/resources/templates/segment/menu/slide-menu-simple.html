@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Menu</title>
+</head>
+<body th:fragment="body(menu, config)">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:href="${menu.self.url}"><span th:text="${menu.self.name}">Side menu</span><b class="caret pull-right"></b></a>
+        <ul class="dropdown-menu navmenu-nav">
+            <th:block th:each="menuItemGroup : ${menu.groups}">
+                <th:block th:each="menuItem : ${menuItemGroup.items}">
+                    <li>
+                        <a href="#" th:href="${menuItem.url}" th:text="${menuItem.name}">Name</a>
+                    </li>
+                </th:block>
+            </th:block>
+        </ul>
+    </li>
+</body>
+</html>
