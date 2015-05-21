@@ -44,6 +44,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-starter-tomcat")
     compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("com.google.guava:guava:18.0")
     compile("org.projectlombok:lombok:1.16.4")
     testCompile("org.springframework.boot:spring-boot-starter-test")
