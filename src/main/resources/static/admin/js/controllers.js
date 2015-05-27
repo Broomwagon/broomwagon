@@ -33,9 +33,6 @@
  *
  */
 function MainCtrl() {
-
-
-
     /**
      * slideInterval - Interval for bootstrap Carousel, in milliseconds:
      */

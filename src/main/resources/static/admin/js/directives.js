@@ -2,7 +2,6 @@
  * Main directives.js file
  * Define directives for used plugin
  *
- *
  * Functions (directives)
  *  - pageTitle
  *  - sideNavigation
@@ -14,8 +13,6 @@
  *  - ionRangeSlider
  *  - dropZone
  *  - responsiveVideo
-
- *
  */
 
 
