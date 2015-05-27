@@ -58,7 +58,7 @@ $scope.$on('IdleStart', function () {
     notify({
         message: 'Idle time - You can call any function after idle timeout.',
         classes: 'alert-warning',
-        templateUrl: '/admin/common/notify.html'
+        templateUrl: '/adminDemo/common/notify.html'
     });
     $scope.customAlert = true;
 
@@ -69,7 +69,7 @@ $scope.$on('IdleEnd', function () {
     notify({
         message: 'You are back, Great that you decided to move a mouse.',
         classes: 'alert-success',
-        templateUrl: '/admin/common/notify.html'
+        templateUrl: '/adminDemo/common/notify.html'
     });
     $scope.customAlert = false;
 });

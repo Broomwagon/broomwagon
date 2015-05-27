@@ -2052,7 +2052,7 @@ function notifyCtrl($scope, notify) {
         notify.closeAll();
     };
 
-    $scope.broomwagonTemplate = '/admin/common/notify.html';
+    $scope.broomwagonTemplate = '/adminDemo/common/notify.html';
     $scope.broomwagonDemo1 = function(){
         notify({ message: 'Info - This is a broomwagon info notification', classes: 'alert-info', templateUrl: $scope.broomwagonTemplate});
     }
@@ -2132,7 +2132,7 @@ function idleTimer($scope, Idle, notify) {
         notify({
             message: 'Idle time - You can call any function after idle timeout.',
             classes: 'alert-warning',
-            templateUrl: '/admin/common/notify.html'
+            templateUrl: '/adminDemo/common/notify.html'
         });
         $scope.customAlert = true;
 
@@ -2143,7 +2143,7 @@ function idleTimer($scope, Idle, notify) {
         notify({
             message: 'You are back, Great that you decided to move a mouse.',
             classes: 'alert-success',
-            templateUrl: '/admin/common/notify.html'
+            templateUrl: '/adminDemo/common/notify.html'
         });
         $scope.customAlert = false;
     });
