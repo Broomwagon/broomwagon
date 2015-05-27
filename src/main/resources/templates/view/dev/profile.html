@@ -5,154 +5,173 @@
 <head>
 </head>
 <body>
-    <div layout:fragment="content" class="container">
-        <div class="row">
-            <!-- start sidebar navigation -->
-            <div class="col-md-2">
-                <!-- start my account panel -->
-                <div class="panel panel-sidebar">
-                    <div class="panel-heading">MY ACCOUNT</div>
-                    <div class="panel-body">
-                        <ul class="nav nav-list">
-                            <li class="active"><a href="/dev/profile.html"><i class="fa fa-user"></i> EDIT PROFILE</a>
-                            </li>
-                            <li><a href="/dev/wishlist.html"><i class="fa fa-heart"></i> MY WISHLIST</a>
-                            </li>
-                            <li><a href="/dev/history.html"><i class="fa fa-history"></i> ORDERS HISTORY</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- end my account panel -->
-            </div>
-            <!-- end sidebar navigation -->
-
-            <!-- start profile content -->
-            <div class="col-md-10">
-                <h1 class="page-title">EDIT PROFILE</h1>
-                <div class="row">
-                    <!-- start column -->
-                    <div class="col-sm-6">
-                        <!-- start account info panel -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">User info</div>
-                            <div class="panel-body">
-                                <!-- start profile form -->
-                                <form class="form" role="form">
-                                    <div class="form-group">
-                                        <label class="control-label">First name:</label>
-                                        <div class="">
-                                            <input class="form-control" type="text" value="John" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Last name:</label>
-                                        <div class="">
-                                            <input class="form-control" type="text" value="Doe" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Company:</label>
-                                        <div class="">
-                                            <input class="form-control" type="text" value="" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Email:</label>
-                                        <div class="">
-                                            <input class="form-control" type="text" value="your@email.com" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Time Zone:</label>
-                                        <div class="">
-                                            <div class="ui-select">
-                                                <select id="user_time_zone" class="form-control" />
-                                                    <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                                                    <option value="Alaska">(GMT-09:00) Alaska</option>
-                                                    <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                                                    <option value="Arizona">(GMT-07:00) Arizona</option>
-                                                    <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                                                    <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                                                    <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                                                    <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </form>
-                                <!-- end profile form -->
-                            </div>
-                        </div>
-                        <!-- end account info panel -->
-                    </div>
-                    <!-- end column -->
-
-                    <!-- start column -->
-                    <div class="col-sm-6">
-                        <!-- start username panel -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Change username</div>
-                            <div class="panel-body">
-                                <!-- start profile form -->
-                                <form class="form" role="form">
-
-                                    <div class="form-group">
-                                        <label class="control-label">Username:</label>
-                                        <div class="">
-                                            <input class="form-control" type="text" value="johndoe" />
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label"></label>
-                                        <div class="">
-                                            <input type="button" class="btn btn-primary" value="Save Changes" />
-                                        </div>
-                                    </div>
-                                </form>
-                                <!-- end profile form -->
-                            </div>
-                        </div>
-                        <!-- end username panel -->
-
-                        <!-- start password panel -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Change password</div>
-                            <div class="panel-body">
-                                <!-- start password form -->
-                                <form class="form" role="form">
-
-                                    <div class="form-group">
-                                        <label class="control-label">Old password:</label>
-                                        <div class="">
-                                            <input class="form-control" type="password" value="11111122333" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">New password:</label>
-                                        <div class="">
-                                            <input class="form-control" type="password" value="11111122333" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label"></label>
-                                        <div class="">
-                                            <input type="button" class="btn btn-primary" value="Save Changes" />
-                                        </div>
-                                    </div>
-                                </form>
-                                <!-- end password form -->
-                            </div>
-                        </div>
-                        <!-- end password panel -->
-                    </div>
-                    <!-- end column -->
+<div layout:fragment="content" class="container">
+    <div class="row">
+        <!-- start sidebar navigation -->
+        <div class="col-md-2">
+            <!-- start my account panel -->
+            <div class="panel panel-sidebar">
+                <div class="panel-heading">MY ACCOUNT</div>
+                <div class="panel-body">
+                    <ul class="nav nav-list">
+                        <li class="active"><a href="/dev/profile.html"><i class="fa fa-user"></i> EDIT PROFILE</a>
+                        </li>
+                        <li><a href="/dev/wishlist.html"><i class="fa fa-heart"></i> MY WISHLIST</a>
+                        </li>
+                        <li><a href="/dev/history.html"><i class="fa fa-history"></i> ORDERS HISTORY</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <!-- end profile content -->
+            <!-- end my account panel -->
         </div>
+        <!-- end sidebar navigation -->
+
+        <!-- start profile content -->
+        <div class="col-md-10">
+            <h1 class="page-title">EDIT PROFILE</h1>
+
+            <div class="row">
+                <!-- start column -->
+                <div class="col-sm-6">
+                    <!-- start account info panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">User info</div>
+                        <div class="panel-body">
+                            <!-- start profile form -->
+                            <form class="form" role="form">
+                                <div class="form-group">
+                                    <label class="control-label">First name:</label>
+
+                                    <div class="">
+                                        <input class="form-control" type="text" value="John"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Last name:</label>
+
+                                    <div class="">
+                                        <input class="form-control" type="text" value="Doe"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Company:</label>
+
+                                    <div class="">
+                                        <input class="form-control" type="text" value=""/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Email:</label>
+
+                                    <div class="">
+                                        <input class="form-control" type="text" value="your@email.com"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Time Zone:</label>
+
+                                    <div class="">
+                                        <div class="ui-select">
+                                            <select id="user_time_zone" class="form-control"/>
+                                            <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                                            <option value="Alaska">(GMT-09:00) Alaska</option>
+                                            <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US
+                                                &amp; Canada)
+                                            </option>
+                                            <option value="Arizona">(GMT-07:00) Arizona</option>
+                                            <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time
+                                                (US &amp; Canada)
+                                            </option>
+                                            <option value="Central Time (US &amp; Canada)" selected="selected">
+                                                (GMT-06:00) Central Time (US &amp; Canada)
+                                            </option>
+                                            <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US
+                                                &amp; Canada)
+                                            </option>
+                                            <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <!-- end profile form -->
+                        </div>
+                    </div>
+                    <!-- end account info panel -->
+                </div>
+                <!-- end column -->
+
+                <!-- start column -->
+                <div class="col-sm-6">
+                    <!-- start username panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Change username</div>
+                        <div class="panel-body">
+                            <!-- start profile form -->
+                            <form class="form" role="form">
+
+                                <div class="form-group">
+                                    <label class="control-label">Username:</label>
+
+                                    <div class="">
+                                        <input class="form-control" type="text" value="johndoe"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label"></label>
+
+                                    <div class="">
+                                        <input type="button" class="btn btn-primary" value="Save Changes"/>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- end profile form -->
+                        </div>
+                    </div>
+                    <!-- end username panel -->
+
+                    <!-- start password panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Change password</div>
+                        <div class="panel-body">
+                            <!-- start password form -->
+                            <form class="form" role="form">
+
+                                <div class="form-group">
+                                    <label class="control-label">Old password:</label>
+
+                                    <div class="">
+                                        <input class="form-control" type="password" value="11111122333"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">New password:</label>
+
+                                    <div class="">
+                                        <input class="form-control" type="password" value="11111122333"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label"></label>
+
+                                    <div class="">
+                                        <input type="button" class="btn btn-primary" value="Save Changes"/>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- end password form -->
+                        </div>
+                    </div>
+                    <!-- end password panel -->
+                </div>
+                <!-- end column -->
+            </div>
+        </div>
+        <!-- end profile content -->
     </div>
+</div>
 </body>
 </html>

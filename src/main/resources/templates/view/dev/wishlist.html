@@ -5,113 +5,121 @@
 <head>
 </head>
 <body>
-    <div layout:fragment="content" class="container">
-        <div class="row">
-            <!-- start sidebar navigation -->
-            <div class="col-md-2">
-                <!-- start my account panel -->
-                <div class="panel panel-sidebar">
-                    <div class="panel-heading">MY ACCOUNT</div>
-                    <div class="panel-body">
-                        <ul class="nav nav-list">
-                            <li><a href="/dev/profile.html"><i class="fa fa-user"></i> EDIT PROFILE</a>
-                            </li>
-                            <li class="active"><a href="/dev/wishlist.html"><i class="fa fa-heart"></i> MY WISHLIST</a>
-                            </li>
-                            <li><a href="/dev/history.html"><i class="fa fa-history"></i> ORDERS HISTORY</a>
-                            </li>
-                        </ul>
-                    </div>
+<div layout:fragment="content" class="container">
+    <div class="row">
+        <!-- start sidebar navigation -->
+        <div class="col-md-2">
+            <!-- start my account panel -->
+            <div class="panel panel-sidebar">
+                <div class="panel-heading">MY ACCOUNT</div>
+                <div class="panel-body">
+                    <ul class="nav nav-list">
+                        <li><a href="/dev/profile.html"><i class="fa fa-user"></i> EDIT PROFILE</a>
+                        </li>
+                        <li class="active"><a href="/dev/wishlist.html"><i class="fa fa-heart"></i> MY WISHLIST</a>
+                        </li>
+                        <li><a href="/dev/history.html"><i class="fa fa-history"></i> ORDERS HISTORY</a>
+                        </li>
+                    </ul>
                 </div>
-                <!-- end my account panel -->
             </div>
-            <!-- end sidebar navigation -->
-
-            <!-- start wishlist main content -->
-            <div class="col-md-10">
-                <!-- start page title -->
-                <h1 class="page-title">MY WHISLIST</h1>
-                <!-- end page title -->
-
-                <!-- start wishlist table -->
-                <table class="table table-hover table-cart">
-                    <tbody>
-                    <tr>
-                        <th class="image"></th>
-                        <th class="name">Product name</th>
-                        <th class="price">Price</th>
-                        <th></th>
-                    </tr>
-
-                    <!-- start product item -->
-                    <tr id="item-" class="item item-">
-                        <td class="image">
-                            <img src="/assets/images/145x180.png" />
-                        </td>
-                        <td class="name">
-                            <a href="/products/url1">Elegant grey dress</a>
-                        </td>
-
-                        <td class="price">$25</td>
-                        <td class="actions">
-                            <button data-from="mycart" data-rowid="" class="btn btn-danger btn-xs cart-delete-item" type="button"><i class="fa fa-times-circle"></i> remove</button>
-                        </td>
-                    </tr>
-                    <!-- end product item -->
-
-                    <!-- start product item -->
-                    <tr id="item-" class="item item-">
-                        <td class="image">
-                            <img src="/assets/images/145x180.png" />
-                        </td>
-                        <td class="name">
-                            <a href="/products/url1">Nice blue tee</a>
-                        </td>
-
-                        <td class="price">$31</td>
-                        <td class="actions">
-                            <button data-from="mycart" data-rowid="" class="btn btn-danger btn-xs cart-delete-item" type="button"><i class="fa fa-times-circle"></i> remove</button>
-                        </td>
-                    </tr>
-                    <!-- end product item -->
-
-                    <!-- start product item -->
-                    <tr id="item-" class="item item-">
-                        <td class="image">
-                            <img src="/assets/images/145x180.png" />
-                        </td>
-                        <td class="name">
-                            <a href="/products/url1">A green tee</a>
-                        </td>
-
-                        <td class="price">$14</td>
-                        <td class="actions">
-                            <button data-from="mycart" data-rowid="" class="btn btn-danger btn-xs cart-delete-item" type="button"><i class="fa fa-times-circle"></i> remove</button>
-                        </td>
-                    </tr>
-                    <!-- end product item -->
-
-                    <!-- start product item -->
-                    <tr id="item-" class="item item-">
-                        <td class="image">
-                            <img src="/assets/images/145x180.png" />
-                        </td>
-                        <td class="name">
-                            <a href="/products/url1">Black trousers</a>
-                        </td>
-
-                        <td class="price">$210</td>
-                        <td class="actions">
-                            <button data-from="mycart" data-rowid="" class="btn btn-danger btn-xs cart-delete-item" type="button"><i class="fa fa-times-circle"></i> remove</button>
-                        </td>
-                    </tr>
-                    <!-- end product item -->
-                    </tbody>
-                </table>
-                <!-- end wishlist table -->
-            </div>
-            <!-- end wishlist main content -->
+            <!-- end my account panel -->
         </div>
+        <!-- end sidebar navigation -->
+
+        <!-- start wishlist main content -->
+        <div class="col-md-10">
+            <!-- start page title -->
+            <h1 class="page-title">MY WHISLIST</h1>
+            <!-- end page title -->
+
+            <!-- start wishlist table -->
+            <table class="table table-hover table-cart">
+                <tbody>
+                <tr>
+                    <th class="image"></th>
+                    <th class="name">Product name</th>
+                    <th class="price">Price</th>
+                    <th></th>
+                </tr>
+
+                <!-- start product item -->
+                <tr id="item-" class="item item-">
+                    <td class="image">
+                        <img src="/assets/images/145x180.png"/>
+                    </td>
+                    <td class="name">
+                        <a href="/products/url1">Elegant grey dress</a>
+                    </td>
+
+                    <td class="price">$25</td>
+                    <td class="actions">
+                        <button data-from="mycart" data-rowid="" class="btn btn-danger btn-xs cart-delete-item"
+                                type="button"><i class="fa fa-times-circle"></i> remove
+                        </button>
+                    </td>
+                </tr>
+                <!-- end product item -->
+
+                <!-- start product item -->
+                <tr id="item-" class="item item-">
+                    <td class="image">
+                        <img src="/assets/images/145x180.png"/>
+                    </td>
+                    <td class="name">
+                        <a href="/products/url1">Nice blue tee</a>
+                    </td>
+
+                    <td class="price">$31</td>
+                    <td class="actions">
+                        <button data-from="mycart" data-rowid="" class="btn btn-danger btn-xs cart-delete-item"
+                                type="button"><i class="fa fa-times-circle"></i> remove
+                        </button>
+                    </td>
+                </tr>
+                <!-- end product item -->
+
+                <!-- start product item -->
+                <tr id="item-" class="item item-">
+                    <td class="image">
+                        <img src="/assets/images/145x180.png"/>
+                    </td>
+                    <td class="name">
+                        <a href="/products/url1">A green tee</a>
+                    </td>
+
+                    <td class="price">$14</td>
+                    <td class="actions">
+                        <button data-from="mycart" data-rowid="" class="btn btn-danger btn-xs cart-delete-item"
+                                type="button"><i class="fa fa-times-circle"></i> remove
+                        </button>
+                    </td>
+                </tr>
+                <!-- end product item -->
+
+                <!-- start product item -->
+                <tr id="item-" class="item item-">
+                    <td class="image">
+                        <img src="/assets/images/145x180.png"/>
+                    </td>
+                    <td class="name">
+                        <a href="/products/url1">Black trousers</a>
+                    </td>
+
+                    <td class="price">$210</td>
+                    <td class="actions">
+                        <button data-from="mycart" data-rowid="" class="btn btn-danger btn-xs cart-delete-item"
+                                type="button"><i class="fa fa-times-circle"></i> remove
+                        </button>
+                    </td>
+                </tr>
+                <!-- end product item -->
+                </tbody>
+            </table>
+            <!-- end wishlist table -->
+        </div>
+        <!-- end wishlist main content -->
     </div>
+</div>
 </body>
 </html>

@@ -25,12 +25,15 @@
             <div class="ibox">
                 <div class="ibox-content">
                     <h3>To-do</h3>
+
                     <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
 
                     <div class="input-group">
-                        <input type="text" placeholder="Add new task. " class="input input-sm form-control" />
+                        <input type="text" placeholder="Add new task. " class="input input-sm form-control"/>
                                 <span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-white"> <i class="fa fa-plus"></i> Add task</button>
+                                        <button type="button" class="btn btn-sm btn-white"><i class="fa fa-plus"></i>
+                                            Add task
+                                        </button>
                                 </span>
                     </div>
                     <ul ui-sortable="sortableOptions" class="sortable-list connectList agile-list" ng-model="todoList">
@@ -49,8 +52,10 @@
             <div class="ibox">
                 <div class="ibox-content">
                     <h3>In Progress</h3>
+
                     <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
-                    <ul ui-sortable="sortableOptions" class="sortable-list connectList agile-list" ng-model="inProgressList">
+                    <ul ui-sortable="sortableOptions" class="sortable-list connectList agile-list"
+                        ng-model="inProgressList">
                         <li class="{{task.statusClass}}-element" ng-repeat="task in inProgressList">
                             {{task.content}}
                             <div class="agile-detail">
@@ -66,8 +71,10 @@
             <div class="ibox">
                 <div class="ibox-content">
                     <h3>Completed</h3>
+
                     <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
-                    <ul ui-sortable="sortableOptions" class="sortable-list connectList agile-list" ng-model="completedList">
+                    <ul ui-sortable="sortableOptions" class="sortable-list connectList agile-list"
+                        ng-model="completedList">
                         <li class="{{task.statusClass}}-element" ng-repeat="task in completedList">
                             {{task.content}}
                             <div class="agile-detail">

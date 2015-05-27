@@ -20,11 +20,13 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Badges</h5>
+
                     <div ibox-tools=""></div>
                 </div>
                 <div class="ibox-content">
                     <p>
-                        To add a badge style You have to add <code>.badge</code>class to element. To change a color od badge you can add extra class like <code>.badge-primary</code>.
+                        To add a badge style You have to add <code>.badge</code>class to element. To change a color od
+                        badge you can add extra class like <code>.badge-primary</code>.
                     </p>
 
                     <p><span class="badge">Plain</span></p>
@@ -46,11 +48,13 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Labels</h5>
+
                     <div ibox-tools=""></div>
                 </div>
                 <div class="ibox-content">
                     <p>
-                        Analogic to badge. To add a label style You have to add <code>.label</code>class to element. To change a color od label you can add extra class like <code>.label-primary</code>.
+                        Analogic to badge. To add a label style You have to add <code>.label</code>class to element. To
+                        change a color od label you can add extra class like <code>.label-primary</code>.
                     </p>
 
                     <p><span class="label">Plain</span></p>
@@ -74,12 +78,13 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Progress Bars</h5>
+
                     <div ibox-tools=""></div>
                 </div>
                 <div class="ibox-content">
                     <h5>Basic ProgressBars</h5>
 
-                    <progressbar value="15" ></progressbar>
+                    <progressbar value="15"></progressbar>
                     <progressbar value="55" type="warning"></progressbar>
                     <progressbar value="68" type="success"></progressbar>
 
@@ -92,10 +97,14 @@
                     <progressbar value="40" type="danger" class="progress-striped active"></progressbar>
 
                     <h5>Stacked Progressbars</h5>
-                    <button class="btn btn-sm btn-sm btn-white" type="button" ng-click="main.randomStacked()">Randomize</button>
-                    <progress><bar ng-repeat="bar in main.stacked track by $index" value="bar.value" type="{{bar.type}}">
-                        <span ng-hide="bar.value &lt; 3">{{bar.value}}%</span>
-                    </bar></progress>
+                    <button class="btn btn-sm btn-sm btn-white" type="button" ng-click="main.randomStacked()">
+                        Randomize
+                    </button>
+                    <progress>
+                        <bar ng-repeat="bar in main.stacked track by $index" value="bar.value" type="{{bar.type}}">
+                            <span ng-hide="bar.value &lt; 3">{{bar.value}}%</span>
+                        </bar>
+                    </progress>
 
                 </div>
             </div>

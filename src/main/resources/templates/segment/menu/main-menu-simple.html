@@ -5,21 +5,21 @@
     <title>Menu</title>
 </head>
 <body th:fragment="body(menu, config)">
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" th:href="${menu.self.url}" th:text="${menu.self.name}">Top menu</a>
-        <ul class="dropdown-menu" role="menu">
-            <th:block th:each="itemGroup : ${menu.groups}">
-                <th:block th:each="menuItem : ${itemGroup.items}">
-                    <li>
-                        <a href="#" th:href="${menuItem.url}" th:text="${menuItem.name}">Name</a>
-                    </li>
-                    <li class="divider"
-                        th:if="${config.items[menuItem.name] != null
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" th:href="${menu.self.url}" th:text="${menu.self.name}">Top menu</a>
+    <ul class="dropdown-menu" role="menu">
+        <th:block th:each="itemGroup : ${menu.groups}">
+            <th:block th:each="menuItem : ${itemGroup.items}">
+                <li>
+                    <a href="#" th:href="${menuItem.url}" th:text="${menuItem.name}">Name</a>
+                </li>
+                <li class="divider"
+                    th:if="${config.items[menuItem.name] != null
                         and config.items[menuItem.name].attributes.appendDivider}">
-                    </li>
-                </th:block>
+                </li>
             </th:block>
-        </ul>
-    </li>
+        </th:block>
+    </ul>
+</li>
 </body>
 </html>

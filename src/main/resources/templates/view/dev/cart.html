@@ -5,136 +5,156 @@
 <head>
 </head>
 <body>
-    <div layout:fragment="content" class="container">
-        <div class="row">
-            <div class="col-md-12">
+<div layout:fragment="content" class="container">
+    <div class="row">
+        <div class="col-md-12">
 
-                <h1 class="page-title">Shopping cart</h1>
-                <table class="table table-hover table-cart">
-                    <tbody>
-                    <tr>
-                        <th class="image"></th>
-                        <th class="name">Product name</th>
-                        <th class="quantity">Quantity</th>
-                        <th class="price">Price</th>
-                        <th></th>
-                    </tr>
+            <h1 class="page-title">Shopping cart</h1>
+            <table class="table table-hover table-cart">
+                <tbody>
+                <tr>
+                    <th class="image"></th>
+                    <th class="name">Product name</th>
+                    <th class="quantity">Quantity</th>
+                    <th class="price">Price</th>
+                    <th></th>
+                </tr>
 
-                    <tr class="item">
-                        <td class="image">
-                            <img src="/assets/images/145x180.png" alt="product" />
-                        </td>
-                        <td class="name">
-                            1
-                            <span class="sign-quantity">x</span> <a href="/products/url1" data-rowid="">Elengant Grey Dress</a>
-                        </td>
-                        <td class="quantity">
-                            <input type="text" name="quantity" autocomplete="off" value="1" data-initial-quantity="1" class="form-control quantity" data-price="400" data-id="" />
-                            <div class="save-button"></div>
-                        </td>
-                        <td class="price">$90</td>
-                        <td class="actions">
-                            <button type="button" class="btn btn-danger btn-xs cart-delete-item" data-rowid="" data-from="mycart"><i class="fa fa-times-circle"></i> remove</button>
-                        </td>
-                    </tr>
-                    <tr class="item">
-                        <td class="image">
-                            <img src="/assets/images/145x180.png" alt="product" />
-                        </td>
-                        <td class="name">
-                            1
-                            <span class="sign-quantity">x</span> <a href="/products/url1" data-rowid="">Nice Blue Dress</a>
-                        </td>
-                        <td class="quantity">
-                            <input type="text" name="quantity" autocomplete="off" value="1" data-initial-quantity="1" class="form-control quantity" data-price="400" data-id="" />
-                            <div class="save-button"></div>
-                        </td>
-                        <td class="price">$56</td>
-                        <td class="actions">
-                            <button type="button" class="btn btn-danger btn-xs cart-delete-item" data-rowid="" data-from="mycart"><i class="fa fa-times-circle"></i> remove</button>
-                        </td>
-                    </tr>
+                <tr class="item">
+                    <td class="image">
+                        <img src="/assets/images/145x180.png" alt="product"/>
+                    </td>
+                    <td class="name">
+                        1
+                        <span class="sign-quantity">x</span> <a href="/products/url1" data-rowid="">Elengant Grey
+                        Dress</a>
+                    </td>
+                    <td class="quantity">
+                        <input type="text" name="quantity" autocomplete="off" value="1" data-initial-quantity="1"
+                               class="form-control quantity" data-price="400" data-id=""/>
 
-                    <tr class="item">
-                        <td class="image">
-                            <img src="/assets/images/145x180.png" alt="product" />
-                        </td>
-                        <td class="name">
-                            1
-                            <span class="sign-quantity">x</span> <a href="/products/url1" data-rowid="">Green Dress</a>
-                        </td>
-                        <td class="quantity">
-                            <input type="text" name="quantity" autocomplete="off" value="1" data-initial-quantity="1" class="form-control quantity" data-price="400" data-id="" />
-                            <div class="save-button"></div>
-                        </td>
-                        <td class="price">$125</td>
-                        <td class="actions">
-                            <button type="button" class="btn btn-danger btn-xs cart-delete-item" data-rowid="" data-from="mycart"><i class="fa fa-times-circle"></i> remove</button>
-                        </td>
-                    </tr>
-                    <tr class="item">
-                        <td class="image">
-                            <img src="/assets/images/145x180.png" alt="product" />
-                        </td>
-                        <td class="name">
-                            1
-                            <span class="sign-quantity">x</span> <a href="/products/url1" data-rowid="">Black Trousers</a>
-                        </td>
-                        <td class="quantity">
-                            <input type="text" name="quantity" autocomplete="off" value="1" data-initial-quantity="1" class="form-control quantity" data-price="400" data-id="" />
-                            <div class="save-button"></div>
-                        </td>
-                        <td class="price">$54</td>
-                        <td class="actions">
-                            <button type="button" class="btn btn-danger btn-xs cart-delete-item" data-rowid="" data-from="mycart"><i class="fa fa-times-circle"></i> remove</button>
-                        </td>
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td colspan="5">
-                            <a href="#" class="btn btn-default btn-lg">Continue shopping</a>  <a href="#" class="btn btn-default btn-lg">Clear shopping cart</a>  <a href="/checkout" class="btn btn-default btn-lg pull-right">Update shopping cart</a>
-                        </td>
-                    </tr>
-                    </tfoot>
+                        <div class="save-button"></div>
+                    </td>
+                    <td class="price">$90</td>
+                    <td class="actions">
+                        <button type="button" class="btn btn-danger btn-xs cart-delete-item" data-rowid=""
+                                data-from="mycart"><i class="fa fa-times-circle"></i> remove
+                        </button>
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td class="image">
+                        <img src="/assets/images/145x180.png" alt="product"/>
+                    </td>
+                    <td class="name">
+                        1
+                        <span class="sign-quantity">x</span> <a href="/products/url1" data-rowid="">Nice Blue Dress</a>
+                    </td>
+                    <td class="quantity">
+                        <input type="text" name="quantity" autocomplete="off" value="1" data-initial-quantity="1"
+                               class="form-control quantity" data-price="400" data-id=""/>
 
-                </table>
-            </div>
+                        <div class="save-button"></div>
+                    </td>
+                    <td class="price">$56</td>
+                    <td class="actions">
+                        <button type="button" class="btn btn-danger btn-xs cart-delete-item" data-rowid=""
+                                data-from="mycart"><i class="fa fa-times-circle"></i> remove
+                        </button>
+                    </td>
+                </tr>
+
+                <tr class="item">
+                    <td class="image">
+                        <img src="/assets/images/145x180.png" alt="product"/>
+                    </td>
+                    <td class="name">
+                        1
+                        <span class="sign-quantity">x</span> <a href="/products/url1" data-rowid="">Green Dress</a>
+                    </td>
+                    <td class="quantity">
+                        <input type="text" name="quantity" autocomplete="off" value="1" data-initial-quantity="1"
+                               class="form-control quantity" data-price="400" data-id=""/>
+
+                        <div class="save-button"></div>
+                    </td>
+                    <td class="price">$125</td>
+                    <td class="actions">
+                        <button type="button" class="btn btn-danger btn-xs cart-delete-item" data-rowid=""
+                                data-from="mycart"><i class="fa fa-times-circle"></i> remove
+                        </button>
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td class="image">
+                        <img src="/assets/images/145x180.png" alt="product"/>
+                    </td>
+                    <td class="name">
+                        1
+                        <span class="sign-quantity">x</span> <a href="/products/url1" data-rowid="">Black Trousers</a>
+                    </td>
+                    <td class="quantity">
+                        <input type="text" name="quantity" autocomplete="off" value="1" data-initial-quantity="1"
+                               class="form-control quantity" data-price="400" data-id=""/>
+
+                        <div class="save-button"></div>
+                    </td>
+                    <td class="price">$54</td>
+                    <td class="actions">
+                        <button type="button" class="btn btn-danger btn-xs cart-delete-item" data-rowid=""
+                                data-from="mycart"><i class="fa fa-times-circle"></i> remove
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <a href="#" class="btn btn-default btn-lg">Continue shopping</a> <a href="#"
+                                                                                            class="btn btn-default btn-lg">Clear
+                        shopping cart</a> <a href="/checkout" class="btn btn-default btn-lg pull-right">Update shopping
+                        cart</a>
+                    </td>
+                </tr>
+                </tfoot>
+
+            </table>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Discounts</div>
-                    <div class="panel-body">
-                        <label>Enter your coupon code if you have one.</label>
-                        <input type="text" class="form-control" />
-                        <button class="btn btn-default btn-block">Apply coupon</button>
-                    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Discounts</div>
+                <div class="panel-body">
+                    <label>Enter your coupon code if you have one.</label>
+                    <input type="text" class="form-control"/>
+                    <button class="btn btn-default btn-block">Apply coupon</button>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-3 pull-right">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Checkout</div>
-                    <div class="panel-body">
-                        <table class="table table-notop">
-                            <tbody>
-                            <tr>
-                                <td class="checkout-label">Sub total</td>
-                                <td class="checkout-value">$325</td>
-                            </tr>
-                            <tr>
-                                <td class="checkout-label">Grand total</td>
-                                <td class="checkout-value">$325</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="">
-                            <a href="/checkout" class="btn btn-primary btn-large btn-block">Proceed to checkout</a>
-                        </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 pull-right">
+            <div class="panel panel-default">
+                <div class="panel-heading">Checkout</div>
+                <div class="panel-body">
+                    <table class="table table-notop">
+                        <tbody>
+                        <tr>
+                            <td class="checkout-label">Sub total</td>
+                            <td class="checkout-value">$325</td>
+                        </tr>
+                        <tr>
+                            <td class="checkout-label">Grand total</td>
+                            <td class="checkout-value">$325</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="">
+                        <a href="/checkout" class="btn btn-primary btn-large btn-block">Proceed to checkout</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
