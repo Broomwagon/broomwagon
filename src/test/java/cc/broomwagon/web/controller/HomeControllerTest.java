@@ -42,12 +42,12 @@ public class HomeControllerTest {
     }
 
     @Test
-    public void shouldRedirectToAdminHome() {
+    public void shouldDisplayAdminHome() {
 
         // when
         String actual = homeController.adminHome();
 
         // then
-        assertThat(actual, is("redirect:/admin/index.html"));
+        assertThat(actual, is("admin/view/index"));
     }
 }
