@@ -21,4 +21,9 @@ public class HomeController {
         model.put("products", productManager.getProducts());
         return "view/home";
     }
+
+    @RequestMapping("/admin")
+    public String adminHome(){
+        return "redirect:/admin/index.html";
+    }
 }

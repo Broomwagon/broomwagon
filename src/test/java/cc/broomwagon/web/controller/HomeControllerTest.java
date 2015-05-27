@@ -40,4 +40,14 @@ public class HomeControllerTest {
         assertThat(actual, is("view/home"));
         assertThat(size((Iterable<Product>) model.get("products")), is(notNullValue()));
     }
+
+    @Test
+    public void shouldRedirectToAdminHome() {
+
+        // when
+        String actual = homeController.adminHome();
+
+        // then
+        assertThat(actual, is("redirect:/admin/index.html"));
+    }
 }

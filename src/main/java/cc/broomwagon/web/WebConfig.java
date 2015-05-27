@@ -16,11 +16,16 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ThemeResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.springframework.web.servlet.mvc.UrlFilenameViewController;
 import org.springframework.web.servlet.theme.FixedThemeResolver;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
+import java.util.Properties;
 
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
@@ -29,7 +34,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(menuInterceptor).addPathPatterns("/**");;
+        registry.addInterceptor(menuInterceptor).addPathPatterns("/**");
     }
 
     @Bean
@@ -66,6 +71,34 @@ public class WebConfig extends WebMvcConfigurerAdapter {
             container.addErrorPages(new ErrorPage(NOT_FOUND, "/404"));
             container.addErrorPages(new ErrorPage(INTERNAL_SERVER_ERROR, "/500"));
         };
+    }
+
+    @Bean(name = "urlViewController")
+    public UrlFilenameViewController getUrlViewController() {
+        UrlFilenameViewController urlViewController = new UrlFilenameViewController();
+        urlViewController.setPrefix("view/dev/");
+        return urlViewController;
+    }
+
+    @Bean(name = "urlAdminViewController")
+    public UrlFilenameViewController getUrlAsminViewController() {
+        UrlFilenameViewController urlViewController = new UrlFilenameViewController();
+        urlViewController.setPrefix("admin/view/");
+        return urlViewController;
+    }
+
+    @Bean
+    public SimpleUrlHandlerMapping getUrlHandlerMapping() {
+        SimpleUrlHandlerMapping handlerMapping = new SimpleUrlHandlerMapping();
+        handlerMapping.setOrder(Integer.MAX_VALUE - 2);
+        handlerMapping.setInterceptors(new Object[] { menuInterceptor });
+
+        Properties mappings = new Properties();
+        mappings.put("/dev/**", "urlViewController");
+        mappings.put("/admin/**/*.html", "urlAdminViewController");
+        handlerMapping.setMappings(mappings);
+
+        return handlerMapping;
     }
 
 }
