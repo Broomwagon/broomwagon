@@ -1,7 +1,4 @@
 /**
- * INSPINIA - Responsive Admin Theme
- * 2.0
- *
  * Custom scripts
  */
 

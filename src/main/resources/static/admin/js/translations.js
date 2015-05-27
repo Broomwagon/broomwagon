@@ -1,8 +1,4 @@
-/**
- * INSPINIA - Responsive Admin Theme
- * Copyright 2015 Webapplayers.com
- *
- */
+
 function config($translateProvider) {
 
     $translateProvider
@@ -27,9 +23,9 @@ function config($translateProvider) {
             LAYOUTS: 'Layouts',
 
             // Define some custom text
-            WELCOME: 'Welcome Amelia',
+            WELCOME: 'Welcome Vladimir',
             MESSAGEINFO: 'You have 42 messages and 6 notifications.',
-            SEARCH: 'Search for something...',
+            SEARCH: 'Search for something...'
 
         })
         .translations('es', {
@@ -53,9 +49,9 @@ function config($translateProvider) {
             LAYOUTS: 'Esquemas',
 
             // Define some custom text
-            WELCOME: 'Bienvenido Amelia',
+            WELCOME: 'Bienvenido Vladimir',
             MESSAGEINFO: 'Usted tiene 42 mensajes y 6 notificaciones.',
-            SEARCH: 'Busca algo ...',
+            SEARCH: 'Busca algo ...'
         });
 
     $translateProvider.preferredLanguage('en');
