@@ -1,6 +1,6 @@
 /**
  * Main controller.js file
- * Define controllers with data used in Inspinia theme
+ * Define controllers with data used in broomwagon theme
  *
  *
  * Functions (controllers)
@@ -2057,18 +2057,18 @@ function notifyCtrl($scope, notify) {
         notify.closeAll();
     };
 
-    $scope.inspiniaTemplate = '/admin/common/notify.html';
-    $scope.inspiniaDemo1 = function(){
-        notify({ message: 'Info - This is a Inspinia info notification', classes: 'alert-info', templateUrl: $scope.inspiniaTemplate});
+    $scope.broomwagonTemplate = '/admin/common/notify.html';
+    $scope.broomwagonDemo1 = function(){
+        notify({ message: 'Info - This is a broomwagon info notification', classes: 'alert-info', templateUrl: $scope.broomwagonTemplate});
     }
-    $scope.inspiniaDemo2 = function(){
-        notify({ message: 'Success - This is a Inspinia success notification', classes: 'alert-success', templateUrl: $scope.inspiniaTemplate});
+    $scope.broomwagonDemo2 = function(){
+        notify({ message: 'Success - This is a broomwagon success notification', classes: 'alert-success', templateUrl: $scope.broomwagonTemplate});
     }
-    $scope.inspiniaDemo3 = function(){
-        notify({ message: 'Warning - This is a Inspinia warning notification', classes: 'alert-warning', templateUrl: $scope.inspiniaTemplate});
+    $scope.broomwagonDemo3 = function(){
+        notify({ message: 'Warning - This is a broomwagon warning notification', classes: 'alert-warning', templateUrl: $scope.broomwagonTemplate});
     }
-    $scope.inspiniaDemo4 = function(){
-        notify({ message: 'Danger - This is a Inspinia danger notification', classes: 'alert-danger', templateUrl: $scope.inspiniaTemplate});
+    $scope.broomwagonDemo4 = function(){
+        notify({ message: 'Danger - This is a broomwagon danger notification', classes: 'alert-danger', templateUrl: $scope.broomwagonTemplate});
     }
 }
 
@@ -2386,7 +2386,7 @@ function draggablePanels($scope) {
  * Pass all functions into module
  */
 angular
-    .module('inspinia')
+    .module('broomwagon')
     .controller('MainCtrl', MainCtrl)
     .controller('dashboardFlotOne', dashboardFlotOne)
     .controller('dashboardFlotTwo', dashboardFlotTwo)

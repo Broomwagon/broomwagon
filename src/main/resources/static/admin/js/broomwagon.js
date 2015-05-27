@@ -24,9 +24,7 @@ $(document).ready(function () {
         if(navbarHeigh < wrapperHeigh){
             $('#page-wrapper').css("min-height", $(window).height()  + "px");
         }
-
     }
-
 
     $(window).bind("load resize scroll", function() {
         if(!$("body").hasClass('body-small')) {
@@ -42,7 +40,6 @@ $(document).ready(function () {
             $('#right-sidebar').removeClass('sidebar-top');
         }
     });
-
 
     setTimeout(function(){
         fix_height();

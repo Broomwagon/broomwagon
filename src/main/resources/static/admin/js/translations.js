@@ -59,5 +59,5 @@ function config($translateProvider) {
 }
 
 angular
-    .module('inspinia')
+    .module('broomwagon')
     .config(config)

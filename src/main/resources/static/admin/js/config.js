@@ -891,7 +891,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         });
 }
 angular
-    .module('inspinia')
+    .module('broomwagon')
     .config(config)
     .run(function($rootScope, $state) {
         $rootScope.$state = $state;

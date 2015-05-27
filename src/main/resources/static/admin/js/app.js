@@ -1,5 +1,5 @@
 (function () {
-    angular.module('inspinia', [
+    angular.module('broomwagon', [
         'ui.router',                    // Routing
         'oc.lazyLoad',                  // ocLazyLoad
         'ui.bootstrap',                 // Ui Bootstrap
