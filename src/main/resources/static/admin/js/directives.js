@@ -162,7 +162,7 @@ function vectorMap() {
     return {
         restrict: 'A',
         scope: {
-            myMapData: '=',
+            myMapData: '='
         },
         link: function (scope, element, attrs) {
             element.vectorMap({
@@ -185,7 +185,7 @@ function vectorMap() {
                             normalizeFunction: 'polynomial'
                         }
                     ]
-                },
+                }
             });
         }
     }
@@ -200,7 +200,7 @@ function sparkline() {
         restrict: 'A',
         scope: {
             sparkData: '=',
-            sparkOptions: '=',
+            sparkOptions: '='
         },
         link: function (scope, element, attrs) {
             scope.$watch(scope.sparkData, function () {

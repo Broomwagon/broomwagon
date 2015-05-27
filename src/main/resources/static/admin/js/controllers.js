@@ -315,7 +315,7 @@ function MainCtrl() {
             fill: ["#1ab394", "#d7d7d7"]
         }
     };
-};
+}
 
 
 /**
@@ -565,8 +565,7 @@ function dashboardFlotTwo() {
             noColumns: 1,
             labelBoxBorderColor: "#d5d5d5",
             position: "nw"
-        },
-
+        }
     };
 
     function gd(year, month, day) {
@@ -597,7 +596,7 @@ function dashboardMap() {
         "AU": 760,
         "BR": 550,
         "IN": 200,
-        "GB": 120,
+        "GB": 120
     };
 
     this.data = data;
@@ -878,8 +877,7 @@ function flotChartCtrl() {
             hoverable: true,
             clickable: true,
             tickColor: "#D4D4D4",
-            borderWidth: 0,
-
+            borderWidth: 0
         },
         tooltip: true,
         tooltipOpts: {
@@ -2410,4 +2408,3 @@ angular
     .controller('formValidation', formValidation)
     .controller('agileBoard', agileBoard)
     .controller('draggablePanels', draggablePanels)
-

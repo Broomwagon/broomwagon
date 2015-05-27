@@ -29,7 +29,6 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                 loadPlugin: function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         {
-
                             serie: true,
                             name: 'angular-flot',
                             files: [ '/admin/js/plugins/flot/jquery.flot.js', '/admin/js/plugins/flot/jquery.flot.time.js', '/admin/js/plugins/flot/jquery.flot.tooltip.min.js', '/admin/js/plugins/flot/jquery.flot.spline.js', '/admin/js/plugins/flot/jquery.flot.resize.js', '/admin/js/plugins/flot/jquery.flot.pie.js', '/admin/js/plugins/flot/curvedLines.js', '/admin/js/plugins/flot/angular-flot.js', ]
@@ -98,7 +97,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         .state('dashboards_top', {
             abstract: true,
             url: "/dashboards_top",
-            templateUrl: "/admin/common/content_top_navigation.html",
+            templateUrl: "/admin/common/content_top_navigation.html"
         })
         .state('dashboards_top.dashboard_4', {
             url: "/dashboard_4",
@@ -151,12 +150,12 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         .state('layouts', {
             url: "/layouts",
             templateUrl: "/admin/layouts.html",
-            data: { pageTitle: 'Layouts' },
+            data: { pageTitle: 'Layouts' }
         })
         .state('charts', {
             abstract: true,
             url: "/charts",
-            templateUrl: "/admin/common/content.html",
+            templateUrl: "/admin/common/content.html"
         })
         .state('charts.flot_chart', {
             url: "/flot_chart",
@@ -245,7 +244,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         .state('mailbox', {
             abstract: true,
             url: "/mailbox",
-            templateUrl: "/admin/common/content.html",
+            templateUrl: "/admin/common/content.html"
         })
         .state('mailbox.inbox', {
             url: "/inbox",
@@ -318,7 +317,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         .state('forms', {
             abstract: true,
             url: "/forms",
-            templateUrl: "/admin/common/content.html",
+            templateUrl: "/admin/common/content.html"
         })
         .state('forms.basic_form', {
             url: "/basic_form",
@@ -443,7 +442,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         .state('app', {
             abstract: true,
             url: "/app",
-            templateUrl: "/admin/common/content.html",
+            templateUrl: "/admin/common/content.html"
         })
         .state('app.contacts', {
             url: "/contacts",
@@ -537,7 +536,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         .state('pages', {
             abstract: true,
             url: "/pages",
-            templateUrl: "/admin/common/content.html",
+            templateUrl: "/admin/common/content.html"
         })
         .state('pages.search_results', {
             url: "/search_results",
@@ -552,7 +551,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         .state('ui', {
             abstract: true,
             url: "/ui",
-            templateUrl: "/admin/common/content.html",
+            templateUrl: "/admin/common/content.html"
         })
         .state('ui.typography', {
             url: "/typography",
@@ -612,7 +611,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         .state('miscellaneous', {
             abstract: true,
             url: "/miscellaneous",
-            templateUrl: "/admin/common/content.html",
+            templateUrl: "/admin/common/content.html"
         })
         .state('miscellaneous.google_maps', {
             url: "/google_maps",
@@ -782,7 +781,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         .state('tables', {
             abstract: true,
             url: "/tables",
-            templateUrl: "/admin/common/content.html",
+            templateUrl: "/admin/common/content.html"
         })
         .state('tables.static_table', {
             url: "/static_table",
@@ -846,7 +845,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         .state('gallery', {
             abstract: true,
             url: "/gallery",
-            templateUrl: "/admin/common/content.html",
+            templateUrl: "/admin/common/content.html"
         })
         .state('gallery.basic_gallery', {
             url: "/basic_gallery",
