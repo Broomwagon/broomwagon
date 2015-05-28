@@ -36,7 +36,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(menuInterceptor).addPathPatterns("/**");
+        registry.addInterceptor(menuInterceptor)
+                .excludePathPatterns("/json/**")
+                .excludePathPatterns("/admin**")
+                .addPathPatterns("/**");
     }
 
     @Override
