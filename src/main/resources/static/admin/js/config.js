@@ -43,6 +43,26 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                     ]);
                 }
             }
+        })
+        .state('inventory.product', {
+            url: "/product",
+            templateUrl: "/admin/product.html",
+            data: { pageTitle: 'Product' },
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            name: 'summernote',
+                            files: [
+                                '/admin/css/plugins/summernote/summernote.css',
+                                '/admin/css/plugins/summernote/summernote-bs3.css',
+                                '/admin/js/plugins/summernote/summernote.min.js',
+                                '/admin/js/plugins/summernote/angular-summernote.min.js'
+                            ]
+                        }
+                    ]);
+                }
+            }
         });
 }
 angular

@@ -28,9 +28,27 @@ function SearchCtrl($scope, $location) {
     };
 }
 
+function ProductCtrl($scope, $http, $location) {
+    $http.get('/json/products/url0')
+        .success(function(data, status) {
+            $scope.product = data;
+        }).error(function(data, status) {
+            // error
+        });
+
+    $scope.cancel = function () {
+        $location.path('/inventory/products')
+    };
+
+    $scope.save = function () {
+        $scope.product.title = 'saved'
+    };
+}
+
 angular
     .module('broomwagon')
     .controller('InventoryCtrl', InventoryCtrl)
     .controller('TranslateCtrl', TranslateCtrl)
     .controller('SearchCtrl', SearchCtrl)
+    .controller('ProductCtrl', ProductCtrl)
 

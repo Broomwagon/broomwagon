@@ -84,7 +84,7 @@ function iboxTools($timeout) {
     return {
         restrict: 'A',
         scope: true,
-        templateUrl: 'common/ibox_tools.html',
+        templateUrl: '/admin/common/ibox-tools.html',
         controller: function ($scope, $element) {
             // Function for collapse ibox
             $scope.showhide = function () {
