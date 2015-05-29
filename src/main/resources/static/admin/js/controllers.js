@@ -27,18 +27,20 @@ function SearchCtrl($scope, $location) {
 
 function ProductCtrl($scope, $location, $stateParams, Product, notify) {
 
-    Product.get({id: $stateParams.id},
-        function success(response) {
-            $scope.product = response;
-        },
-        function error(errorResponse) {
-            notify({
-                message: 'Product not found!',
-                classes: 'alert-danger',
-                templateUrl: '/admin/common/notify.html'
-            });
-        }
-    );
+    if ($stateParams.id) {
+        Product.get({id: $stateParams.id},
+            function success(response) {
+                $scope.product = response;
+            },
+            function error(errorResponse) {
+                notify({
+                    message: 'Product not found!',
+                    classes: 'alert-danger',
+                    templateUrl: '/admin/common/notify.html'
+                });
+            }
+        );
+    }
 
     $scope.cancel = function () {
         $scope.product.title = 'not saved'
