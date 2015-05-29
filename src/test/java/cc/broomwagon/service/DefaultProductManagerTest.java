@@ -3,6 +3,8 @@ package cc.broomwagon.service;
 import static cc.broomwagon.TestFactory.aProduct;
 import static com.google.common.collect.Iterables.size;
 import static com.google.common.collect.Lists.newArrayList;
+import static java.util.Optional.empty;
+import static java.util.Optional.of;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
@@ -56,7 +58,7 @@ public class DefaultProductManagerTest {
     public void shouldNotGetProductByUrl() {
         // given
         String productUrl = "someUrl";
-        given(productDao.getProductByUrl(productUrl)).willReturn(null);
+        given(productDao.getProductByUrl(productUrl)).willReturn(empty());
 
         // when
         Optional<Product> actual = defaultProductManager.getProductByUrl(productUrl);
@@ -70,7 +72,7 @@ public class DefaultProductManagerTest {
         // given
         String productUrl = "someUrl";
         Product product = aProduct(productUrl);
-        given(productDao.getProductByUrl(productUrl)).willReturn(product);
+        given(productDao.getProductByUrl(productUrl)).willReturn(of(product));
 
         // when
         Optional<Product> actual = defaultProductManager.getProductByUrl(productUrl);
@@ -83,7 +85,7 @@ public class DefaultProductManagerTest {
     public void shouldAddProduct() {
         // given
         Product product = aProduct("hello");
-        given(productDao.add(product)).willReturn(product);
+        given(productDao.add(product)).willReturn(of(product));
 
         // when
         Optional<Product> actual = defaultProductManager.add(product);

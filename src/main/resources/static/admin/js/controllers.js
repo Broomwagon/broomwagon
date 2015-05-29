@@ -1,13 +1,10 @@
 /**
  * InventoryCtrl
  */
-function InventoryCtrl($scope, $http) {
-    $http.get('/json/products/')
-        .success(function(data, status) {
-            $scope.products = data;
-        }).error(function(data, status) {
-            // error
-        });
+function InventoryCtrl($scope, Product) {
+    var products = Product.query(function() {
+        $scope.products = products;
+    });
 }
 
 /**
@@ -28,20 +25,32 @@ function SearchCtrl($scope, $location) {
     };
 }
 
-function ProductCtrl($scope, $http, $location) {
-    $http.get('/json/products/url0')
-        .success(function(data, status) {
-            $scope.product = data;
-        }).error(function(data, status) {
-            // error
-        });
+function ProductCtrl($scope, $location, Product) {
+
+    Product.get({id: '3'},
+        function success(response) {
+            $scope.product = response;
+        },
+        function error(errorResponse) {
+            console.log("Error:" + JSON.stringify(errorResponse));
+        }
+    );
 
     $scope.cancel = function () {
+        $scope.product.title = 'not saved'
         $location.path('/inventory/products')
     };
 
     $scope.save = function () {
-        $scope.product.title = 'saved'
+        if ($scope.product.id) {
+            Product.update($scope.product, function() {
+                console.log("saved");
+            });
+        } else {
+            Product.save($scope.product, function() {
+                console.log("saved");
+            });
+        }
     };
 }
 

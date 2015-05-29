@@ -12,5 +12,7 @@ public interface ProductManager {
 
     Optional<Product> getProductByUrl(String someurl);
 
+    Optional<Product> getProductById(Long id);
+
     Optional<Product> add(Product product);
 }

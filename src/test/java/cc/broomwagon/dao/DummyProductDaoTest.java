@@ -6,13 +6,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 
 import cc.broomwagon.model.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import java.util.Optional;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DummyProductDaoTest {
@@ -37,10 +38,10 @@ public class DummyProductDaoTest {
         dummyProductDao.products.put(productUrl, product);
 
         // when
-        Product actual = dummyProductDao.getProductByUrl(productUrl);
+        Optional<Product> actual = dummyProductDao.getProductByUrl(productUrl);
 
         // then
-        assertThat(actual, is(product));
+        assertThat(actual.get(), is(product));
     }
 
     @Test
@@ -49,10 +50,10 @@ public class DummyProductDaoTest {
         String productUrl = "productUrl";
 
         // when
-        Product actual = dummyProductDao.getProductByUrl(productUrl);
+        Optional<Product> actual = dummyProductDao.getProductByUrl(productUrl);
 
         // then
-        assertThat(actual, is(nullValue()));
+        assertThat(actual.isPresent(), is(false));
     }
 
     @Test
@@ -62,10 +63,10 @@ public class DummyProductDaoTest {
         Product product = aProduct("test");
 
         // when
-        Product actual = dummyProductDao.add(product);
+        Optional<Product> actual = dummyProductDao.add(product);
 
         // then
-        assertThat(actual, is(product));
+        assertThat(actual.get(), is(product));
         assertThat(dummyProductDao.products.values(), hasSize(initialSize + 1));
     }
 }

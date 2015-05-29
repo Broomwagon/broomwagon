@@ -31,12 +31,14 @@ public class MenuInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        modelAndView.getModel().put(MENUS, from(menuManager.menus()).transform(new Function<Menu, MenuWrapper>() {
-            @Override
-            public MenuWrapper apply(Menu input) {
-                return new MenuWrapper(input, menuManager.menuConfig(input.getSelf().getName()));
-            }
-        }).toList());
+        if (modelAndView != null) {
+            modelAndView.getModel().put(MENUS, from(menuManager.menus()).transform(new Function<Menu, MenuWrapper>() {
+                @Override
+                public MenuWrapper apply(Menu input) {
+                    return new MenuWrapper(input, menuManager.menuConfig(input.getSelf().getName()));
+                }
+            }).toList());
+        }
     }
 
     @Override
