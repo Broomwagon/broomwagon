@@ -45,7 +45,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
             }
         })
         .state('inventory.product', {
-            url: "/product",
+            url: "/product/:id",
             templateUrl: "/admin/product.html",
             data: { pageTitle: 'Product' },
             resolve: {
@@ -59,6 +59,12 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                                 '/admin/js/plugins/summernote/summernote.min.js',
                                 '/admin/js/plugins/summernote/angular-summernote.min.js'
                             ]
+                        },
+                        {
+                            name: 'cgNotify',
+                            files: [
+                                '/admin/css/plugins/angular-notify/angular-notify.min.css',
+                                '/admin/js/plugins/angular-notify/angular-notify.min.js']
                         }
                     ]);
                 }

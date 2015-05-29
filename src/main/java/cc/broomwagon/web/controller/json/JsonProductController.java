@@ -2,6 +2,7 @@ package cc.broomwagon.web.controller.json;
 
 import cc.broomwagon.model.Product;
 import cc.broomwagon.service.ProductManager;
+import cc.broomwagon.web.exception.ItemNotFoundException;
 import cc.broomwagon.web.ui.ProductForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/json/${web.mapping.products}")
@@ -23,7 +26,11 @@ public class JsonProductController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Product product(@PathVariable("id") Long id) {
-        return productManager.getProductById(id).get();
+        Optional<Product> product = productManager.getProductById(id);
+        if (!product.isPresent()) {
+            throw new ItemNotFoundException();
+        }
+        return product.get();
     }
 
     @RequestMapping(method = RequestMethod.POST)

@@ -25,14 +25,18 @@ function SearchCtrl($scope, $location) {
     };
 }
 
-function ProductCtrl($scope, $location, Product) {
+function ProductCtrl($scope, $location, $stateParams, Product, notify) {
 
-    Product.get({id: '3'},
+    Product.get({id: $stateParams.id},
         function success(response) {
             $scope.product = response;
         },
         function error(errorResponse) {
-            console.log("Error:" + JSON.stringify(errorResponse));
+            notify({
+                message: 'Product not found!',
+                classes: 'alert-danger',
+                templateUrl: '/admin/common/notify.html'
+            });
         }
     );
 
