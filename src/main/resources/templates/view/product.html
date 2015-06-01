@@ -1,15 +1,19 @@
-<html
-        xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
-        layout:decorator="layout/default">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout/default">
 <head>
 
 </head>
 <body>
 <div layout:fragment="content" class="container">
-    <div class="row">
 
+    <div class="row">
+        <div class="col-md-12" th:include="segment/breadcrumb :: breadcrumb"></div>
+    </div>
+
+    <div class="row">
+        <!--/*
         <div class="col-md-5 col-images">
-            <!--/* product images slider */-->
             <img id="img_01" src="/assets/images/image-1-thumb.jpg" data-zoom-image="/assets/images/image-2-big.jpg"
                  alt="main image"/>
 
@@ -23,27 +27,14 @@
                 <img id="img_01" src="/assets/images/image-2-big.jpg" alt="image 2"/>
                 </a>
             </div>
-            <!--/* end product images slider */-->
         </div>
 
         <div class="col-md-7 col-product">
-            <!--/* breadcrumbs */-->
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a>
-                </li>
-                <li><a href="#">Clothing</a>
-                </li>
-                <li class="active">Dresses</li>
-            </ol>
-            <!--/* end breadcrumbs */-->
-
-            <!--/* product name */-->
-            <h1 class="product-name">Famous Brand Denim Women's Long Sleeve Dress</h1>
-            <!--/* end product name */-->
-
-            <!--/* start product info */-->
+        */-->
+        <div class="col-md-12 col-product">
+            <h1 class="product-name" th:text="${product.title}">Product name</h1>
+            <!--/*
             <div class="product-info">
-                <!--/* start size select */-->
                 <div class="menuAtoZFilter multiRowCheckboxMenu">
                     <input class="selected" type="submit" name="action" value="Size M"/>
                     <input class="" type="submit" name="action" value="XS"/>
@@ -53,181 +44,67 @@
                     <input class="" type="submit" name="action" value="XL"/>
                     <input class="" type="submit" name="action" value="2XL"/>
                 </div>
-                <!--/* end size select */-->
-                <div class="product-price pull-left">
-                    Price: <b>$125</b>
-                </div>
+                <div class="product-price pull-left">Price: <b>&pound;125</b></div>
             </div>
-            <!--/* end product info */-->
+            */-->
             <div class="row">
-
-                <!--/* start add to cart button */-->
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <a class="btn btn-addtocart btn-block" href="/dev/cart.html">
-                        <span class="fa fa-shopping-cart"></span>Add to cart</a>
+                        <span class="fa fa-shopping-cart"></span>Add to cart
+                    </a>
                 </div>
-                <!--/* end add to cart button */-->
-
-                <!--/* start add to wishlist */-->
-                <div class="col-md-6">
+                <!--/*
+                <div class="col-md-3">
                     <a class="btn btn-default btn-block" href="/dev/wishlist.html">
-                        <span class="fa fa-heart"></span>Add to wishlist</a>
+                        <span class="fa fa-heart"></span>Add to wishlist
+                    </a>
                 </div>
-                <!--/* end add to wishlist */-->
+                */-->
             </div>
-            <!--/* START TABS  */-->
             <ul class="nav nav-tabs product-menu" role="tablist">
-                <li class="active"><a href="#home" role="tab" data-toggle="tab">PRODUCT DETAILS</a>
-                </li>
-                <li><a href="#delivery" role="tab" data-toggle="tab">DELIVERY</a>
-                </li>
-                <li><a href="#payment" role="tab" data-toggle="tab">PAYMENT &amp; RETURNS</a>
-                </li>
+                <li class="active"><a href="#home" role="tab" data-toggle="tab">PRODUCT DETAILS</a></li>
+                <li><a href="#delivery" role="tab" data-toggle="tab">DELIVERY</a></li>
+                <li><a href="#payment" role="tab" data-toggle="tab">PAYMENT &amp; RETURNS</a></li>
             </ul>
 
             <div class="tab-content">
-                <!--/* start tab product details */-->
-                <div class="tab-pane active" id="home">
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                    laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-                    ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
-                    dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla
-                    facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-                    delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend
-                    option congue nihil imperdiet doming id quod mazim placerat facer possim assum.
-                    <table class="table table-bordered table-attributes">
-
-                        <tbody>
-                        <tr>
-                            <td>Color</td>
-                            <td>Grey</td>
-                        </tr>
-                        <tr>
-                            <td>Material</td>
-                            <td>85% Cotton, 15% Polyester</td>
-                        </tr>
-                        <tr>
-                            <td>Whashing</td>
-                            <td>30°C Maschine wash, iron - low, do not tumble dry</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div class="tab-pane active" id="home" th:text="${product.title}">
+                    Product description
                 </div>
-                <!--/* end tab product details */-->
 
-                <!--/* start tab product delivery */-->
                 <div class="tab-pane" id="delivery">
-                    Lorem ipsum dolor sit amet
+                    Delivery tab
                 </div>
-                <!--/* end tab product details */-->
 
-                <!--/* start tab product details */-->
                 <div class="tab-pane" id="payment">
-                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
-                    dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
-                    praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum
-                    soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim
-                    assum.
+                    Payment tab
                 </div>
-                <!--/* end tab product details */-->
             </div>
-            <!--/* END TABS  */-->
 
-            <!--/* START RELATED PRODUCTS  */-->
+            <!--/*
             <div class="panel panel-related">
                 <div class="panel-heading">Related products</div>
                 <div class="panel-body">
                     <div class="row">
-                        <!--/* START PRODUCT 1  */-->
                         <div class="col-sm-3">
-                            <div class="product-item">
-                                <div class="photo">
-                                    <a href="/products/url1">
-                                        <img src="/assets/images/290x360.png" class="img-responsive" alt="a"/>
-                                    </a>
-                                </div>
-                                <h3 class="product-name">
-                                    <a href="#">Lace tank top short</a>
-                                </h3>
-
-                                <div class="info">
-                                    <div class="price">
-                                        <span class="value">$199</span>
-                                    </div>
-                                </div>
-
-                            </div>
+                            <div th:replace="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
                         </div>
-                        <!--/* END PRODUCT 1  */-->
-                        <!--/* START PRODUCT 2  */-->
+
                         <div class="col-sm-3">
-                            <div class="product-item">
-                                <div class="photo">
-                                    <a href="/products/url1">
-                                        <img src="/assets/images/290x360.png" class="img-responsive"
-                                             alt="Campagnolo Bora Ultra 50 Clincher"/>
-                                    </a>
-                                </div>
-                                <h3 class="product-name">
-                                    <a href="#">Black dress</a>
-                                </h3>
-
-                                <div class="info">
-                                    <div class="price">
-                                        <span class="value">$800</span>
-                                    </div>
-                                </div>
-
-
-                            </div>
+                            <div th:replace="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
                         </div>
-                        <!--/* END PRODUCT 2  */-->
-                        <!--/* START PRODUCT 3  */-->
+
                         <div class="col-sm-3">
-                            <div class="product-item">
-                                <div class="photo">
-                                    <a href="/products/url1">
-                                        <img src="/assets/images/290x360.png" class="img-responsive" alt=""/>
-                                    </a>
-                                </div>
-                                <h3 class="product-name">
-                                    <a href="#">Blue jeans </a>
-                                </h3>
-
-                                <div class="info">
-                                    <div class="price">
-                                        <span class="value">$125</span>
-                                    </div>
-                                </div>
-
-
-                            </div>
+                            <div th:replace="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
                         </div>
-                        <!--/* END PRODUCT 3  */-->
-                        <!--/* START PRODUCT 4  */-->
+
                         <div class="col-sm-3">
-                            <div class="product-item">
-                                <div class="photo">
-                                    <a href="/products/url1">
-                                        <img src="/assets/images/290x360.png" class="img-responsive" alt=""/>
-                                    </a>
-                                </div>
-                                <h3 class="product-name">
-                                    <a href="#">Blue jeans </a>
-                                </h3>
-
-                                <div class="info">
-                                    <div class="price">
-                                        <span class="value">$125</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <div th:replace="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
                         </div>
-                        <!--/* END PRODUCT 4  */-->
                     </div>
                 </div>
             </div>
-
+            */-->
         </div>
     </div>
 </div>

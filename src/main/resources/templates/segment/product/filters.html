@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Promo</title>
+</head>
+<body th:fragment="filters">
+<div class="panel panel-filters">
+    <div class="panel-heading">Categories</div>
+    <div class="panel-body" style="padding-right: 0; padding-left: 10px;">
+        <div class="container-categories">
+            <ul class="nav nav-list">
+                <li>
+                    <label class="tree-toggler nav-header">
+                        <span class="caret"></span> Apparel</label>
+                    <ul class="nav nav-list tree">
+                        <li>
+                            <label class="tree-toggler nav-header">
+                                <span class="caret"></span> Tops</label>
+                            <ul class="nav nav-list tree">
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" class="icheck"/> Shirts
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" class="icheck"/> T-Shirts
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" class="icheck"/> Cardigans
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" class="icheck"/> Knitwear
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" class="icheck"/> Polo Shirts
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <label class="tree-toggler nav-header">
+                                <span class="caret"></span> Legware</label>
+                            <ul class="nav nav-list tree">
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" class="icheck"/> Chinos
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" class="icheck"/> Casual Trousers
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" class="icheck"/> Formal Trousers
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" class="icheck"/> Jeans
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" class="icheck"/> Shorts
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <label class="tree-toggler nav-header">
+                        <span class="caret"></span> Footwear</label>
+                    <ul class="nav nav-list tree">
+                        <li>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" class="icheck"/> Sneakers
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" class="icheck"/> Boots
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" class="icheck"/> Shoes
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+<div class="panel panel-filters">
+    <div class="panel-heading">By Size</div>
+    <div class="panel-body">
+        <ul class="filter-size">
+            <li><a href="">XS</a>
+            </li>
+            <li><a href="">S</a>
+            </li>
+            <li><a href="">M</a>
+            </li>
+            <li><a href="">L</a>
+            </li>
+            <li><a href="">XL</a>
+            </li>
+            <li><a href="">2XL</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="panel panel-filters">
+    <div class="panel-heading">Price between</div>
+    <div class="panel-body">
+        <input type="text" id="price-slider" name="price" value=""/>
+    </div>
+</div>
+<div class="panel panel-filters">
+    <div class="panel-heading">Select color</div>
+    <div class="panel-body">
+        <ul class="color-filter">
+            <li>
+                <a href="#" style="background: #ED7188;"></a>
+            </li>
+            <li>
+                <a href="#" style="background: #61D2D6;"></a>
+            </li>
+            <li>
+                <a href="#" style="background: #EDDE45;"></a>
+            </li>
+            <li>
+                <a href="#" style="background: #B8DC3C;"></a>
+            </li>
+            <li>
+                <a href="#" style="background: #CB2402;"></a>
+            </li>
+            <li>
+                <a href="#" style="background: #452000;"></a>
+            </li>
+            <li>
+                <a href="#" style="background: #ED7188;"></a>
+            </li>
+            <li>
+                <a href="#" style="background: #708D91;"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="panel panel-filters">
+    <div class="panel-heading">Material</div>
+    <div class="panel-body">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" checked="checked" class="icheck"/> Spandex
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" checked="checked" class="icheck"/> Polyester
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" class="icheck"/> Cotton
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" class="icheck"/> Viscose
+            </label>
+        </div>
+    </div>
+</div>
+</body>
+</html>
