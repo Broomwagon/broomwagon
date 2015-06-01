@@ -1,4 +1,4 @@
-package cc.broomwagon.web.controller.json;
+package cc.broomwagon.web.controller.api;
 
 import cc.broomwagon.model.Product;
 import cc.broomwagon.service.ProductManager;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/json/${web.mapping.products}")
+@RequestMapping("/api/${web.mapping.products}")
 public class JsonProductController {
     @Autowired
     private ProductManager productManager;

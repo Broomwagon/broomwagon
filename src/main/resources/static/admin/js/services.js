@@ -1,5 +1,5 @@
 function ProductFactory($resource) {
-    return $resource('/json/products/:id', {
+    return $resource('/api/products/:id', {
         id: '@id'
     }, {
         update: {
