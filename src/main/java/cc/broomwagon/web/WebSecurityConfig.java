@@ -15,10 +15,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebMvcSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private CsrfHeaderFilter csrfHeaderFilter;
 
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -38,7 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().csrfTokenRepository(csrfTokenRepository())
                 .and()
-                .addFilterAfter(csrfHeaderFilter, CsrfFilter.class);
+                .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);
     }
 
     private CsrfTokenRepository csrfTokenRepository() {
