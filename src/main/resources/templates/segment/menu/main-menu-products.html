@@ -4,8 +4,8 @@
     <meta charset="UTF-8"/>
     <title>Menu</title>
 </head>
-<body th:fragment="body(menu, config)">
-<li class="dropdown">
+<body>
+<li class="dropdown" th:class="dropdown" th:fragment="dropdown(menu, config)">
     <a href="#" class="dropdown-toggle" th:href="${menu.self.url}" th:text="${menu.self.name}">Top menu</a>
     <ul class="dropdown-menu megamenu row" style="width: 650px;">
         <li>

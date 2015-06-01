@@ -15,7 +15,7 @@
             <ul class="nav navbar-nav">
                 <th:block th:each="menu : ${menus}">
                     <th:block th:if="${menu.config.menuAttributes['group']} == 'main'">
-                        <li th:replace="${#strings.concat('segment/menu/main-menu-', menu.config.menuAttributes.type)} :: body(${menu.menu}, ${menu.config})"></li>
+                        <li th:replace="${#strings.concat('segment/menu/main-menu-', menu.config.menuAttributes.type)} :: dropdown(${menu.menu}, ${menu.config})"></li>
                     </th:block>
                 </th:block>
                 <li class="search-box">
@@ -33,7 +33,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <th:block th:each="menu : ${menus}">
                     <th:block th:if="${menu.config.menuAttributes['group']} == 'my-account'">
-                        <li th:replace="${#strings.concat('segment/menu/main-menu-', menu.config.menuAttributes.type)} :: body(${menu.menu}, ${menu.config})"></li>
+                        <li th:replace="${#strings.concat('segment/menu/main-menu-', menu.config.menuAttributes.type)} :: dropdown(${menu.menu}, ${menu.config})"></li>
                     </th:block>
                 </th:block>
 

@@ -13,13 +13,13 @@
     <ul class="nav navmenu-nav">
         <th:block th:each="menu : ${menus}">
             <th:block th:if="${menu.config.menuAttributes['group']} == 'main'">
-                <li th:replace="segment/menu/slide-menu-simple :: body(${menu.menu}, ${menu.config})"></li>
+                <li th:replace="segment/menu/slide-menu-simple :: dropdown(${menu.menu}, ${menu.config})"></li>
             </th:block>
         </th:block>
 
         <th:block th:each="menu : ${menus}">
             <th:block th:if="${menu.config.menuAttributes['group']} == 'my-account'">
-                <li th:replace="segment/menu/slide-menu-simple :: body(${menu.menu}, ${menu.config})"></li>
+                <li th:replace="segment/menu/slide-menu-simple :: dropdown(${menu.menu}, ${menu.config})"></li>
             </th:block>
         </th:block>
 

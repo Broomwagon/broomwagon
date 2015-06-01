@@ -4,8 +4,8 @@
     <meta charset="UTF-8"/>
     <title>Menu</title>
 </head>
-<body th:fragment="body(menu, config)">
-<li class="dropdown">
+<body >
+<li class="dropdown" th:class="dropdown" th:fragment="dropdown(menu, config)">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:href="${menu.self.url}"><span
             th:text="${menu.self.name}">Side menu</span><b class="caret pull-right"></b></a>
     <ul class="dropdown-menu navmenu-nav">
