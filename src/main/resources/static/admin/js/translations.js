@@ -3,9 +3,11 @@ function config($translateProvider) {
 
     $translateProvider
         .translations('en', {
-            INVENTORY: 'Invetory',
+            INVENTORY: 'Inventory',
             PRODUCTS: 'Products',
-            SEARCH: 'Search...'
+            SEARCH: 'Search...',
+            LOOK_AND_FEEL: 'Look and feel',
+            PAGES: 'Pages'
         });
 
     $translateProvider.preferredLanguage('en');
@@ -13,4 +15,4 @@ function config($translateProvider) {
 
 angular
     .module('broomwagon')
-    .config(config)
+    .config(config);

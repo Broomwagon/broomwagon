@@ -1,4 +1,4 @@
-package cc.broomwagon.web.controller.api;
+package cc.broomwagon.web.api;
 
 import cc.broomwagon.model.Product;
 import cc.broomwagon.service.ProductManager;
@@ -39,12 +39,12 @@ public class JsonProductController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void updateProduct(@RequestBody ProductForm product, @PathVariable Integer id) {
+    public void updateProduct(@RequestBody ProductForm product, @PathVariable Long id) {
         System.out.println("Updating: " + product);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void deleteProduct(@PathVariable Integer id) {
+    public void deleteProduct(@PathVariable Long id) {
         System.out.println("Deleting: " + id);
     }
 }

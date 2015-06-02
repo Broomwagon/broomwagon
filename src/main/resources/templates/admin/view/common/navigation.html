@@ -7,12 +7,23 @@
                     <span class="nav-label">{{ 'INVENTORY' | translate }}</span>
                     <span class="fa arrow"></span>
                 </a>
-                <ul class="nav nav-second-level" ng-class="{in: $state.includes('dashboards')}">
+                <ul class="nav nav-second-level" ng-class="{in: $state.includes('products')}">
                     <li ui-sref-active="active">
                         <a ui-sref="inventory.products">{{ 'PRODUCTS' | translate }}</a>
                     </li>
                 </ul>
             </li>
+            <li ng-class="{active: $state.includes('look-and-feel')}">
+                <a href="">
+                    <i class="fa fa-flask"></i>
+                    <span class="nav-label">{{ 'LOOK_AND_FEEL' | translate }}</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level" ng-class="{in: $state.includes('pages')}">
+                    <li ui-sref-active="active"><a ui-sref="look-and-feel.pages">{{ 'PAGES' | translate }}</a></li>
+                </ul>
+            </li>
+
         </ul>
     </div>
 </nav>

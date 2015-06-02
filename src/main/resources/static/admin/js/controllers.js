@@ -1,24 +1,15 @@
-/**
- * InventoryCtrl
- */
 function InventoryCtrl($scope, Product) {
     var products = Product.query(function() {
         $scope.products = products;
     });
 }
 
-/**
- * TranslateCtrl
- */
 function TranslateCtrl($translate, $scope) {
     $scope.changeLanguage = function (langKey) {
         $translate.use(langKey);
     };
 }
 
-/**
- * SearchCtrl
- */
 function SearchCtrl($scope, $location) {
     $scope.submit = function () {
         $scope.query = 'search is not implemented yet :)'
@@ -43,7 +34,6 @@ function ProductCtrl($scope, $location, $stateParams, Product, notify) {
     }
 
     $scope.cancel = function () {
-        $scope.product.title = 'not saved'
         $location.path('/inventory/products')
     };
 
@@ -60,10 +50,17 @@ function ProductCtrl($scope, $location, $stateParams, Product, notify) {
     };
 }
 
+function LookAndFeelCtrl($scope, Page) {
+    var pages = Page.query(function () {
+        $scope.pages = pages;
+    });
+}
+
 angular
     .module('broomwagon')
     .controller('InventoryCtrl', InventoryCtrl)
     .controller('TranslateCtrl', TranslateCtrl)
     .controller('SearchCtrl', SearchCtrl)
     .controller('ProductCtrl', ProductCtrl)
+    .controller('LookAndFeelCtrl', LookAndFeelCtrl);
 

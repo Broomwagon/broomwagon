@@ -13,7 +13,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
 
     $ocLazyLoadProvider.config({
         // Set to true if you want to see what and when is dynamically loaded
-        debug: true
+        debug: false
     });
 
     $stateProvider
@@ -31,7 +31,9 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                     return $ocLazyLoad.load([
                         {
                             serie: true,
-                            files: ['/admin/js/plugins/dataTables/jquery.dataTables.js', '/admin/css/plugins/dataTables/dataTables.bootstrap.css']
+                            files: [
+                                '/admin/js/plugins/dataTables/jquery.dataTables.js',
+                                '/admin/css/plugins/dataTables/dataTables.bootstrap.css']
                         },
                         {
                             files: ['/admin/js/plugins/dataTables/dataTables.bootstrap.js']
@@ -69,7 +71,38 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                     ]);
                 }
             }
-        });
+        })
+        .state('look-and-feel', {
+            abstract: true,
+            url: "/look-and-feel",
+            templateUrl: "/admin/common/content.html"
+        })
+        .state('look-and-feel.pages', {
+            url: "/pages",
+            templateUrl: "/admin/pages.html",
+            data: {pageTitle: 'Pages'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            serie: true,
+                            files: [
+                                '/admin/js/plugins/dataTables/jquery.dataTables.js',
+                                '/admin/css/plugins/dataTables/dataTables.bootstrap.css'
+                            ]
+                        },
+                        {
+                            files: ['/admin/js/plugins/dataTables/dataTables.bootstrap.js']
+                        },
+                        {
+                            name: 'datatables',
+                            files: ['/admin/js/plugins/dataTables/angular-datatables.min.js']
+                        }
+                    ]);
+                }
+            }
+        })
+    ;
 }
 angular
     .module('broomwagon')
