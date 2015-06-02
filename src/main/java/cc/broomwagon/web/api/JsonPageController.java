@@ -1,9 +1,8 @@
 package cc.broomwagon.web.api;
 
-import cc.broomwagon.model.Product;
-import cc.broomwagon.service.ProductManager;
+import cc.broomwagon.model.Page;
+import cc.broomwagon.service.PageManager;
 import cc.broomwagon.web.exception.ItemNotFoundException;
-import cc.broomwagon.web.ui.ProductForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,33 +13,33 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/products")
-public class JsonProductController {
+@RequestMapping("/api/pages")
+public class JsonPageController {
     @Autowired
-    private ProductManager productManager;
+    private PageManager pageManager;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Iterable<Product> find() {
-        return productManager.getProducts();
+    public Iterable<Page> find() {
+        return pageManager.getPages();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Product get(@PathVariable("id") Long id) {
-        Optional<Product> product = productManager.getProductById(id);
-        if (!product.isPresent()) {
+    public Page get(@PathVariable("id") Long id) {
+        Optional<Page> page = pageManager.getPageById(id);
+        if (!page.isPresent()) {
             throw new ItemNotFoundException();
         }
-        return product.get();
+        return page.get();
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void add(@RequestBody ProductForm product) {
-        System.out.println("Saving: " + product);
+    public void add(@RequestBody Object page) {
+        System.out.println("Saving: " + page);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void update(@RequestBody ProductForm product, @PathVariable Long id) {
-        System.out.println("Updating: " + product);
+    public void update(@RequestBody Object page, @PathVariable Long id) {
+        System.out.println("Updating: " + page);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

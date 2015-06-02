@@ -17,7 +17,7 @@ public class ProductTranslator {
         return Product.builder()
                 .title(form.getTitle())
                 .url(generateUrl(form.getUrl(), form.getTitle()))
-                .id(form.getId())
+                .id(form.getId() != null ? form.getId() : 0L)
                 .build();
     }
 

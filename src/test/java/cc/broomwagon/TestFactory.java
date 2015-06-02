@@ -3,11 +3,12 @@ package cc.broomwagon;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 
+import cc.broomwagon.model.Page;
+import cc.broomwagon.model.Product;
 import cc.broomwagon.model.menu.Menu;
 import cc.broomwagon.model.menu.MenuConfig;
 import cc.broomwagon.model.menu.MenuItem;
 import cc.broomwagon.model.menu.MenuItemConfig;
-import cc.broomwagon.model.Product;
 import cc.broomwagon.model.menu.MenuItemGroup;
 
 import java.util.Collection;
@@ -29,6 +30,7 @@ public final class TestFactory {
     public static Product aProduct(String url) {
         return Product.builder()
                 .title("title")
+                .id(1L)
                 .url(url)
                 .build();
     }
@@ -56,5 +58,13 @@ public final class TestFactory {
         attributes.put("appendDivider", Boolean.TRUE);
         config.put("Page Elements", MenuItemConfig.builder().attributes(attributes).build());
         return new MenuConfig("All", newHashMap(), config, newHashMap());
+    }
+
+    public static Page aPage() {
+        return Page.builder()
+                .id(1L)
+                .title("title")
+                .url("/")
+                .build();
     }
 }

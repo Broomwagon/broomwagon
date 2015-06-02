@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface ProductManager {
     Iterable<Product> getProducts();
 
-    Optional<Product> getProductByUrl(String someurl);
+    Optional<Product> getProductByUrl(String url);
 
     Optional<Product> getProductById(Long id);
 

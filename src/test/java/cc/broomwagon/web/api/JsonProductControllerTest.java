@@ -34,7 +34,7 @@ public class JsonProductControllerTest {
         given(productManager.getProducts()).willReturn(singletonList(aProduct()));
 
         // when
-        Iterable<Product> actual = jsonProductController.products();
+        Iterable<Product> actual = jsonProductController.find();
 
         // then
         assertThat(size(actual), is(1));
@@ -46,7 +46,7 @@ public class JsonProductControllerTest {
         given(productManager.getProductById(1l)).willReturn(of(aProduct()));
 
         // when
-        Product actual = jsonProductController.product(1l);
+        Product actual = jsonProductController.get(1l);
 
         // then
         assertThat(actual, is(notNullValue()));
@@ -58,7 +58,7 @@ public class JsonProductControllerTest {
         given(productManager.getProductById(any(Long.class))).willReturn(empty());
 
         // when
-        jsonProductController.product(2l);
+        jsonProductController.get(2l);
 
         // then
         // exception
@@ -68,7 +68,7 @@ public class JsonProductControllerTest {
     public void shouldAddProduct() {
 
         // when
-        jsonProductController.addProduct(new ProductForm());
+        jsonProductController.add(new ProductForm());
 
         //TODO
     }
@@ -77,7 +77,7 @@ public class JsonProductControllerTest {
     public void shouldUpdateProduct() {
 
         // when
-        jsonProductController.updateProduct(new ProductForm(), 1L);
+        jsonProductController.update(new ProductForm(), 1L);
 
         //TODO
     }
@@ -86,7 +86,7 @@ public class JsonProductControllerTest {
     public void shouldDeleteProduct() {
 
         // when
-        jsonProductController.deleteProduct(1L);
+        jsonProductController.delete(1L);
 
         //TODO
     }

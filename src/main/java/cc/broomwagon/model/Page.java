@@ -15,9 +15,11 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 @Builder
-public class Product {
+public class Page {
     @NonNull
     private Long id;
-    @NonNull private String title;
-    @NonNull private String url;
+    @NonNull
+    private String title;
+    @NonNull
+    private String url;
 }

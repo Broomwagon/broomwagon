@@ -27,5 +27,6 @@ public class ProductTranslatorTest {
         // then
         assertThat(actual.getTitle(), is("title1"));
         assertThat(actual.getUrl(), is("title1"));
+        assertThat(actual.getId(), is(0L));
     }
 }
