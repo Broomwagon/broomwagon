@@ -29,9 +29,10 @@
             <!--<div class="category-pagination" th:include="segment/product/pagination :: pagination"></div>-->
 
             <div class="row">
-                <div class="col-sm-3" th:each="product : ${products}">
-                    <div th:replace="segment/product/product-item :: product('glow',${product.url}, ${product.title})"></div>
-                </div>
+                <th:block th:each="product : ${products}">
+                    <div class="col-sm-3"
+                         th:include="segment/product/product-item :: product('glow',${product.url}, ${product.title})"></div>
+                </th:block>
             </div>
 
             <!--<div class="category-pagination" th:include="segment/product/pagination :: pagination"></div>-->

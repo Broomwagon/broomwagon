@@ -5,29 +5,29 @@
 </head>
 <body>
 <div layout:fragment="content" class="container">
-    <div class="jumbotron">
-        <h1>Not found</h1>
-
-        <p>Something has gone wrong, either the link is broken or the page has been removed</p>
-    </div>
-
-    <div class="page-header">
-        <h1>Check out the following products</h1>
-    </div>
-
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-3">
-            <div th:replace="segment/product/product-item :: product('on sale','url1', 'title')"></div>
+        <div class="col-xs-12">
+            <div class="jumbotron">
+                <h1>Not found</h1>
+
+                <p>Something has gone wrong, either the link is broken or the page has been removed</p>
+            </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-            <div th:replace="segment/product/product-item :: product('-30%','url2', 'Litespeed T1 2015')"></div>
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1>Check out the following products</h1>
+            </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-            <div th:replace="segment/product/product-item :: product('attention','url3', 'Campagnolo Bora Ultra 50 Clincher')"></div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-            <div th:replace="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
-        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3"
+             th:include="segment/product/product-item :: product('on sale','url1', 'title')"></div>
+        <div class="col-xs-12 col-sm-6 col-md-3"
+             th:include="segment/product/product-item :: product('-30%','url2', 'Litespeed T1 2015')"></div>
+        <div class="col-xs-12 col-sm-6 col-md-3"
+             th:include="segment/product/product-item :: product('attention','url3', 'Campagnolo Bora Ultra 50 Clincher')"></div>
+        <div class="col-xs-12 col-sm-6 col-md-3"
+             th:include="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
     </div>
 </div>
 </body>

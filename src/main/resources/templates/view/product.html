@@ -86,21 +86,10 @@
                 <div class="panel-heading">Related products</div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-sm-3">
-                            <div th:replace="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div th:replace="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div th:replace="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div th:replace="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
-                        </div>
+                        <div class="col-sm-3" th:include="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
+                        <div class="col-sm-3" th:include="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
+                        <div class="col-sm-3" th:include="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
+                        <div class="col-sm-3" th:include="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
                     </div>
                 </div>
             </div>

@@ -4,9 +4,8 @@
     <meta charset="UTF-8"/>
     <title>Product Item</title>
 </head>
-<body>
-<div class="product-item" th:fragment="product(cornerText, url, title)">
-
+<body th:fragment="product(cornerText, url, title)">
+<div class="product-item">
     <div class="corner" th:class="'corner corner-primary'">
         <div class="corner-text"
              th:text="${cornerText}">

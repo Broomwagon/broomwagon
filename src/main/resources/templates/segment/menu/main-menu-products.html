@@ -27,15 +27,12 @@
                             <h4 class="title" th:text="${itemGroup.name}">Group name</h4>
 
                             <div class="row">
-                                <div class="col-sm-4 col-md-4">
-                                    <div th:replace="segment/product/product-item :: product('glow','url4', ${itemGroup.name} + ' Long Sleeve Jersey')"></div>
-                                </div>
-                                <div class="col-sm-4 col-md-4">
-                                    <div th:replace="segment/product/product-item :: product('glow','url4', ${itemGroup.name} + ' Long Sleeve Jersey')"></div>
-                                </div>
-                                <div class="col-sm-4 col-md-4">
-                                    <div th:replace="segment/product/product-item :: product('glow','url4', ${itemGroup.name} + ' Long Sleeve Jersey')"></div>
-                                </div>
+                                <div class="col-sm-4 col-md-4"
+                                     th:include="segment/product/product-item :: product('glow','url4', ${itemGroup.name} + ' Long Sleeve Jersey')"></div>
+                                <div class="col-sm-4 col-md-4"
+                                     th:include="segment/product/product-item :: product('glow','url4', ${itemGroup.name} + ' Long Sleeve Jersey')"></div>
+                                <div class="col-sm-4 col-md-4"
+                                     th:include="segment/product/product-item :: product('glow','url4', ${itemGroup.name} + ' Long Sleeve Jersey')"></div>
                             </div>
                         </div>
                     </th:block>
