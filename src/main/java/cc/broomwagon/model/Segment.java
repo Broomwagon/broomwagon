@@ -8,20 +8,18 @@ import lombok.NonNull;
 import lombok.ToString;
 
 /**
- * Product POJO.
+ * Segment on a page.
  */
 @AllArgsConstructor
 @Getter
 @EqualsAndHashCode
 @ToString
 @Builder
-public class Page {
+public class Segment {
     @NonNull
     private Long id;
     @NonNull
-    private String title;
+    private String template;
     @NonNull
-    private String url;
-    @NonNull
-    private Iterable<Segment> segments;
+    private String fragment;
 }

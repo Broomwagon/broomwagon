@@ -2,6 +2,7 @@ package cc.broomwagon;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
+import static java.util.Collections.EMPTY_LIST;
 
 import cc.broomwagon.model.Page;
 import cc.broomwagon.model.Product;
@@ -65,6 +66,7 @@ public final class TestFactory {
                 .id(1L)
                 .title("title")
                 .url("/")
+                .segments(EMPTY_LIST)
                 .build();
     }
 }
