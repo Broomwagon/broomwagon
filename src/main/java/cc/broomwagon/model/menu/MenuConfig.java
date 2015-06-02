@@ -13,9 +13,13 @@ import java.util.Map;
 @EqualsAndHashCode
 @ToString
 public class MenuConfig {
-    @NonNull private String name;
-    @NonNull private Map<String, Object> menuAttributes;
+    @NonNull
+    private String name;
+    @NonNull
+    private Map<String, Object> menuAttributes;
 
-    @NonNull private Map<String, MenuItemConfig> items;
-    @NonNull private Map<String, MenuItemConfig> groups;
+    @NonNull
+    private Map<String, MenuItemConfig> items;
+    @NonNull
+    private Map<String, MenuItemConfig> groups;
 }

@@ -18,6 +18,8 @@ import lombok.ToString;
 public class Product {
     @NonNull
     private Long id;
-    @NonNull private String title;
-    @NonNull private String url;
+    @NonNull
+    private String title;
+    @NonNull
+    private String url;
 }
