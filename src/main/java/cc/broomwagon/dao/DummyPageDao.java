@@ -19,7 +19,7 @@ public class DummyPageDao implements PageDao {
         this.pages = asList(
                 Page.builder().id(1L).title("Home").url("/").build(),
                 Page.builder().id(2L).title("Products").url("/products").build(),
-                Page.builder().id(3L).title("Product").url("/products/*.").build()
+                Page.builder().id(3L).title("Product").url("/products/.*").build()
         );
     }
 

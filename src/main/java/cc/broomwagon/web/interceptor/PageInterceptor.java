@@ -1,10 +1,7 @@
 package cc.broomwagon.web.interceptor;
 
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.StreamSupport.stream;
-
-import cc.broomwagon.service.MenuManager;
-import cc.broomwagon.web.ui.MenuWrapper;
+import cc.broomwagon.model.Page;
+import cc.broomwagon.service.PageManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -12,16 +9,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Optional;
 
 /**
  * Interceptor to populate menus
  */
 @Component
-public class MenuInterceptor implements HandlerInterceptor {
-    public static final String MENUS = "menus";
-
+public class PageInterceptor implements HandlerInterceptor {
+    public static final String PAGE = "page";
     @Autowired
-    private MenuManager menuManager;
+    private PageManager pageManager;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -31,9 +28,10 @@ public class MenuInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         if (modelAndView != null) {
-            modelAndView.getModel().put(MENUS, stream(menuManager.menus().spliterator(), false)
-                    .map(input -> new MenuWrapper(input, menuManager.menuConfig(input.getSelf().getName())))
-                    .collect(toList()));
+            Optional<Page> page = pageManager.getPageByUrl(request.getRequestURI());
+            if (page.isPresent()) {
+                modelAndView.getModel().put(PAGE, page.get());
+            }
         }
     }
 

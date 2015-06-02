@@ -31,7 +31,7 @@ public class DummyPageDaoTest {
     public void shouldGetPageByUrl() {
 
         // when
-        Optional<Page> actual = pageDao.getPageByUrl("/products/1");
+        Optional<Page> actual = pageDao.getPageByUrl("/products/url");
 
         // then
         assertThat(actual.isPresent(), is(true));

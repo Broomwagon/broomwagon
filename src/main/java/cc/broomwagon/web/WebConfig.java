@@ -4,8 +4,8 @@ package cc.broomwagon.web;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
-import cc.broomwagon.web.filter.CsrfHeaderFilter;
 import cc.broomwagon.web.interceptor.MenuInterceptor;
+import cc.broomwagon.web.interceptor.PageInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.ErrorPage;
@@ -16,7 +16,6 @@ import org.springframework.ui.context.ThemeSource;
 import org.springframework.ui.context.support.ResourceBundleThemeSource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ThemeResolver;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -24,7 +23,6 @@ import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.mvc.UrlFilenameViewController;
-import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 import org.springframework.web.servlet.theme.FixedThemeResolver;
 
 import java.util.Locale;
@@ -34,10 +32,17 @@ import java.util.Properties;
 public class WebConfig extends WebMvcConfigurerAdapter {
     @Autowired
     private MenuInterceptor menuInterceptor;
+    @Autowired
+    private PageInterceptor pageInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(menuInterceptor)
+                .excludePathPatterns("/api/**")
+                .excludePathPatterns("/admin**")
+                .addPathPatterns("/**");
+
+        registry.addInterceptor(pageInterceptor)
                 .excludePathPatterns("/api/**")
                 .excludePathPatterns("/admin**")
                 .addPathPatterns("/**");

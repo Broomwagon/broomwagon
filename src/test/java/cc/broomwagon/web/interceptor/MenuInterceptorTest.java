@@ -3,7 +3,7 @@ package cc.broomwagon.web.interceptor;
 import static cc.broomwagon.TestFactory.aMenu;
 import static cc.broomwagon.TestFactory.aMenuConfig;
 import static cc.broomwagon.web.interceptor.MenuInterceptor.MENUS;
-import static com.google.common.collect.Lists.newArrayList;
+import static java.util.Collections.singletonList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
@@ -33,7 +33,7 @@ public class MenuInterceptorTest {
     public void shouldCallMenuManagerInPostHandle() throws Exception {
         // given
         ModelAndView modelAndView = new ModelAndView();
-        Iterable<Menu> mainMenus = newArrayList(aMenu("MenuName123"));
+        Iterable<Menu> mainMenus = singletonList(aMenu("MenuName123"));
         MenuConfig menuConfig = aMenuConfig();
         given(menuManager.menus()).willReturn(mainMenus);
         given(menuManager.menuConfig(isA(String.class))).willReturn(menuConfig);
