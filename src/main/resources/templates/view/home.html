@@ -10,14 +10,10 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-3"
-             th:include="segment/product/product-item :: product('on sale','url1', 'title')"></div>
-        <div class="col-xs-12 col-sm-6 col-md-3"
-             th:include="segment/product/product-item :: product('-30%','url2', 'Litespeed T1 2015')"></div>
-        <div class="col-xs-12 col-sm-6 col-md-3"
-             th:include="segment/product/product-item :: product('attention','url3', 'Campagnolo Bora Ultra 50 Clincher')"></div>
-        <div class="col-xs-12 col-sm-6 col-md-3"
-             th:include="segment/product/product-item :: product('glow','url4', 'De Rosa 888 Super King E Super 2015')"></div>
+        <th:block th:each="segment : ${page.segments}">
+            <div th:class="${segment.cssClass}"
+                 th:include="${segment.template} :: ${segment.fragment}(${segment.parameters})"></div>
+        </th:block>
     </div>
 
     <div class="row">
@@ -25,17 +21,6 @@
         <div class="col-md-4 promo" th:include="segment/promo :: promo('fa-cog fa-spin')"></div>
         <div class="col-md-4 promo" th:include="segment/promo :: promo('fa-truck')"></div>
     </div>
-
-    <!--/*
-    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-    <ul th:if="!${#lists.isEmpty(products)}">
-        <li th:each="product : ${products}">
-            <h2 th:text="${product.title}"></h2>
-            <a href="#"
-               th:href="@{/} + ${@environment.getProperty('web.mapping.products')} + @{/} + ${product.url}">link</a>
-        </li>
-    </ul>
-    */-->
 </div>
 
 <script layout:fragment="script" th:replace="segment/slider :: script"></script>

@@ -6,7 +6,7 @@ import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.verify;
 
 import cc.broomwagon.dao.PageDao;
-import cc.broomwagon.model.Page;
+import cc.broomwagon.model.page.Page;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

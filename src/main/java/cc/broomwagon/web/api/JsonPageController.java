@@ -1,6 +1,6 @@
 package cc.broomwagon.web.api;
 
-import cc.broomwagon.model.Page;
+import cc.broomwagon.model.page.Page;
 import cc.broomwagon.service.PageManager;
 import cc.broomwagon.web.exception.ItemNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

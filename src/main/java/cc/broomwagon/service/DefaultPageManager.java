@@ -1,7 +1,7 @@
 package cc.broomwagon.service;
 
 import cc.broomwagon.dao.PageDao;
-import cc.broomwagon.model.Page;
+import cc.broomwagon.model.page.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

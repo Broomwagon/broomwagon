@@ -1,6 +1,6 @@
 package cc.broomwagon.web.interceptor;
 
-import cc.broomwagon.model.Page;
+import cc.broomwagon.model.page.Page;
 import cc.broomwagon.service.PageManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

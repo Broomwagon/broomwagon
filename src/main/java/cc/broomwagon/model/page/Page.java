@@ -1,4 +1,4 @@
-package cc.broomwagon.model;
+package cc.broomwagon.model.page;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

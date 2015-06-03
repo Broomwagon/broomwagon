@@ -2,17 +2,19 @@ package cc.broomwagon;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
-import static java.util.Collections.EMPTY_LIST;
+import static java.util.Collections.emptyList;
 
-import cc.broomwagon.model.Page;
 import cc.broomwagon.model.Product;
 import cc.broomwagon.model.menu.Menu;
 import cc.broomwagon.model.menu.MenuConfig;
 import cc.broomwagon.model.menu.MenuItem;
 import cc.broomwagon.model.menu.MenuItemConfig;
 import cc.broomwagon.model.menu.MenuItemGroup;
+import cc.broomwagon.model.page.Page;
+import cc.broomwagon.model.page.Segment;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -66,7 +68,17 @@ public final class TestFactory {
                 .id(1L)
                 .title("title")
                 .url("/")
-                .segments(EMPTY_LIST)
+                .segments(emptyList())
+                .build();
+    }
+
+    public static Segment aSegment() {
+        return Segment.builder()
+                .id(1L)
+                .template("template")
+                .fragment("fragment")
+                .cssClass("some css class")
+                .parameters(new HashMap<>())
                 .build();
     }
 }

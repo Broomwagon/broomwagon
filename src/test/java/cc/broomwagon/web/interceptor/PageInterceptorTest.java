@@ -1,15 +1,15 @@
 package cc.broomwagon.web.interceptor;
 
-import static cc.broomwagon.TestFactory.aPage;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static cc.broomwagon.TestFactory.*;
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-import cc.broomwagon.model.Page;
+import cc.broomwagon.model.page.Page;
 import cc.broomwagon.service.PageManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -31,7 +31,7 @@
             <div class="row">
                 <th:block th:each="product : ${products}">
                     <div class="col-sm-3"
-                         th:include="segment/product/product-item :: product('glow',${product.url}, ${product.title})"></div>
+                         th:include="segment/product/product-item :: product(null)"></div>
                 </th:block>
             </div>
 

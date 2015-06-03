@@ -1,10 +1,10 @@
 package cc.broomwagon.dao;
 
 import static com.google.common.collect.Iterables.size;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
 
-import cc.broomwagon.model.Page;
+import cc.broomwagon.model.page.Page;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

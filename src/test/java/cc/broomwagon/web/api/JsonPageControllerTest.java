@@ -1,17 +1,16 @@
 package cc.broomwagon.web.api;
 
-import static cc.broomwagon.TestFactory.aPage;
+import static cc.broomwagon.TestFactory.*;
 import static com.google.common.collect.Iterables.size;
 import static java.util.Collections.singletonList;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 
-import cc.broomwagon.model.Page;
+import cc.broomwagon.model.page.Page;
 import cc.broomwagon.service.PageManager;
 import cc.broomwagon.web.exception.ItemNotFoundException;
 import org.junit.Test;

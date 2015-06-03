@@ -1,6 +1,6 @@
 package cc.broomwagon.dao;
 
-import cc.broomwagon.model.Page;
+import cc.broomwagon.model.page.Page;
 
 import java.util.Optional;
 
