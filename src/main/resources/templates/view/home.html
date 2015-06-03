@@ -5,24 +5,12 @@
 </head>
 <body>
 <div layout:fragment="content" class="container">
-    <div class="row">
-        <div th:replace="segment/slider :: slider"></div>
-    </div>
-
-    <div class="row">
-        <th:block th:each="segment : ${page.segments}">
+    <div class="row" th:each="row : ${page.rows}">
+        <th:block th:each="segment : ${row.segments}">
             <div th:class="${segment.cssClass}"
                  th:include="${segment.template} :: ${segment.fragment}(${segment.parameters})"></div>
         </th:block>
     </div>
-
-    <div class="row">
-        <div class="col-md-4 promo" th:include="segment/promo :: promo('fa-bicycle')"></div>
-        <div class="col-md-4 promo" th:include="segment/promo :: promo('fa-cog fa-spin')"></div>
-        <div class="col-md-4 promo" th:include="segment/promo :: promo('fa-truck')"></div>
     </div>
-</div>
-
-<script layout:fragment="script" th:replace="segment/slider :: script"></script>
 </body>
 </html>

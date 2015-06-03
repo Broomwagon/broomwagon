@@ -2,7 +2,7 @@ package cc.broomwagon;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
-import static java.util.Collections.emptyList;
+import static java.util.Arrays.asList;
 
 import cc.broomwagon.model.Product;
 import cc.broomwagon.model.menu.Menu;
@@ -11,6 +11,7 @@ import cc.broomwagon.model.menu.MenuItem;
 import cc.broomwagon.model.menu.MenuItemConfig;
 import cc.broomwagon.model.menu.MenuItemGroup;
 import cc.broomwagon.model.page.Page;
+import cc.broomwagon.model.page.Row;
 import cc.broomwagon.model.page.Segment;
 
 import java.util.Collection;
@@ -68,7 +69,13 @@ public final class TestFactory {
                 .id(1L)
                 .title("title")
                 .url("/")
-                .segments(emptyList())
+                .rows(asList(aRow(), aRow()))
+                .build();
+    }
+
+    public static Row aRow() {
+        return Row.builder()
+                .segments(asList(aSegment(), aSegment()))
                 .build();
     }
 
