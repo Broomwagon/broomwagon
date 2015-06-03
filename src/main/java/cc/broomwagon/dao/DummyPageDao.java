@@ -28,8 +28,7 @@ public class DummyPageDao implements PageDao {
                         .rows(asList(
                                 sliderRow(),
                                 productRow(),
-                                promoRow(),
-                                sliderScriptRow()
+                                promoRow()
                         )).build(),
                 Page.builder().id(2L).title("Products").url("/products").rows(emptyList()).build(),
                 Page.builder().id(3L).title("Product").url("/products/.*").rows(emptyList()).build()
@@ -40,13 +39,6 @@ public class DummyPageDao implements PageDao {
         return Row.builder().segments(singletonList(
                 Segment.builder().id(1l).template("segment/slider")
                         .fragment("slider").parameters(emptyMap()).cssClass("").build()
-        )).build();
-    }
-
-    private Row sliderScriptRow() {
-        return Row.builder().segments(singletonList(
-                Segment.builder().id(1l).template("segment/slider")
-                        .fragment("script").parameters(emptyMap()).cssClass("").build()
         )).build();
     }
 
