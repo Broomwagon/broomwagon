@@ -56,11 +56,56 @@ function LookAndFeelCtrl($scope, Page) {
     });
 }
 
+function PageCtrl($scope, $compile) {
+    $scope.elementIndex = 0;
+
+    $scope.addElement = function () {
+        $scope.elementIndex++;
+        var newScope = $scope.$new();
+        newScope.elementIndex = $scope.elementIndex;
+
+        appendElementToBody($compile(createElement('broom-element'))(newScope));
+    };
+
+    $scope.addDivider = function () {
+        appendElementToBody($compile(createElement('broom-divider'))($scope.$new()));
+    }
+}
+
+function appendElementToBody(elementObject) {
+    angular.element(document.querySelector('#sortable-view')).append(elementObject);
+}
+
+function createElement(elementName) {
+    return angular.element(document.createElement(elementName));
+}
+
+function DraggablePanelsCtrl($scope) {
+    $scope.sortableOptions = {
+        connectWith: ".connectPanels",
+        handler: ".ibox-title"
+    };
+}
+
+function RowCtrl($scope) {
+    $scope.testIndex = 0;
+    $scope.activities =
+        [
+            "Slider",
+            "Product",
+            "Promo"
+        ];
+}
+
 angular
     .module('broomwagon')
     .controller('InventoryCtrl', InventoryCtrl)
     .controller('TranslateCtrl', TranslateCtrl)
     .controller('SearchCtrl', SearchCtrl)
     .controller('ProductCtrl', ProductCtrl)
-    .controller('LookAndFeelCtrl', LookAndFeelCtrl);
+    .controller('LookAndFeelCtrl', LookAndFeelCtrl)
+    .controller('PageCtrl', PageCtrl)
+    .controller('DraggablePanelsCtrl', DraggablePanelsCtrl)
+    .controller('RowCtrl', RowCtrl);
+
 

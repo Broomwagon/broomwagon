@@ -34,8 +34,7 @@ function pageTitle($rootScope, $timeout) {
             $rootScope.$on('$stateChangeStart', listener);
         }
     }
-};
-
+}
 /**
  * sideNavigation - Directive for run metsiMenu on sidebar navigation
  */
@@ -50,8 +49,7 @@ function sideNavigation($timeout) {
             });
         }
     };
-};
-
+}
 /**
  * responsibleVideo - Directive for responsive video
  */
@@ -64,7 +62,7 @@ function responsiveVideo() {
             video
                 .attr('data-aspectRatio', video.height() / video.width())
                 .removeAttr('height')
-                .removeAttr('width')
+                .removeAttr('width');
 
             //We can use $watch on $window.innerWidth also.
             $(window).resize(function() {
@@ -92,7 +90,6 @@ function iboxTools($timeout) {
                 var icon = $element.find('i:first');
                 var content = ibox.find('div.ibox-content');
                 content.slideToggle(200);
-                // Toggle icon from up to down
                 icon.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
                 ibox.toggleClass('').toggleClass('border-bottom');
                 $timeout(function () {
@@ -100,15 +97,13 @@ function iboxTools($timeout) {
                     ibox.find('[id^=map-]').resize();
                 }, 50);
             },
-                // Function for close ibox
                 $scope.closebox = function () {
                     var ibox = $element.closest('div.ibox');
                     ibox.remove();
                 }
         }
     };
-};
-
+}
 /**
  * minimalizaSidebar - Directive for minimalize sidebar
 */
@@ -140,9 +135,7 @@ function minimalizaSidebar($timeout) {
             }
         }
     };
-};
-
-
+}
 function closeOffCanvas() {
     return {
         restrict: 'A',
@@ -214,8 +207,7 @@ function sparkline() {
             };
         }
     }
-};
-
+}
 /**
  * icheck - Directive for custom checkbox icheck
  */
@@ -230,7 +222,7 @@ function icheck($timeout) {
 
                 $scope.$watch($attrs['ngModel'], function(newValue){
                     $(element).iCheck('update');
-                })
+                });
 
                 return $(element).iCheck({
                     checkboxClass: 'icheckbox_square-green',
@@ -358,6 +350,48 @@ function fullScroll($timeout){
     };
 }
 
+function broomElement() {
+    return {
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: '/admin/common/builder/element.html'
+    };
+}
+
+function broomDivider() {
+    return {
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: '/admin/common/builder/divider.html'
+    };
+}
+
+function broomIboxTools($timeout) {
+    return {
+        restrict: 'A',
+        scope: true,
+        templateUrl: '/admin/common/builder/top-bar.html',
+        controller: function ($scope, $element) {
+            // Function for collapse ibox
+            $scope.showhide = function () {
+                var ibox = $element.closest('div.ibox');
+                var icon = $element.find('i:first');
+                var content = ibox.find('div.ibox-content');
+                content.slideToggle(200);
+                icon.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+                ibox.toggleClass('').toggleClass('border-bottom');
+                $timeout(function () {
+                    ibox.resize();
+                    ibox.find('[id^=map-]').resize();
+                }, 50);
+            },
+                $scope.closebox = function () {
+                    var ibox = $element.closest('div.ibox');
+                    ibox.parent().remove();
+                }
+        }
+    };
+}
 /**
  *
  * Pass all functions into module
@@ -378,3 +412,6 @@ angular
     .directive('customValid', customValid)
     .directive('fullScroll', fullScroll)
     .directive('closeOffCanvas', closeOffCanvas)
+    .directive('broomElement', broomElement)
+    .directive('broomDivider', broomDivider)
+    .directive('broomIboxTools', broomIboxTools);

@@ -102,6 +102,21 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                 }
             }
         })
+        .state('look-and-feel.page', {
+            url: "/page/:id",
+            templateUrl: "/admin/page.html",
+            data: {pageTitle: 'Page'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            name: 'ui.sortable',
+                            files: ['/adminDemo/js/plugins/ui-sortable/sortable.js']
+                        }
+                    ]);
+                }
+            }
+        })
     ;
 }
 angular

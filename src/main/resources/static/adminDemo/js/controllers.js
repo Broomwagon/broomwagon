@@ -779,7 +779,7 @@ function flotChartCtrl() {
                 [13, 21]
             ]
         }
-    ]
+    ];
 
     /**
      * Line Area Chart Options
@@ -887,7 +887,7 @@ function flotChartCtrl() {
             }
         }
 
-    }
+    };
 
     /**
      * Definition of variables
@@ -1087,7 +1087,7 @@ function rickshawChartCtrl() {
         renderer: 'scatterplot',
         stroke: true,
         padding: { top: 0.05, left: 0.05, right: 0.05 }
-    }
+    };
 
     /**
      * Data for Scatterplot chart
@@ -1109,7 +1109,7 @@ function rickshawChartCtrl() {
             ],
             color: '#1ab394'
         }
-    ]
+    ];
 
     /**
      * Definition all variables
@@ -1432,8 +1432,7 @@ function modalDemoCtrl($scope, $modal) {
             windowClass: "animated flipInY"
         });
     };
-};
-
+}
 function ModalInstanceCtrl ($scope, $modalInstance) {
 
     $scope.ok = function () {
@@ -1498,8 +1497,7 @@ function ModalInstanceCtrl ($scope, $modalInstance) {
         'Wyoming'
     ];
 
-};
-
+}
 /**
  * ionSlider - Controller for data for Ion Slider plugin
  * used in Advanced plugin view
@@ -1875,8 +1873,7 @@ function chartJsCtrl() {
     };
 
 
-};
-
+}
 /**
  * GoogleMaps - Controller for data google maps
  */
@@ -2055,13 +2052,13 @@ function notifyCtrl($scope, notify) {
     $scope.broomwagonTemplate = '/adminDemo/common/notify.html';
     $scope.broomwagonDemo1 = function(){
         notify({ message: 'Info - This is a broomwagon info notification', classes: 'alert-info', templateUrl: $scope.broomwagonTemplate});
-    }
+    };
     $scope.broomwagonDemo2 = function(){
         notify({ message: 'Success - This is a broomwagon success notification', classes: 'alert-success', templateUrl: $scope.broomwagonTemplate});
-    }
+    };
     $scope.broomwagonDemo3 = function(){
         notify({ message: 'Warning - This is a broomwagon warning notification', classes: 'alert-warning', templateUrl: $scope.broomwagonTemplate});
-    }
+    };
     $scope.broomwagonDemo4 = function(){
         notify({ message: 'Danger - This is a broomwagon danger notification', classes: 'alert-danger', templateUrl: $scope.broomwagonTemplate});
     }
@@ -2161,21 +2158,21 @@ function liveFavicon($scope){
         Tinycon.setOptions({
             background: '#f03d25'
         });
-    }
+    };
 
     $scope.example2 = function(){
         Tinycon.setBubble(1000);
         Tinycon.setOptions({
             background: '#f03d25'
         });
-    }
+    };
 
     $scope.example3 = function(){
         Tinycon.setBubble('In');
         Tinycon.setOptions({
             background: '#f03d25'
         });
-    }
+    };
 
     $scope.example4 = function(){
         Tinycon.setOptions({
@@ -2197,7 +2194,7 @@ function formValidation($scope) {
         } else {
             $scope.signup_form.submitted = true;
         }
-    }
+    };
 
     $scope.signupForm2 = function() {
         if ($scope.signup_form.$valid) {
@@ -2205,8 +2202,7 @@ function formValidation($scope) {
         }
     }
 
-};
-
+}
 /**
  * agileBoard - Controller for agile Board view
  */
@@ -2368,12 +2364,10 @@ function agileBoard($scope) {
  * draggablePanels - Controller for draggable panels example
  */
 function draggablePanels($scope) {
-
     $scope.sortableOptions = {
         connectWith: ".connectPanels",
         handler: ".ibox-title"
     };
-
 }
 
 /**
@@ -2407,4 +2401,4 @@ angular
     .controller('liveFavicon', liveFavicon)
     .controller('formValidation', formValidation)
     .controller('agileBoard', agileBoard)
-    .controller('draggablePanels', draggablePanels)
+    .controller('draggablePanels', draggablePanels);

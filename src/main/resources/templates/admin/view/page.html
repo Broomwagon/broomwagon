@@ -1,0 +1,38 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Page</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a ui-sref="look-and-feel.pages">Look and feel</a>
+            </li>
+            <li>
+                <a ui-sref="look-and-feel.pages">Pages</a>
+            </li>
+            <li class="active">
+                <strong>Page</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="PageCtrl">
+    <div class="row">
+        <div class="col-lg-12">
+            <span class="input-group-btn">
+                    <button type="button" class="btn btn-sm btn-primary" ng-click="addElement()"><i
+                            class="fa fa-plus"></i>
+                        Add element
+                    </button>
+                    <button type="button" class="btn btn-sm btn-primary" ng-click="addDivider()"><i
+                            class="fa fa-plus"></i>
+                        Add divider
+                    </button>
+            </span>
+        </div>
+        <div class="col-lg-12 " ng-controller="DraggablePanelsCtrl">
+            <div id="sortable-view" ui-sortable="sortableOptions"></div>
+        </div>
+    </div>
+</div>
