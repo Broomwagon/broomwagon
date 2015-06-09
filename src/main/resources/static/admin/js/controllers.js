@@ -56,20 +56,81 @@ function LookAndFeelCtrl($scope, Page) {
     });
 }
 
-function PageCtrl($scope, $compile) {
+function PageCtrl($scope, $compile, $stateParams, Page, notify) {
+    if ($stateParams.id) {
+        Page.get({id: $stateParams.id},
+            function success(response) {
+                $scope.page = response;
+                var firstRow = true;
+                for (var i = 0; i < $scope.page.rows.length; i++) {
+                    if (!firstRow) {
+                        addElement('broom-divider', $scope.$new(), $compile)
+                    }
+                    firstRow = false;
+                    for (var y = 0; y < $scope.page.rows[i].segments.length; y++) {
+                        var newScope = $scope.$new();
+                        newScope.segment = $scope.page.rows[i].segments[y];
+                        addElement('broom-segment', newScope, $compile)
+                    }
+                }
+            },
+            function error(errorResponse) {
+                notify({
+                    message: 'Page not found!',
+                    classes: 'alert-danger',
+                    templateUrl: '/admin/common/notify.html'
+                });
+            }
+        );
+    }
+
     $scope.elementIndex = 0;
 
     $scope.addElement = function () {
-        $scope.elementIndex++;
-        var newScope = $scope.$new();
-        newScope.elementIndex = $scope.elementIndex;
-
-        appendElementToBody($compile(createElement('broom-element'))(newScope));
+        addElement('broom-segment', $scope.$new(), $compile)
     };
 
     $scope.addDivider = function () {
-        appendElementToBody($compile(createElement('broom-divider'))($scope.$new()));
+        addElement('broom-divider', $scope.$new(), $compile)
+    };
+
+    $scope.save = function () {
+        var elements = [];
+
+        $('.elementJson').each(function (index) {
+            elements.push(JSON.parse($(this).html()));
+        });
+
+        if ($scope.page === undefined) {
+            $scope.page = {};
+        }
+
+        $scope.page.rows = [];
+        var currentRow = 0;
+        $scope.page.rows[currentRow] = [];
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].type === undefined) {
+                $scope.page.rows[currentRow].push(elements[i]);
+            } else if (elements[i].type === 'divider' && currentRow > 0) {
+                currentRow++;
+                $scope.page.rows[currentRow] = [];
+            }
+        }
+
+        if ($scope.page.id) {
+            Page.update($scope.page, function () {
+                console.log("saved");
+            });
+        } else {
+            Page.save($scope.page, function () {
+                console.log("saved");
+            });
+        }
     }
+}
+
+function addElement(elementName, $scope, $compile) {
+    appendElementToBody($compile(createElement(elementName))($scope));
 }
 
 function appendElementToBody(elementObject) {
@@ -87,7 +148,7 @@ function DraggablePanelsCtrl($scope) {
     };
 }
 
-function RowCtrl($scope) {
+function SegmentCtrl($scope) {
     $scope.testIndex = 0;
     $scope.activities =
         [
@@ -106,6 +167,6 @@ angular
     .controller('LookAndFeelCtrl', LookAndFeelCtrl)
     .controller('PageCtrl', PageCtrl)
     .controller('DraggablePanelsCtrl', DraggablePanelsCtrl)
-    .controller('RowCtrl', RowCtrl);
+    .controller('SegmentCtrl', SegmentCtrl);
 
 

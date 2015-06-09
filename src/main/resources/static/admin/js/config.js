@@ -112,6 +112,12 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                         {
                             name: 'ui.sortable',
                             files: ['/adminDemo/js/plugins/ui-sortable/sortable.js']
+                        },
+                        {
+                            name: 'cgNotify',
+                            files: [
+                                '/admin/css/plugins/angular-notify/angular-notify.min.css',
+                                '/admin/js/plugins/angular-notify/angular-notify.min.js']
                         }
                     ]);
                 }

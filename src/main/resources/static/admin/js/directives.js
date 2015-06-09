@@ -350,11 +350,11 @@ function fullScroll($timeout){
     };
 }
 
-function broomElement() {
+function broomSegment() {
     return {
         restrict: 'E',
         replace: 'true',
-        templateUrl: '/admin/common/builder/element.html'
+        templateUrl: '/admin/common/builder/segment.html'
     };
 }
 
@@ -412,6 +412,6 @@ angular
     .directive('customValid', customValid)
     .directive('fullScroll', fullScroll)
     .directive('closeOffCanvas', closeOffCanvas)
-    .directive('broomElement', broomElement)
+    .directive('broomSegment', broomSegment)
     .directive('broomDivider', broomDivider)
     .directive('broomIboxTools', broomIboxTools);
