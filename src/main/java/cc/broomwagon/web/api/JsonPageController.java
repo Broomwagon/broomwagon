@@ -3,6 +3,7 @@ package cc.broomwagon.web.api;
 import cc.broomwagon.model.page.Page;
 import cc.broomwagon.service.PageManager;
 import cc.broomwagon.web.exception.ItemNotFoundException;
+import cc.broomwagon.web.ui.PageForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,12 +34,12 @@ public class JsonPageController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void add(@RequestBody Object page) {
+    public void add(@RequestBody PageForm page) {
         System.out.println("Saving: " + page);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void update(@RequestBody Object page, @PathVariable Long id) {
+    public void update(@RequestBody PageForm page, @PathVariable Long id) {
         System.out.println("Updating: " + page);
     }
 

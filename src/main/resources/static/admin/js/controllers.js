@@ -105,17 +105,22 @@ function PageCtrl($scope, $compile, $stateParams, Page, notify) {
             $scope.page = {};
         }
 
-        $scope.page.rows = [];
-        var currentRow = 0;
-        $scope.page.rows[currentRow] = [];
+        var rowObj = {};
+        rowObj.segments = [];
+        var rows = [];
+        rows.push(rowObj);
+
         for (var i = 0; i < elements.length; i++) {
             if (elements[i].type === undefined) {
-                $scope.page.rows[currentRow].push(elements[i]);
-            } else if (elements[i].type === 'divider' && currentRow > 0) {
-                currentRow++;
-                $scope.page.rows[currentRow] = [];
+                rowObj.segments.push(elements[i]);
+            } else if (elements[i].type === 'divider') {
+                rowObj = {};
+                rowObj.segments = [];
+                rows.push(rowObj);
             }
         }
+
+        $scope.page.rows = rows;
 
         if ($scope.page.id) {
             Page.update($scope.page, function () {
