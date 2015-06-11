@@ -23,16 +23,12 @@ import java.util.Optional;
  */
 @Repository
 public class DummyPageDao implements PageDao {
-    private Collection<Page> pages;
     @Autowired
     private SegmentDao segmentDao;
 
     @Override
     public Collection<Page> getPages() {
-        if (pages == null) {
-            pages = init();
-        }
-        return pages;
+        return init();
     }
 
     @Override
