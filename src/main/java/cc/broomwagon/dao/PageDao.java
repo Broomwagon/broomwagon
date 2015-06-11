@@ -15,4 +15,6 @@ public interface PageDao {
     Optional<Page> getPageById(Long id);
 
     Optional<Page> update(Page page);
+
+    Optional<Page> save(Page page);
 }

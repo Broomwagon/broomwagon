@@ -31,4 +31,9 @@ public class DefaultPageManager implements PageManager {
     public Optional<Page> update(Page page) {
         return pageDao.update(page);
     }
+
+    @Override
+    public Optional<Page> save(Page page) {
+        return pageDao.save(page);
+    }
 }

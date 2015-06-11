@@ -17,7 +17,7 @@ public class PageTranslator {
 
     public Page translate(PageForm form) {
         return Page.builder()
-                .id(form.getId())
+                .id(form.getId() == null ? 0L : form.getId())
                 .title(form.getTitle())
                 .url(form.getUrl())
                 .rows(stream(form.getRows().spliterator(), false)

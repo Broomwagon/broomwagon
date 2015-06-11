@@ -37,8 +37,12 @@ public class JsonPageController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void add(@RequestBody PageForm pageForm) {
-        System.out.println("Saving: " + pageForm);
+    public Page save(@RequestBody PageForm pageForm) {
+        Optional<Page> page = pageManager.save(pageTranslator.translate(pageForm));
+        if (!page.isPresent()) {
+            throw new ItemNotFoundException();
+        }
+        return page.get();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)

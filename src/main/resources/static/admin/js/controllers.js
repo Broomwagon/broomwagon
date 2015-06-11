@@ -140,9 +140,24 @@ function PageCtrl($scope, $compile, $stateParams, Page, notify) {
                 }
             );
         } else {
-            Page.save($scope.page, function () {
-                console.log("saved");
-            });
+            Page.save($scope.page,
+                function success(response) {
+                    $scope.page = response;
+
+                    notify({
+                        message: 'Saved',
+                        classes: 'alert-info',
+                        templateUrl: '/admin/common/notify.html'
+                    });
+                },
+                function error(response) {
+                    notify({
+                        message: 'Error',
+                        classes: 'alert-danger',
+                        templateUrl: '/admin/common/notify.html'
+                    });
+                }
+            );
         }
     }
 }

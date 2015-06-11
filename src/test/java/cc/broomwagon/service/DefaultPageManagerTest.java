@@ -69,6 +69,17 @@ public class DefaultPageManagerTest {
 
         //then
         verify(pageDao).update(page);
+    }
 
+    @Test
+    public void shouldSavePage() {
+        // given
+        Page page = aPage();
+
+        // when
+        Optional<Page> actual = defaultPageManager.save(page);
+
+        //then
+        verify(pageDao).save(page);
     }
 }

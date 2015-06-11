@@ -100,4 +100,36 @@ public class JsonPageControllerTest {
         // then
         // exception
     }
+
+    @Test
+    public void shouldSavePage() {
+        // given
+        PageForm pageFrom = new PageForm();
+        Page page = aPage();
+        given(pageTranslator.translate(pageFrom)).willReturn(page);
+        given(pageManager.save(page)).willReturn(Optional.of(page));
+
+        // when
+        Page actual = jsonPageController.save(pageFrom);
+
+        // then
+        assertThat(actual, is(notNullValue()));
+        verify(pageTranslator).translate(pageFrom);
+        verify(pageManager).save(page);
+    }
+
+    @Test(expected = ItemNotFoundException.class)
+    public void shouldNotSavePage() {
+        // given
+        PageForm pageFrom = new PageForm();
+        Page page = aPage();
+        given(pageTranslator.translate(pageFrom)).willReturn(page);
+        given(pageManager.save(page)).willReturn(Optional.empty());
+
+        // when
+        Page actual = jsonPageController.save(pageFrom);
+
+        // then
+        // exception
+    }
 }

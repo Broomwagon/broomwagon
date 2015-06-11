@@ -5,15 +5,19 @@ import static java.util.Collections.emptyList;
 import static java.util.Collections.emptyMap;
 import static java.util.Collections.singletonList;
 import static java.util.Optional.of;
+import static org.springframework.util.ReflectionUtils.findField;
+import static org.springframework.util.ReflectionUtils.setField;
 
 import cc.broomwagon.model.page.Page;
 import cc.broomwagon.model.page.Row;
 import cc.broomwagon.model.page.Segment;
 import org.springframework.stereotype.Repository;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LongSummaryStatistics;
 import java.util.Map;
 import java.util.Optional;
 
@@ -103,9 +107,32 @@ public class DummyPageDao implements PageDao {
     @Override
     public Optional<Page> update(Page page) {
         pages.removeIf(p -> p.getId().equals(page.getId()));
+        pages.add(page);
+        return of(page);
+    }
+
+    @Override
+    public Optional<Page> save(Page page) {
+        LongSummaryStatistics stats = pages.stream()
+                .mapToLong(Page::getId)
+                .summaryStatistics();
 
         pages.add(page);
+        return of(setId(page, stats.getMax() + 1));
+    }
 
-        return of(page);
+    /**
+     * This is a hack to duplicate db logic. Generating next id.
+     *
+     * @param page - page to set id
+     * @param id   - id for the page
+     * @return - page with id set
+     */
+    private Page setId(Page page, Long id) {
+        Field idField = findField(Page.class, "id");
+        idField.setAccessible(true);
+        setField(idField, page, id);
+        idField.setAccessible(false);
+        return page;
     }
 }

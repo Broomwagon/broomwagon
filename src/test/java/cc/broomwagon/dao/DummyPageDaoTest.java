@@ -72,5 +72,24 @@ public class DummyPageDaoTest {
 
         // then
         assertThat(actual.get().getTitle(), is("Replaced"));
+        assertThat(size(pageDao.getPages()), is(3));
+    }
+
+    @Test
+    public void shouldSave() {
+        // given
+        Page page = Page.builder()
+                .id(99L)
+                .title("New Page")
+                .url("/products")
+                .rows(emptyList()).build();
+
+        // when
+        Optional<Page> actual = pageDao.save(page);
+
+        // then
+        assertThat(actual.get().getTitle(), is("New Page"));
+        assertThat(size(pageDao.getPages()), is(4));
+        assertThat(actual.get().getId(), is(not(99L)));
     }
 }
