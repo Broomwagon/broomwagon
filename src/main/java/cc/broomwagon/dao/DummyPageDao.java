@@ -4,12 +4,14 @@ import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.emptyMap;
 import static java.util.Collections.singletonList;
+import static java.util.Optional.of;
 
 import cc.broomwagon.model.page.Page;
 import cc.broomwagon.model.page.Row;
 import cc.broomwagon.model.page.Segment;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,16 +25,15 @@ public class DummyPageDao implements PageDao {
     private Collection<Page> pages;
 
     public DummyPageDao() {
-        this.pages = asList(
-                Page.builder().id(1L).title("Home").url("/")
-                        .rows(asList(
-                                sliderRow(),
-                                productRow(),
-                                promoRow()
-                        )).build(),
-                Page.builder().id(2L).title("Products").url("/products").rows(emptyList()).build(),
-                Page.builder().id(3L).title("Product").url("/products/.*").rows(emptyList()).build()
-        );
+        this.pages = new ArrayList<>();
+        pages.add(Page.builder().id(1L).title("Home").url("/")
+                .rows(asList(
+                        sliderRow(),
+                        productRow(),
+                        promoRow()
+                )).build());
+        pages.add(Page.builder().id(2L).title("Products").url("/products").rows(emptyList()).build());
+        pages.add(Page.builder().id(3L).title("Product").url("/products/.*").rows(emptyList()).build());
     }
 
     private Row sliderRow() {
@@ -97,5 +98,14 @@ public class DummyPageDao implements PageDao {
         return pages.stream()
                 .filter(page -> page.getId().equals(id))
                 .findFirst();
+    }
+
+    @Override
+    public Optional<Page> update(Page page) {
+        pages.removeIf(p -> p.getId().equals(page.getId()));
+
+        pages.add(page);
+
+        return of(page);
     }
 }

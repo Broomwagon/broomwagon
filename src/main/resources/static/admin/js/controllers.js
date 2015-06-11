@@ -123,9 +123,22 @@ function PageCtrl($scope, $compile, $stateParams, Page, notify) {
         $scope.page.rows = rows;
 
         if ($scope.page.id) {
-            Page.update($scope.page, function () {
-                console.log("saved");
-            });
+            Page.update($scope.page,
+                function success(response) {
+                    notify({
+                        message: 'Updated',
+                        classes: 'alert-info',
+                        templateUrl: '/admin/common/notify.html'
+                    });
+                },
+                function error(response) {
+                    notify({
+                        message: 'Error',
+                        classes: 'alert-danger',
+                        templateUrl: '/admin/common/notify.html'
+                    });
+                }
+            );
         } else {
             Page.save($scope.page, function () {
                 console.log("saved");

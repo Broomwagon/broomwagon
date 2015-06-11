@@ -1,5 +1,6 @@
 package cc.broomwagon.service;
 
+import static cc.broomwagon.TestFactory.*;
 import static java.util.Collections.emptyList;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.isA;
@@ -56,5 +57,18 @@ public class DefaultPageManagerTest {
 
         // then
         verify(pageDao).getPageById(1L);
+    }
+
+    @Test
+    public void shouldUpdatePage() {
+        // given
+        Page page = aPage();
+
+        // when
+        Optional<Page> actual = defaultPageManager.update(page);
+
+        //then
+        verify(pageDao).update(page);
+
     }
 }

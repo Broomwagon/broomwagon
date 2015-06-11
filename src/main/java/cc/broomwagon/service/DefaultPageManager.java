@@ -26,4 +26,9 @@ public class DefaultPageManager implements PageManager {
     public Optional<Page> getPageById(Long id) {
         return pageDao.getPageById(id);
     }
+
+    @Override
+    public Optional<Page> update(Page page) {
+        return pageDao.update(page);
+    }
 }

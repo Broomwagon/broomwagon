@@ -3,6 +3,7 @@ package cc.broomwagon.web.api;
 import cc.broomwagon.model.page.Page;
 import cc.broomwagon.service.PageManager;
 import cc.broomwagon.web.exception.ItemNotFoundException;
+import cc.broomwagon.web.translator.PageTranslator;
 import cc.broomwagon.web.ui.PageForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,8 @@ import java.util.Optional;
 public class JsonPageController {
     @Autowired
     private PageManager pageManager;
+    @Autowired
+    private PageTranslator pageTranslator;
 
     @RequestMapping(method = RequestMethod.GET)
     public Iterable<Page> find() {
@@ -34,13 +37,17 @@ public class JsonPageController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void add(@RequestBody PageForm page) {
-        System.out.println("Saving: " + page);
+    public void add(@RequestBody PageForm pageForm) {
+        System.out.println("Saving: " + pageForm);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void update(@RequestBody PageForm page, @PathVariable Long id) {
-        System.out.println("Updating: " + page);
+    public Page update(@RequestBody PageForm pageForm, @PathVariable Long id) {
+        Optional<Page> page = pageManager.update(pageTranslator.translate(pageForm));
+        if (!page.isPresent()) {
+            throw new ItemNotFoundException();
+        }
+        return page.get();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

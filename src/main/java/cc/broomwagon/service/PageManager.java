@@ -13,4 +13,6 @@ public interface PageManager {
     Optional<Page> getPageByUrl(String url);
 
     Optional<Page> getPageById(Long id);
+
+    Optional<Page> update(Page page);
 }

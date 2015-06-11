@@ -1,6 +1,7 @@
 package cc.broomwagon.dao;
 
 import static com.google.common.collect.Iterables.size;
+import static java.util.Collections.emptyList;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
@@ -55,5 +56,21 @@ public class DummyPageDaoTest {
 
         // then
         assertThat(actual.isPresent(), is(true));
+    }
+
+    @Test
+    public void shouldUpdate() {
+        // given
+        Page page = Page.builder()
+                .id(1L)
+                .title("Replaced")
+                .url("/products")
+                .rows(emptyList()).build();
+
+        // when
+        Optional<Page> actual = pageDao.update(page);
+
+        // then
+        assertThat(actual.get().getTitle(), is("Replaced"));
     }
 }

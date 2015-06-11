@@ -9,15 +9,20 @@ import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.verify;
 
 import cc.broomwagon.model.page.Page;
 import cc.broomwagon.service.PageManager;
 import cc.broomwagon.web.exception.ItemNotFoundException;
+import cc.broomwagon.web.translator.PageTranslator;
+import cc.broomwagon.web.ui.PageForm;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import java.util.Optional;
 
 @RunWith(MockitoJUnitRunner.class)
 public class JsonPageControllerTest {
@@ -25,6 +30,8 @@ public class JsonPageControllerTest {
     private JsonPageController jsonPageController;
     @Mock
     private PageManager pageManager;
+    @Mock
+    private PageTranslator pageTranslator;
 
     @Test
     public void shouldFind() {
@@ -57,6 +64,38 @@ public class JsonPageControllerTest {
 
         // when
         jsonPageController.get(2l);
+
+        // then
+        // exception
+    }
+
+    @Test
+    public void shouldUpdatePage() {
+        // given
+        PageForm pageFrom = new PageForm();
+        Page page = aPage();
+        given(pageTranslator.translate(pageFrom)).willReturn(page);
+        given(pageManager.update(page)).willReturn(Optional.of(page));
+
+        // when
+        Page actual = jsonPageController.update(pageFrom, 1L);
+
+        // then
+        assertThat(actual, is(notNullValue()));
+        verify(pageTranslator).translate(pageFrom);
+        verify(pageManager).update(page);
+    }
+
+    @Test(expected = ItemNotFoundException.class)
+    public void shouldNotUpdatePage() {
+        // given
+        PageForm pageFrom = new PageForm();
+        Page page = aPage();
+        given(pageTranslator.translate(pageFrom)).willReturn(page);
+        given(pageManager.update(page)).willReturn(Optional.empty());
+
+        // when
+        jsonPageController.update(pageFrom, 1L);
 
         // then
         // exception
