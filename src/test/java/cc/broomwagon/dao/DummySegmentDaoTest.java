@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -35,5 +36,23 @@ public class DummySegmentDaoTest {
 
         // then
         assertThat(size(actual), is(3));
+    }
+
+    @Test
+    public void shouldUpdate() {
+        // given
+        Segment segment = Segment.builder()
+                .id(1L)
+                .cssClass("css1")
+                .fragment("fragment")
+                .template("template")
+                .parameters(new HashMap<>()).build();
+
+        // when
+        Optional<Segment> actual = dummySegmentDao.update(segment);
+
+        // then
+        assertThat(actual.get().getCssClass(), is("css1"));
+        assertThat(size(dummySegmentDao.getSegments()), is(3));
     }
 }

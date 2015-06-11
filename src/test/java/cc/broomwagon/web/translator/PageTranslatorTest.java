@@ -7,6 +7,7 @@ import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
 import cc.broomwagon.model.page.Page;
+import cc.broomwagon.model.page.Segment;
 import cc.broomwagon.web.ui.PageForm;
 import cc.broomwagon.web.ui.RowForm;
 import cc.broomwagon.web.ui.SegmentForm;
@@ -22,7 +23,7 @@ public class PageTranslatorTest {
 
     @SuppressWarnings("ConstantConditions")
     @Test
-    public void shouldTranslate() {
+    public void shouldTranslatePage() {
         // given
         PageForm pageForm = new PageForm();
         pageForm.setId(1L);
@@ -54,6 +55,24 @@ public class PageTranslatorTest {
         assertThat(size(actual.getRows()), is(2));
         assertThat(size(getFirst(actual.getRows(), null).getSegments()), is(3));
         assertThat(getFirst(getFirst(actual.getRows(), null).getSegments(), null).getCssClass(), is("css"));
+    }
+
+    @Test
+    public void shouldTranslateSegment() {
+        // given
+        SegmentForm segmentForm = new SegmentForm();
+        segmentForm.setFragment("fragment");
+        segmentForm.setTemplate("template");
+        segmentForm.setCssClass("css");
+
+        // when
+        Segment actual = pageTranslator.translate(segmentForm);
+
+        // then
+        assertThat(actual.getId(), is(0L));
+        assertThat(actual.getFragment(), is("fragment"));
+        assertThat(actual.getTemplate(), is("template"));
+        assertThat(actual.getCssClass(), is("css"));
     }
 
 }

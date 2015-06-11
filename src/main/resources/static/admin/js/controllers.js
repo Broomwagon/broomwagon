@@ -142,7 +142,6 @@ function PageCtrl($scope, $compile, $stateParams, Page, notify) {
             Page.save($scope.page,
                 function success(response) {
                     $scope.page = response;
-
                     notify({
                         message: 'Saved',
                         classes: 'alert-info',
@@ -180,7 +179,7 @@ function DraggablePanelsCtrl($scope) {
     };
 }
 
-function SegmentCtrl($scope, $stateParams, Segment, notify) {
+function SegmentCtrl($scope, $stateParams, Segment, notify, $location) {
     $scope.types =
         [
             "Slider",
@@ -206,6 +205,22 @@ function SegmentCtrl($scope, $stateParams, Segment, notify) {
             }
         );
     }
+
+    $scope.save = function () {
+        if ($scope.segment.id) {
+            Segment.update($scope.segment, function () {
+                console.log("saved");
+            });
+        } else {
+            Segment.save($scope.segment, function () {
+                console.log("saved");
+            });
+        }
+    };
+
+    $scope.cancel = function () {
+        $location.path('/look-and-feel/segments')
+    };
 }
 
 angular

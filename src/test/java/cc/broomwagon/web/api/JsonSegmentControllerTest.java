@@ -13,6 +13,8 @@ import static org.mockito.Mockito.verify;
 import cc.broomwagon.model.page.Segment;
 import cc.broomwagon.service.SegmentManager;
 import cc.broomwagon.web.exception.ItemNotFoundException;
+import cc.broomwagon.web.translator.PageTranslator;
+import cc.broomwagon.web.ui.SegmentForm;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -27,6 +29,8 @@ public class JsonSegmentControllerTest {
     private JsonSegmentController jsonSegmentController;
     @Mock
     private SegmentManager segmentManager;
+    @Mock
+    private PageTranslator pageTranslator;
 
     @Test
     public void shouldFind() {
@@ -60,6 +64,37 @@ public class JsonSegmentControllerTest {
 
         // when
         jsonSegmentController.get(2l);
+
+        // then
+        // exception
+    }
+
+    @Test
+    public void shouldUpdateSegment() {
+        // given
+        SegmentForm segmentForm = new SegmentForm();
+        Segment segment = aSegment();
+        given(pageTranslator.translate(segmentForm)).willReturn(segment);
+        given(segmentManager.update(segment)).willReturn(Optional.of(segment));
+
+        // when
+        Segment actual = jsonSegmentController.update(segmentForm, 1L);
+
+        // then
+        assertThat(actual, is(notNullValue()));
+        verify(pageTranslator).translate(segmentForm);
+    }
+
+    @Test(expected = ItemNotFoundException.class)
+    public void shouldNotUpdateSegment() {
+        // given
+        SegmentForm segmentForm = new SegmentForm();
+        Segment segment = aSegment();
+        given(pageTranslator.translate(segmentForm)).willReturn(segment);
+        given(segmentManager.update(segment)).willReturn(Optional.empty());
+
+        // when
+        jsonSegmentController.update(segmentForm, 1L);
 
         // then
         // exception

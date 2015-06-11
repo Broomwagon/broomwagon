@@ -46,4 +46,16 @@ public class DefaultSegmentManagerTest {
         // then
         verify(segmentDao).getSegmentById(1L);
     }
+
+    @Test
+    public void shouldUpdateSegment() {
+        // given
+        Segment segment = aSegment();
+
+        // when
+        defaultSegmentManager.update(segment);
+
+        //then
+        verify(segmentDao).update(segment);
+    }
 }

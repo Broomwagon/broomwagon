@@ -3,6 +3,8 @@ package cc.broomwagon.web.api;
 import cc.broomwagon.model.page.Segment;
 import cc.broomwagon.service.SegmentManager;
 import cc.broomwagon.web.exception.ItemNotFoundException;
+import cc.broomwagon.web.translator.PageTranslator;
+import cc.broomwagon.web.ui.SegmentForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +19,8 @@ import java.util.Optional;
 public class JsonSegmentController {
     @Autowired
     private SegmentManager segmentManager;
+    @Autowired
+    private PageTranslator pageTranslator;
 
     @RequestMapping(method = RequestMethod.GET)
     public Iterable<Segment> find() {
@@ -33,13 +37,17 @@ public class JsonSegmentController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Segment save(@RequestBody Object segmentForm) {
+    public Segment save(@RequestBody SegmentForm segmentForm) {
         return null;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public Segment update(@RequestBody Object segmentForm, @PathVariable Long id) {
-        return null;
+    public Segment update(@RequestBody SegmentForm segmentForm, @PathVariable Long id) {
+        Optional<Segment> segment = segmentManager.update(pageTranslator.translate(segmentForm));
+        if (!segment.isPresent()) {
+            throw new ItemNotFoundException();
+        }
+        return segment.get();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

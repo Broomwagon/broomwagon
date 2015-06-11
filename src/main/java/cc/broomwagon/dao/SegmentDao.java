@@ -11,4 +11,6 @@ public interface SegmentDao {
     Iterable<Segment> getSegments();
 
     Optional<Segment> getSegmentById(Long id);
+
+    Optional<Segment> update(Segment segment);
 }

@@ -7,6 +7,7 @@ import cc.broomwagon.model.page.Page;
 import cc.broomwagon.model.page.Row;
 import cc.broomwagon.model.page.Segment;
 import cc.broomwagon.web.ui.PageForm;
+import cc.broomwagon.web.ui.SegmentForm;
 import org.springframework.stereotype.Component;
 
 /**
@@ -23,16 +24,20 @@ public class PageTranslator {
                 .rows(stream(form.getRows().spliterator(), false)
                                 .map(row -> Row.builder()
                                         .segments(stream(row.getSegments().spliterator(), false)
-                                                .map(segment -> Segment.builder()
-                                                        .id(segment.getId())
-                                                        .template(segment.getTemplate())
-                                                        .fragment(segment.getFragment())
-                                                        .cssClass(segment.getCssClass())
-                                                        .parameters(segment.getParameters())
-                                                        .build())
+                                                .map(this::translate)
                                                 .collect(toList()))
                                         .build())
                                 .collect(toList())
                 ).build();
+    }
+
+    public Segment translate(SegmentForm form) {
+        return Segment.builder()
+                .id(form.getId() == null ? 0L : form.getId())
+                .cssClass(form.getCssClass())
+                .template(form.getTemplate())
+                .fragment(form.getFragment())
+                .parameters(form.getParameters())
+                .build();
     }
 }

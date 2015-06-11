@@ -1,6 +1,7 @@
 package cc.broomwagon.dao;
 
 import static java.util.Collections.emptyMap;
+import static java.util.Optional.of;
 
 import cc.broomwagon.model.page.Segment;
 import org.springframework.stereotype.Repository;
@@ -50,6 +51,13 @@ public class DummySegmentDao implements SegmentDao {
         return segments.stream()
                 .filter(segment -> segment.getId().equals(id))
                 .findFirst();
+    }
+
+    @Override
+    public Optional<Segment> update(Segment segment) {
+        segments.removeIf(s -> s.getId().equals(segment.getId()));
+        segments.add(segment);
+        return of(segment);
     }
 
     private Map<String, Object> sampleMap() {

@@ -22,4 +22,9 @@ public class DefaultSegmentManager implements SegmentManager {
         return segmentDao.getSegmentById(id);
     }
 
+    @Override
+    public Optional<Segment> update(Segment segment) {
+        return segmentDao.update(segment);
+    }
+
 }
