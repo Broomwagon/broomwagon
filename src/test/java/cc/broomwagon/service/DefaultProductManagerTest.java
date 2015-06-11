@@ -1,12 +1,12 @@
 package cc.broomwagon.service;
 
-import static cc.broomwagon.TestFactory.aProduct;
+import static cc.broomwagon.TestFactory.*;
 import static com.google.common.collect.Iterables.size;
-import static com.google.common.collect.Lists.newArrayList;
+import static java.util.Collections.singletonList;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
@@ -30,7 +30,7 @@ public class DefaultProductManagerTest {
     @Test
     public void shouldGetProducts() {
         // given
-        Iterable<Product> products = newArrayList(aProduct());
+        Iterable<Product> products = singletonList(aProduct());
         given(productDao.getProducts()).willReturn(products);
 
         // when

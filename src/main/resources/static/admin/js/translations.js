@@ -7,7 +7,8 @@ function config($translateProvider) {
             PRODUCTS: 'Products',
             SEARCH: 'Search...',
             LOOK_AND_FEEL: 'Look and feel',
-            PAGES: 'Pages'
+            PAGES: 'Pages',
+            SEGMENTS: 'Segments'
         });
 
     $translateProvider.preferredLanguage('en');

@@ -24,7 +24,21 @@ function PageFactory($resource) {
     });
 }
 
+function SegmentFactory($resource) {
+    return $resource('/api/segments/:id', {
+        id: '@id'
+    }, {
+        update: {
+            method: "PUT"
+        },
+        remove: {
+            method: "DELETE"
+        }
+    });
+}
+
 angular
     .module('broomwagon')
     .factory('Product', ProductFactory)
-    .factory('Page', PageFactory);
+    .factory('Page', PageFactory)
+    .factory('Segment', SegmentFactory);

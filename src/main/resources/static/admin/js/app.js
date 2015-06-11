@@ -5,7 +5,8 @@
         'ui.bootstrap',                 // Ui Bootstrap
         'pascalprecht.translate',       // Angular Translate
         'ngIdle',                       // Idle timer
-        'ngResource'                    // resource for rest services
+        'ngResource',                   // resource for rest services
+        'cgNotify'                      // Notifications
     ])
 })();
 

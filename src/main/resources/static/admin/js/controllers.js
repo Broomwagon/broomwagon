@@ -50,13 +50,11 @@ function ProductCtrl($scope, $location, $stateParams, Product, notify) {
     };
 }
 
-function LookAndFeelCtrl($scope, Page) {
+function PageCtrl($scope, $compile, $stateParams, Page, notify) {
     var pages = Page.query(function () {
         $scope.pages = pages;
     });
-}
 
-function PageCtrl($scope, $compile, $stateParams, Page, notify) {
     if ($stateParams.id) {
         Page.get({id: $stateParams.id},
             function success(response) {
@@ -70,6 +68,7 @@ function PageCtrl($scope, $compile, $stateParams, Page, notify) {
                     for (var y = 0; y < $scope.page.rows[i].segments.length; y++) {
                         var newScope = $scope.$new();
                         newScope.segment = $scope.page.rows[i].segments[y];
+                        newScope.segment.type = 'Product';
                         addElement('broom-segment', newScope, $compile)
                     }
                 }
@@ -111,7 +110,7 @@ function PageCtrl($scope, $compile, $stateParams, Page, notify) {
         rows.push(rowObj);
 
         for (var i = 0; i < elements.length; i++) {
-            if (elements[i].type === undefined) {
+            if (elements[i].type === undefined || elements[i].type != 'divider') {
                 rowObj.segments.push(elements[i]);
             } else if (elements[i].type === 'divider') {
                 rowObj = {};
@@ -181,14 +180,17 @@ function DraggablePanelsCtrl($scope) {
     };
 }
 
-function SegmentCtrl($scope) {
-    $scope.testIndex = 0;
-    $scope.activities =
+function SegmentCtrl($scope, Segment) {
+    $scope.types =
         [
             "Slider",
             "Product",
             "Promo"
         ];
+
+    var segments = Segment.query(function () {
+        $scope.segments = segments;
+    });
 }
 
 angular
@@ -197,7 +199,6 @@ angular
     .controller('TranslateCtrl', TranslateCtrl)
     .controller('SearchCtrl', SearchCtrl)
     .controller('ProductCtrl', ProductCtrl)
-    .controller('LookAndFeelCtrl', LookAndFeelCtrl)
     .controller('PageCtrl', PageCtrl)
     .controller('DraggablePanelsCtrl', DraggablePanelsCtrl)
     .controller('SegmentCtrl', SegmentCtrl);

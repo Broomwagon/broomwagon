@@ -61,12 +61,6 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                                 '/admin/js/plugins/summernote/summernote.min.js',
                                 '/admin/js/plugins/summernote/angular-summernote.min.js'
                             ]
-                        },
-                        {
-                            name: 'cgNotify',
-                            files: [
-                                '/admin/css/plugins/angular-notify/angular-notify.min.css',
-                                '/admin/js/plugins/angular-notify/angular-notify.min.js']
                         }
                     ]);
                 }
@@ -112,12 +106,31 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                         {
                             name: 'ui.sortable',
                             files: ['/adminDemo/js/plugins/ui-sortable/sortable.js']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('look-and-feel.segments', {
+            url: "/segments",
+            templateUrl: "/admin/segments.html",
+            data: {pageTitle: 'Segments'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            serie: true,
+                            files: [
+                                '/admin/js/plugins/dataTables/jquery.dataTables.js',
+                                '/admin/css/plugins/dataTables/dataTables.bootstrap.css'
+                            ]
                         },
                         {
-                            name: 'cgNotify',
-                            files: [
-                                '/admin/css/plugins/angular-notify/angular-notify.min.css',
-                                '/admin/js/plugins/angular-notify/angular-notify.min.js']
+                            files: ['/admin/js/plugins/dataTables/dataTables.bootstrap.js']
+                        },
+                        {
+                            name: 'datatables',
+                            files: ['/admin/js/plugins/dataTables/angular-datatables.min.js']
                         }
                     ]);
                 }

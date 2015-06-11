@@ -1,25 +1,25 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>Pages</h2>
+        <h2>Segments</h2>
         <ol class="breadcrumb">
             <li>
                 <a ui-sref="look-and-feel.pages">Look and feel</a>
             </li>
             <li class="active">
-                <strong>Pages</strong>
+                <strong>Segments</strong>
             </li>
         </ol>
     </div>
     <div class="col-lg-2"></div>
 </div>
 
-<div class="wrapper wrapper-content animated fadeInRight" ng-controller="PageCtrl">
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="SegmentCtrl">
     <div class="row">
         <div class="col-lg-12">
             <span class="input-group-btn">
-                    <button type="button" class="btn btn-sm btn-primary" ui-sref="look-and-feel.page"><i
+                    <button type="button" class="btn btn-sm btn-primary" ui-sref="look-and-feel.segment"><i
                             class="fa fa-plus"></i>
-                        Add page
+                        Add segment
                     </button>
             </span>
         </div>
@@ -33,13 +33,11 @@
                         <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Url</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="page in pages">
-                            <td><a ui-sref="look-and-feel.page({ id: page.id })">{{ page.title }}</a></td>
-                            <td>{{ page.url }}</td>
+                        <tr ng-repeat="segment in segments">
+                            <td><a ui-sref="look-and-feel.segment({ id: segment.id })">{{ segment.id }}</a></td>
                         </tr>
                         </tbody>
                     </table>
