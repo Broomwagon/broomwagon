@@ -13,6 +13,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Optional;
+
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultSegmentManagerTest {
     @InjectMocks
@@ -31,5 +33,17 @@ public class DefaultSegmentManagerTest {
 
         // then
         verify(segmentDao).getSegments();
+    }
+
+    @Test
+    public void shouldGetSegmentById() {
+        // given
+        given(segmentDao.getSegmentById(1L)).willReturn(Optional.of(aSegment()));
+
+        // when
+        defaultSegmentManager.getSegmentById(1L);
+
+        // then
+        verify(segmentDao).getSegmentById(1L);
     }
 }

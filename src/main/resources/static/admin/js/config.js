@@ -136,6 +136,11 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                 }
             }
         })
+        .state('look-and-feel.segment', {
+            url: "/segment/:id",
+            templateUrl: "/admin/segment.html",
+            data: {pageTitle: 'Segment'}
+        })
     ;
 }
 angular

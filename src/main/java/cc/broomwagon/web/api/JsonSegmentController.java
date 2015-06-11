@@ -2,12 +2,15 @@ package cc.broomwagon.web.api;
 
 import cc.broomwagon.model.page.Segment;
 import cc.broomwagon.service.SegmentManager;
+import cc.broomwagon.web.exception.ItemNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/segments")
@@ -22,7 +25,11 @@ public class JsonSegmentController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Segment get(@PathVariable("id") Long id) {
-        return null;
+        Optional<Segment> segment = segmentManager.getSegmentById(id);
+        if (!segment.isPresent()) {
+            throw new ItemNotFoundException();
+        }
+        return segment.get();
     }
 
     @RequestMapping(method = RequestMethod.POST)

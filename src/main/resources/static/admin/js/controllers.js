@@ -180,7 +180,7 @@ function DraggablePanelsCtrl($scope) {
     };
 }
 
-function SegmentCtrl($scope, Segment) {
+function SegmentCtrl($scope, $stateParams, Segment, notify) {
     $scope.types =
         [
             "Slider",
@@ -191,6 +191,21 @@ function SegmentCtrl($scope, Segment) {
     var segments = Segment.query(function () {
         $scope.segments = segments;
     });
+
+    if ($stateParams.id) {
+        Segment.get({id: $stateParams.id},
+            function success(response) {
+                $scope.segment = response;
+            },
+            function error(errorResponse) {
+                notify({
+                    message: 'Segment not found!',
+                    classes: 'alert-danger',
+                    templateUrl: '/admin/common/notify.html'
+                });
+            }
+        );
+    }
 }
 
 angular
