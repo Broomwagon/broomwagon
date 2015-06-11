@@ -1,6 +1,10 @@
 package cc.broomwagon.web;
 
 
+import static org.springframework.http.HttpMethod.DELETE;
+import static org.springframework.http.HttpMethod.POST;
+import static org.springframework.http.HttpMethod.PUT;
+
 import cc.broomwagon.web.filter.CsrfHeaderFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -15,28 +19,33 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebMvcSecurity
-
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // @formatter:off
         http
                 .authorizeRequests()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/adminDemo/**").hasRole("ADMIN")
-                .anyRequest().permitAll()
-                .and()
+                    .antMatchers("/admin/**").hasRole("ADMIN")
+                    .antMatchers("/adminDemo/**").hasRole("ADMIN")
+                    .antMatchers(POST, "/api/**").hasAuthority("ADMIN")
+                    .antMatchers(PUT, "/api/**").hasAuthority("ADMIN")
+                    .antMatchers(DELETE, "/api/**").hasAuthority("ADMIN")
+                    .anyRequest().permitAll()
+                    .and()
                 .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
+                    .loginPage("/login")
+                    .permitAll()
+                    .and()
                 .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/")
-                .permitAll()
-                .and()
-                .csrf().csrfTokenRepository(csrfTokenRepository())
-                .and()
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutSuccessUrl("/")
+                    .permitAll()
+                    .and()
+                .csrf()
+                    .csrfTokenRepository(csrfTokenRepository())
+                    .and()
                 .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);
+        // @formatter:on
     }
 
     private CsrfTokenRepository csrfTokenRepository() {
