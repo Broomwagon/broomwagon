@@ -1,18 +1,14 @@
 package cc.broomwagon.dao;
 
-import static cc.broomwagon.TestFactory.*;
 import static com.google.common.collect.Iterables.size;
 import static java.util.Collections.emptyList;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
-import static org.mockito.BDDMockito.given;
 
 import cc.broomwagon.model.page.Page;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Matchers;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Optional;
@@ -21,13 +17,9 @@ import java.util.Optional;
 public class DummyPageDaoTest {
     @InjectMocks
     private DummyPageDao pageDao;
-    @Mock
-    private SegmentDao segmentDao;
 
     @Test
     public void shouldGetPages() {
-        // given
-        given(segmentDao.getSegmentById(Matchers.any(Long.class))).willReturn(Optional.of(aSegment()));
 
         // when
         Iterable<Page> actual = pageDao.getPages();
@@ -38,8 +30,6 @@ public class DummyPageDaoTest {
 
     @Test
     public void shouldGetPageByUrl() {
-        // given
-        given(segmentDao.getSegmentById(Matchers.any(Long.class))).willReturn(Optional.of(aSegment()));
 
         // when
         Optional<Page> actual = pageDao.getPageByUrl("/products/url");
@@ -50,8 +40,6 @@ public class DummyPageDaoTest {
 
     @Test
     public void shouldNotGetPageByUrl() {
-        // given
-        given(segmentDao.getSegmentById(Matchers.any(Long.class))).willReturn(Optional.of(aSegment()));
 
         // when
         Optional<Page> actual = pageDao.getPageByUrl("/something");
@@ -62,8 +50,6 @@ public class DummyPageDaoTest {
 
     @Test
     public void shouldGetPageById() {
-        // given
-        given(segmentDao.getSegmentById(Matchers.any(Long.class))).willReturn(Optional.of(aSegment()));
 
         // when
         Optional<Page> actual = pageDao.getPageById(1L);
@@ -75,7 +61,6 @@ public class DummyPageDaoTest {
     @Test
     public void shouldUpdate() {
         // given
-        given(segmentDao.getSegmentById(Matchers.any(Long.class))).willReturn(Optional.of(aSegment()));
         Page page = Page.builder()
                 .id(1L)
                 .title("Replaced")
@@ -93,7 +78,6 @@ public class DummyPageDaoTest {
     @Test
     public void shouldSave() {
         // given
-        given(segmentDao.getSegmentById(Matchers.any(Long.class))).willReturn(Optional.of(aSegment()));
         Page page = Page.builder()
                 .id(99L)
                 .title("New Page")

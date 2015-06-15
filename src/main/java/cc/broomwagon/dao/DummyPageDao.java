@@ -10,7 +10,6 @@ import static org.springframework.util.ReflectionUtils.setField;
 import cc.broomwagon.model.page.Column;
 import cc.broomwagon.model.page.Page;
 import cc.broomwagon.model.page.Row;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.Field;
@@ -25,8 +24,6 @@ import java.util.Optional;
 @Repository
 public class DummyPageDao implements PageDao {
     private Collection<Page> pages;
-    @Autowired
-    private SegmentDao segmentDao;
 
     @Override
     public Collection<Page> getPages() {
