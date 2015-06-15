@@ -50,12 +50,17 @@ function ProductCtrl($scope, $location, $stateParams, Product, notify) {
     };
 }
 
-function PageCtrl($scope, $compile, $stateParams, Page, notify) {
+function PageCtrl($scope, $compile, $stateParams, Page, Segment, notify) {
     var pages = Page.query(function () {
         $scope.pages = pages;
     });
 
     if ($stateParams.id) {
+
+        var segments = Segment.query(function () {
+            $scope.segments = segments;
+        });
+
         Page.get({id: $stateParams.id},
             function success(response) {
                 $scope.page = response;
@@ -68,7 +73,7 @@ function PageCtrl($scope, $compile, $stateParams, Page, notify) {
                     for (var y = 0; y < $scope.page.rows[i].columns.length; y++) {
                         var newScope = $scope.$new();
                         newScope.column = $scope.page.rows[i].columns[y];
-                        addElement('broom-segment', newScope, $compile)
+                        addElement('broom-segment', newScope, $compile);
                     }
                 }
             },
@@ -178,13 +183,8 @@ function DraggablePanelsCtrl($scope) {
     };
 }
 
-function PageSegmentCtrl($scope) {
-    $scope.types =
-        [
-            "Slider",
-            "Product",
-            "Promo"
-        ];
+function ColumnCtrl($scope, Segment) {
+
 }
 
 function SegmentCtrl($scope, $stateParams, Segment, notify, $location) {
@@ -238,7 +238,7 @@ angular
     .controller('SearchCtrl', SearchCtrl)
     .controller('ProductCtrl', ProductCtrl)
     .controller('PageCtrl', PageCtrl)
-    .controller('PageSegmentCtrl', PageSegmentCtrl)
+    .controller('ColumnCtrl', ColumnCtrl)
     .controller('DraggablePanelsCtrl', DraggablePanelsCtrl)
     .controller('SegmentCtrl', SegmentCtrl);
 
