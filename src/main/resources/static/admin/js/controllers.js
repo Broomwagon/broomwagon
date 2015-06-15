@@ -188,13 +188,6 @@ function ColumnCtrl($scope, Segment) {
 }
 
 function SegmentCtrl($scope, $stateParams, Segment, notify, $location) {
-    $scope.types =
-        [
-            "Slider",
-            "Product",
-            "Promo"
-        ];
-
     var segments = Segment.query(function () {
         $scope.segments = segments;
     });
@@ -216,9 +209,22 @@ function SegmentCtrl($scope, $stateParams, Segment, notify, $location) {
 
     $scope.save = function () {
         if ($scope.segment.id) {
-            Segment.update($scope.segment, function () {
-                console.log("saved");
-            });
+            Segment.update($scope.segment,
+                function success(response) {
+                    notify({
+                        message: 'Saved',
+                        classes: 'alert-info',
+                        templateUrl: '/admin/common/notify.html'
+                    });
+                },
+                function error(response) {
+                    notify({
+                        message: 'Error',
+                        classes: 'alert-danger',
+                        templateUrl: '/admin/common/notify.html'
+                    });
+                }
+            );
         } else {
             Segment.save($scope.segment, function () {
                 console.log("saved");
@@ -229,6 +235,14 @@ function SegmentCtrl($scope, $stateParams, Segment, notify, $location) {
     $scope.cancel = function () {
         $location.path('/look-and-feel/segments')
     };
+
+    $scope.addParameter = function () {
+        $scope.segment.parameters[''] = "";
+    };
+
+    $scope.removeParameter = function (key) {
+        delete $scope.segment.parameters[key];
+    }
 }
 
 angular
