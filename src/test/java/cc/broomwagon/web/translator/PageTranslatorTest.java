@@ -6,8 +6,10 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
+import cc.broomwagon.model.page.Column;
 import cc.broomwagon.model.page.Page;
 import cc.broomwagon.model.page.Segment;
+import cc.broomwagon.web.ui.ColumnForm;
 import cc.broomwagon.web.ui.PageForm;
 import cc.broomwagon.web.ui.RowForm;
 import cc.broomwagon.web.ui.SegmentForm;
@@ -30,14 +32,12 @@ public class PageTranslatorTest {
         pageForm.setTitle("title");
         pageForm.setUrl("url");
 
-        SegmentForm segmentForm = new SegmentForm();
-        segmentForm.setId(1L);
-        segmentForm.setFragment("fragment");
-        segmentForm.setTemplate("template");
-        segmentForm.setCssClass("css");
+        ColumnForm columnForm = new ColumnForm();
+        columnForm.setCssClass("css");
+        columnForm.setSegmentId(1L);
 
         RowForm rowForm = new RowForm();
-        rowForm.setSegments(asList(segmentForm, segmentForm, segmentForm));
+        rowForm.setColumns(asList(columnForm, columnForm, columnForm));
 
         Iterable<RowForm> rows = asList(rowForm, rowForm);
 
@@ -53,8 +53,8 @@ public class PageTranslatorTest {
         assertThat(actual.getTitle(), is("title"));
 
         assertThat(size(actual.getRows()), is(2));
-        assertThat(size(getFirst(actual.getRows(), null).getSegments()), is(3));
-        assertThat(getFirst(getFirst(actual.getRows(), null).getSegments(), null).getCssClass(), is("css"));
+        assertThat(size(getFirst(actual.getRows(), null).getColumns()), is(3));
+        assertThat(getFirst(getFirst(actual.getRows(), null).getColumns(), null).getCssClass(), is("css"));
     }
 
     @Test
@@ -63,7 +63,6 @@ public class PageTranslatorTest {
         SegmentForm segmentForm = new SegmentForm();
         segmentForm.setFragment("fragment");
         segmentForm.setTemplate("template");
-        segmentForm.setCssClass("css");
 
         // when
         Segment actual = pageTranslator.translate(segmentForm);
@@ -72,7 +71,20 @@ public class PageTranslatorTest {
         assertThat(actual.getId(), is(0L));
         assertThat(actual.getFragment(), is("fragment"));
         assertThat(actual.getTemplate(), is("template"));
-        assertThat(actual.getCssClass(), is("css"));
     }
 
+    @Test
+    public void shouldTranslateColumn() {
+        // given
+        ColumnForm columnForm = new ColumnForm();
+        columnForm.setCssClass("some css");
+        columnForm.setSegmentId(11L);
+
+        // when
+        Column actual = pageTranslator.translate(columnForm);
+
+        // then
+        assertThat(actual.getCssClass(), is("some css"));
+        assertThat(actual.getSegmentId(), is(11L));
+    }
 }

@@ -6,5 +6,5 @@ import java.util.ArrayList;
 
 @Data
 public class RowForm {
-    private Iterable<SegmentForm> segments = new ArrayList<>();
+    private Iterable<ColumnForm> columns = new ArrayList<>();
 }

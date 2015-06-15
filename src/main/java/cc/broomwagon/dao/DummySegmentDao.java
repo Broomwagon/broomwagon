@@ -25,20 +25,17 @@ public class DummySegmentDao implements SegmentDao {
                 .id(1l)
                 .template("segment/slider")
                 .fragment("slider")
-                .parameters(emptyMap())
-                .cssClass("").build());
+                .parameters(emptyMap()).build());
         segments.add(Segment.builder()
                 .id(2l)
                 .template("segment/product/product-item")
                 .fragment("product")
-                .parameters(sampleMap())
-                .cssClass("col-xs-12 col-sm-6 col-md-3").build());
+                .parameters(sampleMap()).build());
         segments.add(Segment.builder()
                 .id(3l)
                 .template("segment/promo")
                 .fragment("promo")
-                .parameters(putInMap(new HashMap<>(), "cssClass", "fa fa-cog fa-spin fa-3x"))
-                .cssClass("col-md-4 promo").build());
+                .parameters(putInMap(new HashMap<>(), "cssClass", "fa fa-cog fa-spin fa-3x")).build());
     }
 
     @Override

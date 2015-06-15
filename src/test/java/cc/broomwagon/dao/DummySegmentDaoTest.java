@@ -43,8 +43,7 @@ public class DummySegmentDaoTest {
         // given
         Segment segment = Segment.builder()
                 .id(1L)
-                .cssClass("css1")
-                .fragment("fragment")
+                .fragment("fragment1")
                 .template("template")
                 .parameters(new HashMap<>()).build();
 
@@ -52,7 +51,7 @@ public class DummySegmentDaoTest {
         Optional<Segment> actual = dummySegmentDao.update(segment);
 
         // then
-        assertThat(actual.get().getCssClass(), is("css1"));
+        assertThat(actual.get().getFragment(), is("fragment1"));
         assertThat(size(dummySegmentDao.getSegments()), is(3));
     }
 }

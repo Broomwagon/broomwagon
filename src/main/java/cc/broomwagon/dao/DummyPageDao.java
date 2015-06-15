@@ -7,6 +7,7 @@ import static java.util.Optional.of;
 import static org.springframework.util.ReflectionUtils.findField;
 import static org.springframework.util.ReflectionUtils.setField;
 
+import cc.broomwagon.model.page.Column;
 import cc.broomwagon.model.page.Page;
 import cc.broomwagon.model.page.Row;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +24,16 @@ import java.util.Optional;
  */
 @Repository
 public class DummyPageDao implements PageDao {
+    private Collection<Page> pages;
     @Autowired
     private SegmentDao segmentDao;
 
     @Override
     public Collection<Page> getPages() {
-        return init();
+        if (pages == null) {
+            pages = init();
+        }
+        return pages;
     }
 
     @Override
@@ -91,25 +96,25 @@ public class DummyPageDao implements PageDao {
     }
 
     private Row sliderRow() {
-        return Row.builder().segments(singletonList(
-                segmentDao.getSegmentById(1L).get()
+        return Row.builder().columns(singletonList(
+                Column.builder().segmentId(1L).cssClass("").build()
         )).build();
     }
 
     private Row productRow() {
-        return Row.builder().segments(asList(
-                segmentDao.getSegmentById(2L).get(),
-                segmentDao.getSegmentById(2L).get(),
-                segmentDao.getSegmentById(2L).get(),
-                segmentDao.getSegmentById(2L).get()
+        return Row.builder().columns(asList(
+                Column.builder().segmentId(2L).cssClass("col-xs-12 col-sm-6 col-md-3").build(),
+                Column.builder().segmentId(2L).cssClass("col-xs-12 col-sm-6 col-md-3").build(),
+                Column.builder().segmentId(2L).cssClass("col-xs-12 col-sm-6 col-md-3").build(),
+                Column.builder().segmentId(2L).cssClass("col-xs-12 col-sm-6 col-md-3").build()
         )).build();
     }
 
     private Row promoRow() {
-        return Row.builder().segments(asList(
-                segmentDao.getSegmentById(3L).get(),
-                segmentDao.getSegmentById(3L).get(),
-                segmentDao.getSegmentById(3L).get()
+        return Row.builder().columns(asList(
+                Column.builder().segmentId(3L).cssClass("col-md-4 promo").build(),
+                Column.builder().segmentId(3L).cssClass("col-md-4 promo").build(),
+                Column.builder().segmentId(3L).cssClass("col-md-4 promo").build()
         )).build();
     }
 }

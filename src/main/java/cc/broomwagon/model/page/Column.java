@@ -8,14 +8,16 @@ import lombok.NonNull;
 import lombok.ToString;
 
 /**
- * Row on a page.
+ * Column on a page. Wrapping a segment
  */
 @AllArgsConstructor
 @Getter
 @EqualsAndHashCode
 @ToString
 @Builder
-public class Row {
+public class Column {
     @NonNull
-    private Iterable<Column> columns;
+    private String cssClass; // col-xs-12 col-sm-6 col-md-3
+    @NonNull
+    private Long segmentId;
 }

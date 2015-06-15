@@ -10,6 +10,7 @@ import cc.broomwagon.model.menu.MenuConfig;
 import cc.broomwagon.model.menu.MenuItem;
 import cc.broomwagon.model.menu.MenuItemConfig;
 import cc.broomwagon.model.menu.MenuItemGroup;
+import cc.broomwagon.model.page.Column;
 import cc.broomwagon.model.page.Page;
 import cc.broomwagon.model.page.Row;
 import cc.broomwagon.model.page.Segment;
@@ -75,16 +76,26 @@ public final class TestFactory {
 
     public static Row aRow() {
         return Row.builder()
-                .segments(asList(aSegment(), aSegment()))
+                .columns(asList(aColumn(), aColumn()))
+                .build();
+    }
+
+    public static Column aColumn() {
+        return Column.builder()
+                .cssClass("some css")
+                .segmentId(1L)
                 .build();
     }
 
     public static Segment aSegment() {
+        return aSegmentWithId(1L);
+    }
+
+    public static Segment aSegmentWithId(Long id) {
         return Segment.builder()
-                .id(1L)
+                .id(id)
                 .template("template")
                 .fragment("fragment")
-                .cssClass("some css class")
                 .parameters(new HashMap<>())
                 .build();
     }

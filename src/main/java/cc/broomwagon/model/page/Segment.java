@@ -10,7 +10,7 @@ import lombok.ToString;
 import java.util.Map;
 
 /**
- * Segment on a page.
+ * Segment in the system. It can be reused through the site.
  */
 @AllArgsConstructor
 @Getter
@@ -21,11 +21,9 @@ public class Segment {
     @NonNull
     private Long id;
     @NonNull
-    private String cssClass; // col-xs-12 col-sm-6 col-md-3
+    private String template; // th:include="TEMPLATE :: fragment"
     @NonNull
-    private String template; // th:include="template :: fragment"
-    @NonNull
-    private String fragment; // th:include="template :: fragment"
+    private String fragment; // th:include="template :: FRAGMENT"
     @NonNull
     private Map<String, Object> parameters;
 }

@@ -6,6 +6,7 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 import cc.broomwagon.web.interceptor.MenuInterceptor;
 import cc.broomwagon.web.interceptor.PageInterceptor;
+import cc.broomwagon.web.interceptor.SegmentInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.ErrorPage;
@@ -34,6 +35,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     private MenuInterceptor menuInterceptor;
     @Autowired
     private PageInterceptor pageInterceptor;
+    @Autowired
+    private SegmentInterceptor segmentInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -43,6 +46,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                 .addPathPatterns("/**");
 
         registry.addInterceptor(pageInterceptor)
+                .excludePathPatterns("/api/**")
+                .excludePathPatterns("/admin**")
+                .addPathPatterns("/**");
+
+        registry.addInterceptor(segmentInterceptor)
                 .excludePathPatterns("/api/**")
                 .excludePathPatterns("/admin**")
                 .addPathPatterns("/**");

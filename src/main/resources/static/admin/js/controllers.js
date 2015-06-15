@@ -65,10 +65,9 @@ function PageCtrl($scope, $compile, $stateParams, Page, notify) {
                         addElement('broom-divider', $scope.$new(), $compile)
                     }
                     firstRow = false;
-                    for (var y = 0; y < $scope.page.rows[i].segments.length; y++) {
+                    for (var y = 0; y < $scope.page.rows[i].columns.length; y++) {
                         var newScope = $scope.$new();
-                        newScope.segment = $scope.page.rows[i].segments[y];
-                        newScope.segment.type = 'Product';
+                        newScope.column = $scope.page.rows[i].columns[y];
                         addElement('broom-segment', newScope, $compile)
                     }
                 }
@@ -105,16 +104,16 @@ function PageCtrl($scope, $compile, $stateParams, Page, notify) {
         }
 
         var rowObj = {};
-        rowObj.segments = [];
+        rowObj.columns = [];
         var rows = [];
         rows.push(rowObj);
 
         for (var i = 0; i < elements.length; i++) {
             if (elements[i].type === undefined || elements[i].type != 'divider') {
-                rowObj.segments.push(elements[i]);
+                rowObj.columns.push(elements[i]);
             } else if (elements[i].type === 'divider') {
                 rowObj = {};
-                rowObj.segments = [];
+                rowObj.columns = [];
                 rows.push(rowObj);
             }
         }
@@ -160,8 +159,8 @@ function PageCtrl($scope, $compile, $stateParams, Page, notify) {
     }
 }
 
-function addElement(elementName, $scope, $compile) {
-    appendElementToBody($compile(createElement(elementName))($scope));
+function addElement(elementName, scope, $compile) {
+    appendElementToBody($compile(createElement(elementName))(scope));
 }
 
 function appendElementToBody(elementObject) {
@@ -177,6 +176,15 @@ function DraggablePanelsCtrl($scope) {
         connectWith: ".connectPanels",
         handler: ".ibox-title"
     };
+}
+
+function PageSegmentCtrl($scope) {
+    $scope.types =
+        [
+            "Slider",
+            "Product",
+            "Promo"
+        ];
 }
 
 function SegmentCtrl($scope, $stateParams, Segment, notify, $location) {
@@ -230,6 +238,7 @@ angular
     .controller('SearchCtrl', SearchCtrl)
     .controller('ProductCtrl', ProductCtrl)
     .controller('PageCtrl', PageCtrl)
+    .controller('PageSegmentCtrl', PageSegmentCtrl)
     .controller('DraggablePanelsCtrl', DraggablePanelsCtrl)
     .controller('SegmentCtrl', SegmentCtrl);
 

@@ -3,9 +3,11 @@ package cc.broomwagon.web.translator;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;
 
+import cc.broomwagon.model.page.Column;
 import cc.broomwagon.model.page.Page;
 import cc.broomwagon.model.page.Row;
 import cc.broomwagon.model.page.Segment;
+import cc.broomwagon.web.ui.ColumnForm;
 import cc.broomwagon.web.ui.PageForm;
 import cc.broomwagon.web.ui.SegmentForm;
 import org.springframework.stereotype.Component;
@@ -23,7 +25,7 @@ public class PageTranslator {
                 .url(form.getUrl())
                 .rows(stream(form.getRows().spliterator(), false)
                                 .map(row -> Row.builder()
-                                        .segments(stream(row.getSegments().spliterator(), false)
+                                        .columns(stream(row.getColumns().spliterator(), false)
                                                 .map(this::translate)
                                                 .collect(toList()))
                                         .build())
@@ -31,10 +33,16 @@ public class PageTranslator {
                 ).build();
     }
 
+    public Column translate(ColumnForm form) {
+        return Column.builder()
+                .cssClass(form.getCssClass())
+                .segmentId(form.getSegmentId())
+                .build();
+    }
+
     public Segment translate(SegmentForm form) {
         return Segment.builder()
                 .id(form.getId() == null ? 0L : form.getId())
-                .cssClass(form.getCssClass())
                 .template(form.getTemplate())
                 .fragment(form.getFragment())
                 .parameters(form.getParameters())
