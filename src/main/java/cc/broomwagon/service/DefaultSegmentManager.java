@@ -27,4 +27,9 @@ public class DefaultSegmentManager implements SegmentManager {
         return segmentDao.update(segment);
     }
 
+    @Override
+    public Optional<Segment> save(Segment segment) {
+        return segmentDao.save(segment);
+    }
+
 }

@@ -13,4 +13,6 @@ public interface SegmentDao {
     Optional<Segment> getSegmentById(Long id);
 
     Optional<Segment> update(Segment segment);
+
+    Optional<Segment> save(Segment segment);
 }

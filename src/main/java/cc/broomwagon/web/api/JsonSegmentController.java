@@ -38,7 +38,11 @@ public class JsonSegmentController {
 
     @RequestMapping(method = RequestMethod.POST)
     public Segment save(@RequestBody SegmentForm segmentForm) {
-        return null;
+        Optional<Segment> segment = segmentManager.save(pageTranslator.translate(segmentForm));
+        if (!segment.isPresent()) {
+            throw new ItemNotFoundException();
+        }
+        return segment.get();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)

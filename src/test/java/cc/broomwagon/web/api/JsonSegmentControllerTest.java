@@ -99,4 +99,35 @@ public class JsonSegmentControllerTest {
         // then
         // exception
     }
+
+    @Test
+    public void shouldSavePage() {
+        // given
+        SegmentForm segmentFrom = new SegmentForm();
+        segmentFrom.setTemplate("template");
+        Segment segment = aSegment();
+        given(pageTranslator.translate(segmentFrom)).willReturn(segment);
+        given(segmentManager.save(segment)).willReturn(Optional.of(segment));
+
+        // when
+        Segment actual = jsonSegmentController.save(segmentFrom);
+
+        // then
+        verify(segmentManager).save(segment);
+    }
+
+    @Test(expected = ItemNotFoundException.class)
+    public void shouldNotSaveSegment() {
+        // given
+        SegmentForm segmentForm = new SegmentForm();
+        Segment segment = aSegment();
+        given(pageTranslator.translate(segmentForm)).willReturn(segment);
+        given(segmentManager.save(segment)).willReturn(Optional.empty());
+
+        // when
+        jsonSegmentController.save(segmentForm);
+
+        // then
+        // exception
+    }
 }

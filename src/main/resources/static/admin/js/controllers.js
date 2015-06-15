@@ -226,9 +226,23 @@ function SegmentCtrl($scope, $stateParams, Segment, notify, $location) {
                 }
             );
         } else {
-            Segment.save($scope.segment, function () {
-                console.log("saved");
-            });
+            Segment.save($scope.segment,
+                function success(response) {
+                    $scope.segment = response;
+                    notify({
+                        message: 'Saved',
+                        classes: 'alert-info',
+                        templateUrl: '/admin/common/notify.html'
+                    });
+                },
+                function error(response) {
+                    notify({
+                        message: 'Error',
+                        classes: 'alert-danger',
+                        templateUrl: '/admin/common/notify.html'
+                    });
+                }
+            );
         }
     };
 
@@ -237,6 +251,10 @@ function SegmentCtrl($scope, $stateParams, Segment, notify, $location) {
     };
 
     $scope.addParameter = function () {
+        if ($scope.segment.parameters === undefined) {
+            $scope.segment.parameters = {};
+        }
+
         $scope.segment.parameters[''] = "";
     };
 

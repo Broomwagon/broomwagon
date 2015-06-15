@@ -58,4 +58,16 @@ public class DefaultSegmentManagerTest {
         //then
         verify(segmentDao).update(segment);
     }
+
+    @Test
+    public void shouldSaveSegment() {
+        // given
+        Segment segment = aSegment();
+
+        // when
+        defaultSegmentManager.save(segment);
+
+        //then
+        verify(segmentDao).save(segment);
+    }
 }

@@ -54,4 +54,20 @@ public class DummySegmentDaoTest {
         assertThat(actual.get().getFragment(), is("fragment1"));
         assertThat(size(dummySegmentDao.getSegments()), is(3));
     }
+
+    @Test
+    public void shouldSave() {
+        // given
+        Segment segment = Segment.builder()
+                .id(99L)
+                .fragment("fragment1")
+                .template("template")
+                .parameters(new HashMap<>()).build();
+
+        // when
+        dummySegmentDao.save(segment);
+
+        assertThat(size(dummySegmentDao.getSegments()), is(4));
+        assertThat(segment.getId(), is(4L));
+    }
 }
