@@ -4,13 +4,13 @@
 <head>
 </head>
 <body>
-<div layout:fragment="content" class="container">
-    <div class="row" th:each="row : ${page.rows}">
-        <th:block th:each="column : ${row.columns}">
-            <div th:class="${column.cssClass}"
-                 th:include="${segments[column.segmentId].template} :: ${segments[column.segmentId].fragment}(${segments[column.segmentId].parameters})"></div>
-        </th:block>
-    </div>
-    </div>
-</body>
+    <div layout:fragment="content" class="container">
+        <div class="row" th:each="row : ${page.rows}">
+            <th:block th:each="column : ${row.columns}">
+                <div th:class="${column.cssClass}"
+                     th:include="${segments[column.segmentId].template} :: ${segments[column.segmentId].fragment}(${segments[column.segmentId].parameters})"></div>
+            </th:block>
+        </div>
+        </div>
+    </body>
 </html>

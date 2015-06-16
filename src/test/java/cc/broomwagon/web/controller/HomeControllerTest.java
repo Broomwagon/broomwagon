@@ -1,15 +1,12 @@
 package cc.broomwagon.web.controller;
 
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @RunWith(MockitoJUnitRunner.class)
 public class HomeControllerTest {
@@ -18,11 +15,9 @@ public class HomeControllerTest {
 
     @Test
     public void shouldDisplayHome() {
-        // given
-        Map<String, Object> model = new HashMap<>();
 
         // when
-        String actual = homeController.home(model);
+        String actual = homeController.home();
 
         // then
         assertThat(actual, is("view/home"));

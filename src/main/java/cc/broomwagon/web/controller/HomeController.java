@@ -3,8 +3,6 @@ package cc.broomwagon.web.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Map;
-
 /**
  * Controller to display homepage.
  */
@@ -12,7 +10,7 @@ import java.util.Map;
 public class HomeController {
 
     @RequestMapping("/")
-    public String home(Map<String, Object> model) {
+    public String home() {
         return "view/home";
     }
 
