@@ -1,15 +1,20 @@
 package cc.broomwagon.web.interceptor;
 
-import static cc.broomwagon.TestFactory.*;
+import static cc.broomwagon.TestFactory.aSegment;
+import static cc.broomwagon.TestFactory.aSegmentWithId;
 import static cc.broomwagon.web.interceptor.SegmentInterceptor.SEGMENTS;
 import static java.util.Arrays.asList;
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import cc.broomwagon.model.page.Segment;
 import cc.broomwagon.service.SegmentManager;
+import cc.broomwagon.web.translator.segment.SegmentParameterFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -25,6 +30,8 @@ public class SegmentInterceptorTest {
     private SegmentInterceptor segmentInterceptor;
     @Mock
     private SegmentManager segmentManager;
+    @Mock
+    private SegmentParameterFactory segmentParameterFactory;
 
     @SuppressWarnings("unchecked")
     @Test
@@ -38,6 +45,7 @@ public class SegmentInterceptorTest {
 
         // then
         verify(segmentManager).getSegments();
+        verify(segmentParameterFactory, times(2)).translate(isA(Map.class));
         assertThat(((Map<Long, Segment>) modelAndView.getModel().get(SEGMENTS)).get(99L), is(notNullValue()));
     }
 
