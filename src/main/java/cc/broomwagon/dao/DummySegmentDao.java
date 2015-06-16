@@ -89,8 +89,7 @@ public class DummySegmentDao implements SegmentDao {
     private Map<String, Object> sampleMap() {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("cornerText", "On Sale");
-        parameters.put("url", "url1");
-        parameters.put("title", "Litespeed T1 2015");
+        parameters.put("_product", "random");
         return parameters;
     }
 

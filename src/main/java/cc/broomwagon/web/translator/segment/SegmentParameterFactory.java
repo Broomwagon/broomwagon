@@ -14,10 +14,12 @@ public class SegmentParameterFactory {
     Collection<SegmentParameterResolver> resolvers;
 
     public Map<String, Object> translate(Map<String, Object> in) {
-        resolvers
-                .stream()
-                .peek(resolver -> in.computeIfPresent(resolver.key(), (k, v) -> resolver.resolve(v)))
-                .collect(toList());
+        if (in.size() > 0) {
+            resolvers
+                    .stream()
+                    .peek(resolver -> in.computeIfPresent(resolver.key(), (k, v) -> resolver.resolve(v)))
+                    .collect(toList());
+        }
         return in;
     }
 }

@@ -5,20 +5,21 @@
     <title>Product Item</title>
 </head>
 <body th:fragment="product(parameters)">
-<div class="product-item" th:if="${parameters != null}">
+<div class="product-item" th:if="${parameters != null and parameters['_product'] != null}"
+     th:object="${parameters['_product']}">
     <div class="corner" th:class="'corner corner-primary'" th:if="${parameters['cornerText']}">
         <div class="corner-text" th:text="${parameters['cornerText']}">On Sale</div>
     </div>
     <div class="photo">
         <a href="#"
-           th:href="@{/} + ${@environment.getProperty('web.mapping.products')} + @{/} + ${parameters['url']}">
+           th:href="@{/} + ${@environment.getProperty('web.mapping.products')} + @{/} + *{url}">
             <img src="/assets/images/290x360.png" class="img-responsive" alt="a"/>
         </a>
     </div>
     <h3 class="product-name">
         <a href="#"
-           th:href="@{/} + ${@environment.getProperty('web.mapping.products')} + @{/} + ${parameters['url']}"
-           th:text="${parameters['title']}">title</a>
+           th:href="@{/} + ${@environment.getProperty('web.mapping.products')} + @{/} + *{url}"
+           th:text="*{title}">title</a>
     </h3>
 
     <div class="info">
