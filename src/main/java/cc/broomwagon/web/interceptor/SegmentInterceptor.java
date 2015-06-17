@@ -22,6 +22,7 @@ import java.util.Map;
 @Component
 public class SegmentInterceptor implements HandlerInterceptor {
     public static final String SEGMENTS = "segments";
+    public static final String SEGMENTS_PARAMETERS = "segmentParameters";
     @Autowired
     private SegmentManager segmentManager;
     @Autowired
@@ -36,9 +37,14 @@ public class SegmentInterceptor implements HandlerInterceptor {
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         if (modelAndView != null) {
             Map<Long, Segment> segmentMap = stream(segmentManager.getSegments().spliterator(), false)
-                    .peek(segment -> segmentParameterFactory.translate(segment.getParameters()))
                     .collect(toMap(Segment::getId, identity()));
+
             modelAndView.getModel().put(SEGMENTS, segmentMap);
+
+            Map<Long, Map<String, Object>> segmentParameters = stream(segmentManager.getSegments().spliterator(), false)
+                    .collect(toMap(Segment::getId, segment -> segmentParameterFactory.translate(segment.getParameters())));
+
+            modelAndView.getModel().put(SEGMENTS_PARAMETERS, segmentParameters);
         }
     }
 

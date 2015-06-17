@@ -5,6 +5,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.anyObject;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import cc.broomwagon.model.Product;
@@ -26,10 +27,13 @@ public class SegmentParameterFactoryTest {
     private SegmentParameterFactory segmentParameterFactory;
     @Mock
     private SegmentParameterResolver resolver;
+    @Mock
+    private SegmentParameterResolver fallbackResolver;
 
     @Before
     public void setup() {
         Collection<SegmentParameterResolver> resolvers = new ArrayList<>();
+        resolvers.add(resolver);
         resolvers.add(resolver);
         segmentParameterFactory.resolvers = resolvers;
     }
@@ -40,14 +44,18 @@ public class SegmentParameterFactoryTest {
         Product product = aProduct();
         Map<String, Object> map = new HashMap<>();
         map.put("_product", "random");
+        map.put("something", "1");
         given(resolver.key()).willReturn("_product");
         given(resolver.resolve(anyObject())).willReturn(product);
+        given(fallbackResolver.resolve(anyObject())).willReturn("fallback");
 
         // when
         Map<String, Object> actual = segmentParameterFactory.translate(map);
 
         // then
-        verify(resolver).key();
+        verify(resolver, times(3)).key();
         assertThat(actual.get("_product"), is(product));
+        assertThat(actual.get("something"), is("fallback"));
+        assertThat(actual.size(), is(2));
     }
 }

@@ -8,7 +8,7 @@
         <div class="row" th:each="row : ${page.rows}">
             <th:block th:each="column : ${row.columns}">
                 <div th:class="${column.cssClass}"
-                     th:include="${segments[column.segmentId].template} :: ${segments[column.segmentId].fragment}(${segments[column.segmentId].parameters})"></div>
+                     th:include="${segments[column.segmentId].template} :: ${segments[column.segmentId].fragment}(${segmentParameters[column.segmentId]})"></div>
             </th:block>
         </div>
         </div>
