@@ -1,9 +1,11 @@
 package cc.broomwagon.web;
 
 
+import static java.util.stream.StreamSupport.stream;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
+import cc.broomwagon.service.PageManager;
 import cc.broomwagon.web.interceptor.MenuInterceptor;
 import cc.broomwagon.web.interceptor.PageInterceptor;
 import cc.broomwagon.web.interceptor.SegmentInterceptor;
@@ -37,6 +39,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     private PageInterceptor pageInterceptor;
     @Autowired
     private SegmentInterceptor segmentInterceptor;
+    @Autowired
+    private PageManager pageManager;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -58,6 +62,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
+
+        stream(pageManager.getPages().spliterator(), false)
+                .peek(page -> registry.addViewController(page.getUrl()).setViewName("view/home"))
+                .count();
+
+        registry.addViewController("/admin/").setViewName("admin/view/index");
+        registry.addViewController("/adminDemo/").setViewName("adminDemo/view/index");
+
         registry.addRedirectViewController("adminDemo", "/adminDemo/") //temporary, remove later
                 .setKeepQueryParams(true)
                 .setStatusCode(HttpStatus.PERMANENT_REDIRECT);
@@ -140,5 +152,4 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
         return handlerMapping;
     }
-
 }

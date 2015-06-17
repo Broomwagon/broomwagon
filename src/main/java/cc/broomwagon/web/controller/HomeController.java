@@ -1,12 +1,11 @@
 package cc.broomwagon.web.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Controller to display homepage.
  */
-@Controller
+//@Controller("homeController")
 public class HomeController {
 
     @RequestMapping("/")

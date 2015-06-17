@@ -4,8 +4,9 @@
 <head>
 
 </head>
-<body>
-<div layout:fragment="content" class="container">
+<body th:fragment="product(parameters)">
+<div class="container" th:if="${parameters != null and parameters['_product'] != null}"
+     th:object="${parameters['_product']}">
 
     <div class="row">
         <div class="col-md-12" th:include="segment/breadcrumb :: breadcrumb"></div>
@@ -32,7 +33,7 @@
         <div class="col-md-7 col-product">
         */-->
         <div class="col-md-12 col-product">
-            <h1 class="product-name" th:text="${product.title}">Product name</h1>
+            <h1 class="product-name" th:text="*{title}">Product name</h1>
             <!--/*
             <div class="product-info">
                 <div class="menuAtoZFilter multiRowCheckboxMenu">
@@ -68,7 +69,7 @@
             </ul>
 
             <div class="tab-content">
-                <div class="tab-pane active" id="home" th:text="${product.title}">
+                <div class="tab-pane active" id="home" th:text="*{title}">
                     Product description
                 </div>
 

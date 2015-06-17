@@ -11,6 +11,8 @@ import cc.broomwagon.model.page.Column;
 import cc.broomwagon.model.page.Page;
 import cc.broomwagon.model.page.Row;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.AntPathMatcher;
+import org.springframework.util.PathMatcher;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ import java.util.Optional;
 @Repository
 public class DummyPageDao implements PageDao {
     private Collection<Page> pages;
+    private PathMatcher pathMatcher = new AntPathMatcher();
 
     @Override
     public Collection<Page> getPages() {
@@ -36,7 +39,7 @@ public class DummyPageDao implements PageDao {
     @Override
     public Optional<Page> getPageByUrl(String url) {
         return getPages().stream()
-                .filter(page -> url.matches(page.getUrl()))
+                .filter(page -> pathMatcher.match(page.getUrl(), url))
                 .findFirst();
     }
 
@@ -88,8 +91,14 @@ public class DummyPageDao implements PageDao {
                         promoRow()
                 )).build());
         pages.add(Page.builder().id(2L).title("Products").url("/products").rows(emptyList()).build());
-        pages.add(Page.builder().id(3L).title("Product").url("/products/.*").rows(emptyList()).build());
+        pages.add(Page.builder().id(3L).title("Product").url("/products/*").rows(singletonList(productDetailsRow())).build());
         return pages;
+    }
+
+    private Row productDetailsRow() {
+        return Row.builder().columns(singletonList(
+                Column.builder().segmentId(4L).cssClass("").build()
+        )).build();
     }
 
     private Row sliderRow() {

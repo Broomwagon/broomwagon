@@ -4,7 +4,6 @@ import cc.broomwagon.model.Product;
 import cc.broomwagon.service.ProductManager;
 import cc.broomwagon.web.exception.PageNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,7 +13,7 @@ import java.util.Optional;
 /**
  * Controller to handle products.
  */
-@Controller
+//@Controller
 @RequestMapping("/${web.mapping.products}")
 public class ProductController {
     @Autowired

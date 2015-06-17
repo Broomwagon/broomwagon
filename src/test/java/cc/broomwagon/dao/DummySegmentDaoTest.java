@@ -1,8 +1,8 @@
 package cc.broomwagon.dao;
 
 import static com.google.common.collect.Iterables.size;
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 import cc.broomwagon.model.page.Segment;
 import org.junit.Test;
@@ -35,7 +35,7 @@ public class DummySegmentDaoTest {
         Iterable<Segment> actual = dummySegmentDao.getSegments();
 
         // then
-        assertThat(size(actual), is(3));
+        assertThat(size(actual), is(4));
     }
 
     @Test
@@ -52,7 +52,7 @@ public class DummySegmentDaoTest {
 
         // then
         assertThat(actual.get().getFragment(), is("fragment1"));
-        assertThat(size(dummySegmentDao.getSegments()), is(3));
+        assertThat(size(dummySegmentDao.getSegments()), is(4));
     }
 
     @Test
@@ -67,7 +67,7 @@ public class DummySegmentDaoTest {
         // when
         dummySegmentDao.save(segment);
 
-        assertThat(size(dummySegmentDao.getSegments()), is(4));
-        assertThat(segment.getId(), is(4L));
+        assertThat(size(dummySegmentDao.getSegments()), is(5));
+        assertThat(segment.getId(), is(5L));
     }
 }
