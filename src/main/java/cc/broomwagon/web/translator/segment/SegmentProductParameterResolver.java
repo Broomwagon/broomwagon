@@ -4,6 +4,7 @@ import static java.util.stream.StreamSupport.stream;
 
 import cc.broomwagon.model.Product;
 import cc.broomwagon.service.ProductManager;
+import cc.broomwagon.web.exception.PageNotFoundException;
 import com.google.common.base.Splitter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -46,7 +47,7 @@ public class SegmentProductParameterResolver implements SegmentParameterResolver
                     if (product.isPresent()) {
                         result = product.get();
                     } else {
-//                        throw new PageNotFoundException(url); //TODO, make sure only relevant segments loading
+                        throw new PageNotFoundException(url); //TODO, make sure only relevant segments loading
                     }
                 }
             }
