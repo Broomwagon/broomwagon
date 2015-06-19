@@ -37,7 +37,8 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="segment in segments">
-                            <td><a ui-sref="look-and-feel.segment({ id: segment.id })">{{ segment.id }}</a></td>
+                            <td><a ui-sref="look-and-feel.segment({ id: segment.id })">{{segment.template}}::{{segment.fragment}}</a>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
