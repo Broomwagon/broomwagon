@@ -34,7 +34,7 @@ public class DummySegmentDao implements SegmentDao {
                 .id(2l)
                 .template("segment/product/product-item")
                 .fragment("product")
-                .parameters(sampleProduct()).build());
+                .parameters(product("On Sale", "random")).build());
         segments.add(Segment.builder()
                 .id(3l)
                 .template("segment/promo")
@@ -44,7 +44,7 @@ public class DummySegmentDao implements SegmentDao {
                 .id(4l)
                 .template("segment/product/product-details")
                 .fragment("product")
-                .parameters(sampleProduct()).build());
+                .parameters(product(null, "url")).build());
     }
 
     @Override
@@ -91,10 +91,10 @@ public class DummySegmentDao implements SegmentDao {
         return segment;
     }
 
-    private Map<String, Object> sampleProduct() {
+    private Map<String, Object> product(String cornerText, String productType) {
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("cornerText", "On Sale");
-        parameters.put("_product", "url");
+        parameters.put("cornerText", cornerText);
+        parameters.put("_product", productType);
         return parameters;
     }
 
