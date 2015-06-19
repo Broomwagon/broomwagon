@@ -30,7 +30,7 @@ public class ProductController {
         Optional<Product> product = productManager.getProductByUrl(productUrl);
 
         if (!product.isPresent()) {
-            throw new PageNotFoundException();
+            throw new PageNotFoundException(productUrl);
         }
 
         model.put("product", product.get());

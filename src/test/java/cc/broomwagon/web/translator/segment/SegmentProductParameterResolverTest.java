@@ -9,6 +9,7 @@ import static org.mockito.Matchers.any;
 
 import cc.broomwagon.model.Product;
 import cc.broomwagon.service.ProductManager;
+import cc.broomwagon.web.exception.PageNotFoundException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -69,5 +70,18 @@ public class SegmentProductParameterResolverTest {
 
         // then
         assertThat(actual, is(product));
+    }
+
+    @Test(expected = PageNotFoundException.class)
+    public void shouldNotResolveUsingUrl() {
+        // given
+        Product product = aProduct("something");
+        given(productManager.getProductByUrl("something")).willReturn(Optional.empty());
+
+        // when
+        Object actual = segmentProductParameterResolver.resolve("url", "/url/something");
+
+        // then
+        // exception
     }
 }
