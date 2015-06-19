@@ -17,13 +17,13 @@ public class SegmentParameterFactory {
     @Qualifier("fallbackResolver")
     private SegmentParameterResolver fallbackResolver;
 
-    public Map<String, Object> translate(Map<String, Object> in) {
+    public Map<String, Object> translate(Map<String, Object> in, String requestUri) {
         Map<String, Object> result = new HashMap<>(in.size());
         in.forEach((k, v) -> {
             Optional<SegmentParameterResolver> resolver = resolvers.stream()
                     .filter(r -> r.key().equals(k))
                     .findFirst();
-            result.put(k, resolver.orElse(fallbackResolver).resolve(v));
+            result.put(k, resolver.orElse(fallbackResolver).resolve(v, requestUri));
         });
 
         return result;

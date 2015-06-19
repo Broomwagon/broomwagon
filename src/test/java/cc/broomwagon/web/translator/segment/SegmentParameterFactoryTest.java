@@ -5,6 +5,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.anyObject;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -46,11 +47,11 @@ public class SegmentParameterFactoryTest {
         map.put("_product", "random");
         map.put("something", "1");
         given(resolver.key()).willReturn("_product");
-        given(resolver.resolve(anyObject())).willReturn(product);
-        given(fallbackResolver.resolve(anyObject())).willReturn("fallback");
+        given(resolver.resolve(anyObject(), anyString())).willReturn(product);
+        given(fallbackResolver.resolve(anyObject(), anyString())).willReturn("fallback");
 
         // when
-        Map<String, Object> actual = segmentParameterFactory.translate(map);
+        Map<String, Object> actual = segmentParameterFactory.translate(map, "");
 
         // then
         verify(resolver, times(3)).key();

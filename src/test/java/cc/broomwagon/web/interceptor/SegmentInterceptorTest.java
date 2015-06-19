@@ -10,6 +10,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -23,6 +24,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 import java.util.Objects;
 
@@ -39,15 +41,17 @@ public class SegmentInterceptorTest {
     @Test
     public void shouldAddSegments() throws Exception {
         // given
+        HttpServletRequest request = mock(HttpServletRequest.class);
+        given(request.getRequestURI()).willReturn("url");
         given(segmentManager.getSegments()).willReturn(asList(aSegmentWithId(99L), aSegment()));
         ModelAndView modelAndView = new ModelAndView();
 
         // when
-        segmentInterceptor.postHandle(null, null, null, modelAndView);
+        segmentInterceptor.postHandle(request, null, null, modelAndView);
 
         // then
         verify(segmentManager, times(2)).getSegments();
-        verify(segmentParameterFactory, times(2)).translate(isA(Map.class));
+        verify(segmentParameterFactory, times(2)).translate(isA(Map.class), isA(String.class));
         assertThat(((Map<Long, Segment>) modelAndView.getModel().get(SEGMENTS)).get(99L), is(notNullValue()));
         assertThat(((Map<Long, Map<String, Objects>>) modelAndView.getModel().get(SEGMENTS_PARAMETERS)).get(99L), is(notNullValue()));
     }

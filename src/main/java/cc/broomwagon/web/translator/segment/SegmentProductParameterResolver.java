@@ -1,7 +1,10 @@
 package cc.broomwagon.web.translator.segment;
 
+import static java.util.stream.StreamSupport.stream;
+
 import cc.broomwagon.model.Product;
 import cc.broomwagon.service.ProductManager;
+import com.google.common.base.Splitter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +24,7 @@ public class SegmentProductParameterResolver implements SegmentParameterResolver
     }
 
     @Override
-    public Object resolve(Object in) {
+    public Object resolve(Object in, String url) {
         Object result = in;
 
         if (in instanceof String) {
@@ -31,6 +34,18 @@ public class SegmentProductParameterResolver implements SegmentParameterResolver
                 Optional<Product> product = productManager.getProductById(1L);
                 if (product.isPresent()) {
                     result = product.get();
+                }
+            } else if ("url".equals(command)) {
+                Optional<String> lastPartOfPath = stream(Splitter.on("/")
+                        .trimResults()
+                        .omitEmptyStrings()
+                        .split(url).spliterator(), false)
+                        .reduce((previous, current) -> current);
+                if (lastPartOfPath.isPresent()) {
+                    Optional<Product> product = productManager.getProductByUrl(lastPartOfPath.get());
+                    if (product.isPresent()) {
+                        result = product.get();
+                    }
                 }
             }
         }

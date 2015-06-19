@@ -42,7 +42,7 @@ public class SegmentInterceptor implements HandlerInterceptor {
             modelAndView.getModel().put(SEGMENTS, segmentMap);
 
             Map<Long, Map<String, Object>> segmentParameters = stream(segmentManager.getSegments().spliterator(), false)
-                    .collect(toMap(Segment::getId, segment -> segmentParameterFactory.translate(segment.getParameters())));
+                    .collect(toMap(Segment::getId, segment -> segmentParameterFactory.translate(segment.getParameters(), request.getRequestURI())));
 
             modelAndView.getModel().put(SEGMENTS_PARAMETERS, segmentParameters);
         }

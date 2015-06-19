@@ -14,7 +14,7 @@ public class SegmentSimpleTextParameterResolver implements SegmentParameterResol
     }
 
     @Override
-    public Object resolve(Object in) {
+    public Object resolve(Object in, String url) {
         return in;
     }
 }

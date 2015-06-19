@@ -14,7 +14,8 @@ public interface SegmentParameterResolver {
     /**
      * Resolved object, can be Product etc.
      * @param in - object to resolve, most likekly String from CMS.
+     * @param url - current url
      * @return resolved object like Product
      */
-    Object resolve(Object in);
+    Object resolve(Object in, String url);
 }

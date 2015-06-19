@@ -7,6 +7,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 
+import cc.broomwagon.model.Product;
 import cc.broomwagon.service.ProductManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,7 +40,7 @@ public class SegmentProductParameterResolverTest {
         given(productManager.getProductById(any(Long.class))).willReturn(Optional.of(aProduct()));
 
         // when
-        Object actual = segmentProductParameterResolver.resolve("random");
+        Object actual = segmentProductParameterResolver.resolve("random", "");
 
         // then
         assertThat(actual, is(notNullValue()));
@@ -51,9 +52,22 @@ public class SegmentProductParameterResolverTest {
         given(productManager.getProductById(any(Long.class))).willReturn(Optional.empty());
 
         // when
-        Object actual = segmentProductParameterResolver.resolve("random");
+        Object actual = segmentProductParameterResolver.resolve("random", "");
 
         // then
         assertThat(actual, is("random"));
+    }
+
+    @Test
+    public void shouldResolveUsingUrl() {
+        // given
+        Product product = aProduct("something");
+        given(productManager.getProductByUrl("something")).willReturn(Optional.of(product));
+
+        // when
+        Object actual = segmentProductParameterResolver.resolve("url", "/url/something");
+
+        // then
+        assertThat(actual, is(product));
     }
 }

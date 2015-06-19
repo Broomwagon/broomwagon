@@ -27,7 +27,7 @@ public class SegmentSimpleTextParameterResolverTest {
     public void shouldResolve() {
 
         // when
-        Object actual = segmentSimpleTextParameterResolver.resolve("test");
+        Object actual = segmentSimpleTextParameterResolver.resolve("test", "url");
 
         // then
         assertThat(actual, is("test"));
