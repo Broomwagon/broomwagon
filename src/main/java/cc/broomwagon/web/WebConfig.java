@@ -1,7 +1,6 @@
 package cc.broomwagon.web;
 
 
-import static java.util.stream.StreamSupport.stream;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
@@ -63,7 +62,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
 
-        stream(pageManager.getPages().spliterator(), false)
+        pageManager.getPages().stream()
                 .peek(page -> registry.addViewController(page.getUrl()).setViewName("view/home"))
                 .count();
 

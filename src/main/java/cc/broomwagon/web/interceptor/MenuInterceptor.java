@@ -1,7 +1,6 @@
 package cc.broomwagon.web.interceptor;
 
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.StreamSupport.stream;
 
 import cc.broomwagon.service.MenuManager;
 import cc.broomwagon.web.ui.MenuWrapper;
@@ -31,7 +30,7 @@ public class MenuInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         if (modelAndView != null) {
-            modelAndView.getModel().put(MENUS, stream(menuManager.menus().spliterator(), false)
+            modelAndView.getModel().put(MENUS, menuManager.menus().stream()
                     .map(input -> new MenuWrapper(input, menuManager.menuConfig(input.getSelf().getName())))
                     .collect(toList()));
         }

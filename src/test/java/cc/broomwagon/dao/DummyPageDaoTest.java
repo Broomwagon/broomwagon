@@ -2,8 +2,9 @@ package cc.broomwagon.dao;
 
 import static com.google.common.collect.Iterables.size;
 import static java.util.Collections.emptyList;
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 
 import cc.broomwagon.model.page.Page;
 import org.junit.Test;
@@ -11,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -22,7 +24,7 @@ public class DummyPageDaoTest {
     public void shouldGetPages() {
 
         // when
-        Iterable<Page> actual = pageDao.getPages();
+        Collection<Page> actual = pageDao.getPages();
 
         // then
         assertThat(size(actual), is(3));

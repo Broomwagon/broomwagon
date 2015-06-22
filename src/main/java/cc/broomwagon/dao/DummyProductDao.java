@@ -8,6 +8,7 @@ import static java.util.stream.IntStream.range;
 import cc.broomwagon.model.Product;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.Optional;
 
@@ -25,7 +26,7 @@ public class DummyProductDao implements ProductDao {
     }
 
     @Override
-    public Iterable<Product> getProducts() {
+    public Collection<Product> getProducts() {
         return products.values();
     }
 

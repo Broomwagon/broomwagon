@@ -1,11 +1,12 @@
 package cc.broomwagon.web.api;
 
-import static cc.broomwagon.TestFactory.*;
+import static cc.broomwagon.TestFactory.aSegment;
 import static com.google.common.collect.Iterables.size;
 import static java.util.Collections.singletonList;
 import static java.util.Optional.empty;
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
@@ -21,6 +22,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -38,7 +40,7 @@ public class JsonSegmentControllerTest {
         given(segmentManager.getSegments()).willReturn(singletonList(aSegment()));
 
         // when
-        Iterable<Segment> actual = jsonSegmentController.find();
+        Collection<Segment> actual = jsonSegmentController.find();
 
         // then
         verify(segmentManager).getSegments();

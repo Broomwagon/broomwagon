@@ -5,6 +5,7 @@ import cc.broomwagon.model.page.Segment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @Service
@@ -13,7 +14,7 @@ public class DefaultSegmentManager implements SegmentManager {
     private SegmentDao segmentDao;
 
     @Override
-    public Iterable<Segment> getSegments() {
+    public Collection<Segment> getSegments() {
         return segmentDao.getSegments();
     }
 

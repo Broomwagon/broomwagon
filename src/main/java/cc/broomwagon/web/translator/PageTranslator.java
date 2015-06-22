@@ -1,7 +1,6 @@
 package cc.broomwagon.web.translator;
 
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.StreamSupport.stream;
 
 import cc.broomwagon.model.page.Column;
 import cc.broomwagon.model.page.Page;
@@ -23,9 +22,9 @@ public class PageTranslator {
                 .id(form.getId() == null ? 0L : form.getId())
                 .title(form.getTitle())
                 .url(form.getUrl())
-                .rows(stream(form.getRows().spliterator(), false)
+                .rows(form.getRows().stream()
                                 .map(row -> Row.builder()
-                                        .columns(stream(row.getColumns().spliterator(), false)
+                                        .columns(row.getColumns().stream()
                                                 .map(this::translate)
                                                 .collect(toList()))
                                         .build())

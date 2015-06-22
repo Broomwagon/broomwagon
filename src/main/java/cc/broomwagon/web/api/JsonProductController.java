@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @RestController
@@ -20,7 +21,7 @@ public class JsonProductController {
     private ProductManager productManager;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Iterable<Product> find() {
+    public Collection<Product> find() {
         return productManager.getProducts();
     }
 

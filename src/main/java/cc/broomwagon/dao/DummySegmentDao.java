@@ -48,7 +48,7 @@ public class DummySegmentDao implements SegmentDao {
     }
 
     @Override
-    public Iterable<Segment> getSegments() {
+    public Collection<Segment> getSegments() {
         return segments;
     }
 

@@ -3,8 +3,9 @@ package cc.broomwagon.web.translator;
 import static com.google.common.collect.Iterables.getFirst;
 import static com.google.common.collect.Iterables.size;
 import static java.util.Arrays.asList;
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 
 import cc.broomwagon.model.page.Column;
 import cc.broomwagon.model.page.Page;
@@ -17,6 +18,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import java.util.Collection;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PageTranslatorTest {
@@ -39,7 +42,7 @@ public class PageTranslatorTest {
         RowForm rowForm = new RowForm();
         rowForm.setColumns(asList(columnForm, columnForm, columnForm));
 
-        Iterable<RowForm> rows = asList(rowForm, rowForm);
+        Collection<RowForm> rows = asList(rowForm, rowForm);
 
         pageForm.setRows(rows);
 

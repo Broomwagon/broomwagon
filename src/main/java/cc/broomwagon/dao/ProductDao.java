@@ -2,13 +2,14 @@ package cc.broomwagon.dao;
 
 import cc.broomwagon.model.Product;
 
+import java.util.Collection;
 import java.util.Optional;
 
 /**
  * Interface to retrieve Products.
  */
 public interface ProductDao {
-    Iterable<Product> getProducts();
+    Collection<Product> getProducts();
 
     Optional<Product> getProductByUrl(String url);
 

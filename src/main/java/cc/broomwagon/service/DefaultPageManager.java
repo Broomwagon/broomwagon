@@ -5,6 +5,7 @@ import cc.broomwagon.model.page.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @Service
@@ -13,7 +14,7 @@ public class DefaultPageManager implements PageManager {
     private PageDao pageDao;
 
     @Override
-    public Iterable<Page> getPages() {
+    public Collection<Page> getPages() {
         return pageDao.getPages();
     }
 

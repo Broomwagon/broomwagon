@@ -6,6 +6,8 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
+import java.util.Collection;
+
 /**
  * Group contains menu items.
  */
@@ -15,5 +17,6 @@ import lombok.ToString;
 @ToString
 public class MenuItemGroup {
     @NonNull private String name;
-    @NonNull private Iterable<MenuItem> items;
+    @NonNull
+    private Collection<MenuItem> items;
 }

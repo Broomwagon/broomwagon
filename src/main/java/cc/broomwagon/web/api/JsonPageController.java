@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @RestController
@@ -23,7 +24,7 @@ public class JsonPageController {
     private PageTranslator pageTranslator;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Iterable<Page> find() {
+    public Collection<Page> find() {
         return pageManager.getPages();
     }
 

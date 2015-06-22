@@ -21,6 +21,8 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Collection;
+
 @RunWith(MockitoJUnitRunner.class)
 public class MenuInterceptorTest {
     @InjectMocks
@@ -33,7 +35,7 @@ public class MenuInterceptorTest {
     public void shouldCallMenuManagerInPostHandle() throws Exception {
         // given
         ModelAndView modelAndView = new ModelAndView();
-        Iterable<Menu> mainMenus = singletonList(aMenu("MenuName123"));
+        Collection<Menu> mainMenus = singletonList(aMenu("MenuName123"));
         MenuConfig menuConfig = aMenuConfig();
         given(menuManager.menus()).willReturn(mainMenus);
         given(menuManager.menuConfig(isA(String.class))).willReturn(menuConfig);
@@ -43,7 +45,7 @@ public class MenuInterceptorTest {
 
         // then
         verify(menuManager).menus();
-        assertThat(((Iterable<MenuWrapper>) modelAndView.getModel().get(MENUS))
+        assertThat(((Collection<MenuWrapper>) modelAndView.getModel().get(MENUS))
                 .iterator().next().getMenu().getSelf().getName(), is("MenuName123"));
     }
 }

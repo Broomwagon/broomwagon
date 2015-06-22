@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Optional;
 
@@ -32,7 +33,7 @@ public class DummySegmentDaoTest {
     public void shouldGetSegments() {
 
         // when
-        Iterable<Segment> actual = dummySegmentDao.getSegments();
+        Collection<Segment> actual = dummySegmentDao.getSegments();
 
         // then
         assertThat(size(actual), is(4));

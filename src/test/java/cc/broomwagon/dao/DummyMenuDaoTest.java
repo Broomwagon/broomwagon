@@ -13,6 +13,8 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Collection;
+
 @RunWith(MockitoJUnitRunner.class)
 public class DummyMenuDaoTest {
     @InjectMocks
@@ -21,7 +23,7 @@ public class DummyMenuDaoTest {
     @Test
     public void shouldReturnMainMenu() {
         // when
-        Iterable<Menu> actual = dummyMenuDao.menus();
+        Collection<Menu> actual = dummyMenuDao.menus();
 
         // then
         assertThat(actual, is(notNullValue()));

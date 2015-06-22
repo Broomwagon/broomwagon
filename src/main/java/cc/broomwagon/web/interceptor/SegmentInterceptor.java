@@ -2,7 +2,6 @@ package cc.broomwagon.web.interceptor;
 
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.toMap;
-import static java.util.stream.StreamSupport.stream;
 
 import cc.broomwagon.model.page.Segment;
 import cc.broomwagon.service.SegmentManager;
@@ -36,12 +35,12 @@ public class SegmentInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         if (modelAndView != null) {
-            Map<Long, Segment> segmentMap = stream(segmentManager.getSegments().spliterator(), false)
+            Map<Long, Segment> segmentMap = segmentManager.getSegments().stream()
                     .collect(toMap(Segment::getId, identity()));
 
             modelAndView.getModel().put(SEGMENTS, segmentMap);
 
-            Map<Long, Map<String, Object>> segmentParameters = stream(segmentManager.getSegments().spliterator(), false)
+            Map<Long, Map<String, Object>> segmentParameters = segmentManager.getSegments().stream()
                     .collect(toMap(Segment::getId, segment -> segmentParameterFactory.translate(segment.getParameters(), request.getRequestURI())));
 
             modelAndView.getModel().put(SEGMENTS_PARAMETERS, segmentParameters);

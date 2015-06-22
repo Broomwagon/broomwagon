@@ -21,6 +21,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Collection;
+
 @RunWith(MockitoJUnitRunner.class)
 public class JsonProductControllerTest {
     @InjectMocks
@@ -34,7 +36,7 @@ public class JsonProductControllerTest {
         given(productManager.getProducts()).willReturn(singletonList(aProduct()));
 
         // when
-        Iterable<Product> actual = jsonProductController.find();
+        Collection<Product> actual = jsonProductController.find();
 
         // then
         assertThat(size(actual), is(1));

@@ -2,13 +2,14 @@ package cc.broomwagon.service;
 
 import cc.broomwagon.model.Product;
 
+import java.util.Collection;
 import java.util.Optional;
 
 /**
  * Interface to retrieve/manipulate products.
  */
 public interface ProductManager {
-    Iterable<Product> getProducts();
+    Collection<Product> getProducts();
 
     Optional<Product> getProductByUrl(String url);
 

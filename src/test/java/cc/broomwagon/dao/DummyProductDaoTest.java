@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -24,7 +25,7 @@ public class DummyProductDaoTest {
     public void shouldGetProducts() {
 
         // when
-        Iterable<Product> actual = dummyProductDao.getProducts();
+        Collection<Product> actual = dummyProductDao.getProducts();
 
         // then
         assertThat(size(actual), equalTo(5));

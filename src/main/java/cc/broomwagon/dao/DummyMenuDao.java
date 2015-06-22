@@ -20,7 +20,7 @@ import java.util.Map;
 public class DummyMenuDao implements MenuDao {
 
     @Override
-    public Iterable<Menu> menus() {
+    public Collection<Menu> menus() {
         Collection<MenuItemGroup> allGroups = newArrayList(
                 new MenuItemGroup("Group 1", generateStaticMenuItems()),
                 new MenuItemGroup("Group 2", generateStaticMenuItems()),
@@ -73,7 +73,7 @@ public class DummyMenuDao implements MenuDao {
         return new MenuConfig("Sample menu", menuAttributes, items, newHashMap());
     }
 
-    private Iterable<MenuItem> generateStaticMenuItems() {
+    private Collection<MenuItem> generateStaticMenuItems() {
         Collection<MenuItem> menuItems = newArrayList();
         menuItems.add(generateMenuItem("/products/", "All products", null));
         menuItems.add(generateMenuItem("/products/url1", "Single product", null));
@@ -83,7 +83,7 @@ public class DummyMenuDao implements MenuDao {
         return menuItems;
     }
 
-    private Iterable<MenuItem> generateMyAccountMenuItems() {
+    private Collection<MenuItem> generateMyAccountMenuItems() {
         Collection<MenuItem> menuItems = newArrayList();
         menuItems.add(generateMenuItem("/login", "Login", null));
         menuItems.add(generateMenuItem("/dev/signup.html", "Signup", null));
@@ -94,7 +94,7 @@ public class DummyMenuDao implements MenuDao {
         return menuItems;
     }
 
-    private Iterable<MenuItem> generateBrandMenuItems() {
+    private Collection<MenuItem> generateBrandMenuItems() {
         Collection<MenuItem> menuItems = newArrayList();
         menuItems.add(generateMenuItem("/products", "Prada", "/assets/images/prada.gif"));
         menuItems.add(generateMenuItem("/products", "Cartier", "/assets/images/cartier.gif"));
