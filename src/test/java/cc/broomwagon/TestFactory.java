@@ -66,24 +66,36 @@ public final class TestFactory {
     }
 
     public static Page aPage() {
+        return aPage(asList(aRow(), aRow()));
+    }
+
+    public static Page aPage(Collection<Row> rows) {
         return Page.builder()
                 .id(1L)
                 .title("title")
                 .url("/")
-                .rows(asList(aRow(), aRow()))
+                .rows(rows)
                 .build();
     }
 
     public static Row aRow() {
+        return aRow(asList(aColumn(), aColumn()));
+    }
+
+    public static Row aRow(Collection<Column> columns) {
         return Row.builder()
-                .columns(asList(aColumn(), aColumn()))
+                .columns(columns)
                 .build();
     }
 
     public static Column aColumn() {
+        return aColumnWithId(1L);
+    }
+
+    public static Column aColumnWithId(Long id) {
         return Column.builder()
                 .cssClass("some css")
-                .segmentId(1L)
+                .segmentId(id)
                 .build();
     }
 

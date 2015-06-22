@@ -7,6 +7,9 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.ToString;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 /**
  * Product POJO.
  */
@@ -23,5 +26,15 @@ public class Page {
     @NonNull
     private String url;
     @NonNull
-    private Iterable<Row> rows;
+    private Collection<Row> rows;
+
+    public Collection<Long> getSegmentIds() {
+        return rows.stream()
+                .map(Row::getColumns)
+                .flatMap(Collection::stream)
+                .mapToLong(Column::getSegmentId)
+                .distinct()
+                .boxed()
+                .collect(Collectors.toSet());
+    }
 }

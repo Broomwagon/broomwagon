@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.ToString;
 
+import java.util.Collection;
+
 /**
  * Row on a page.
  */
@@ -17,5 +19,5 @@ import lombok.ToString;
 @Builder
 public class Row {
     @NonNull
-    private Iterable<Column> columns;
+    private Collection<Column> columns;
 }
